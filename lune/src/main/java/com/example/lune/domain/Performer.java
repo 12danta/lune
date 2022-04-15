@@ -4,7 +4,7 @@ public class Performer {
     private Integer performerId;
     private String performerName;
     private String performerPic;
-    private String performerIntroduce;
+    private String performerIntroduction;
     private String performerType;
 
     public Integer getPerformerId() {
@@ -32,11 +32,11 @@ public class Performer {
     }
 
     public String getPerformerIntroduce() {
-        return performerIntroduce;
+        return performerIntroduction;
     }
 
-    public void setPerformerIntroduce(String performerIntroduce) {
-        this.performerIntroduce = performerIntroduce;
+    public void setPerformerIntroduce(String performerIntroduction) {
+        this.performerIntroduction = performerIntroduction;
     }
 
     public String getPerformerType() {
@@ -53,7 +53,7 @@ public class Performer {
                 "performerId=" + performerId +
                 ", performerName='" + performerName + '\'' +
                 ", performerPic='" + performerPic + '\'' +
-                ", performerIntroduce='" + performerIntroduce + '\'' +
+                ", performerIntroduce='" + performerIntroduction + '\'' +
                 ", performerType='" + performerType + '\'' +
                 '}';
     }
