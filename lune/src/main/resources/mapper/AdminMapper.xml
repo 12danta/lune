@@ -3,10 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.lune.mapper.AdminMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Admin">
+        <id property="adminId" jdbcType="INTEGER" column="admin_id"/>
+        <result property="adminName" jdbcType="VARCHAR" column="admin_name"/>
+        <result property="adminPassword" jdbcType="VARCHAR" column="admin_password"/>
+    </resultMap>
     <insert id="insert" parameterType="com.example.lune.domain.Admin">
         insert into admin
             (admin_name,admin_password)
         values
             (#{adminName},#{adminPassword})
     </insert>
+    <delete id="deleteAdmin" >
+        delete from admin where
+        admin_id = #{adminId}
+    </delete>
+    <select id="allAdmin" resultMap="BaseResultMap">
+        select admin_id,admin_name,admin_password
+        from admin
+    </select>
+    <select id="findAdminById"  resultMap="BaseResultMap">
+        select * from admin
+        where
+        admin_id = #{id}
+    </select>
+    <select id="verifyPassword" resultType="java.lang.Integer">
+        select count(*) from admin where admin_name = #{0} and admin_password = #{1};
+    </select>
 </mapper>

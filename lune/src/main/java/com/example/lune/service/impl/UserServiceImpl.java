@@ -1,4 +1,4 @@
 package com.example.lune.service.impl;
 
-public class UserService {
+public class UserServiceImpl {
 }

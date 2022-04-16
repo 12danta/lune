@@ -1,21 +1,18 @@
-package com.example.lune.mapper;
+package com.example.lune.service;
 
 import com.example.lune.domain.Admin;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-@Repository
-public interface AdminMapper {
+public interface AdminService {
     //添加新 admin
-    Integer insert(Admin admin);
+    Boolean insert(Admin admin);
     //根据 id 删除 admin
-    Integer deleteAdmin(Integer id);
+    Boolean deleteAdmin(Integer id);
     //查询所有的 admin
     List<Admin> allAdmin();
     //根据 id 返回 admin
     Admin findAdminById(Integer id);
     //验证账号密码
-    Integer verifyPassword(String adminName,String adminPassword);
-
+    Boolean verifyPassword(String adminName,String adminPassword);
 }
