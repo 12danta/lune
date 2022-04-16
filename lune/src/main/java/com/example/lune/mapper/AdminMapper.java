@@ -1,4 +1,10 @@
 package com.example.lune.mapper;
 
-public class AdminMapper {
+import com.example.lune.domain.Admin;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public interface AdminMapper {
+    //添加新 Admin
+    Integer insert(Admin admin);
 }
