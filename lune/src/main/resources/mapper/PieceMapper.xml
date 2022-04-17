@@ -2,5 +2,82 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="namespace">
+<mapper namespace="com.example.lune.mapper.PieceMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Piece">
+        <id property="pieceId" jdbcType="INTEGER" column="piece_id"/>
+        <result property="pieceName" jdbcType="VARCHAR" column="piece_name"/>
+        <result property="piecePic" jdbcType="VARCHAR" column="piece_pic"/>
+        <result property="pieceAudio" jdbcType="VARCHAR" column="piece_audio"/>
+        <result property="pieceVideo" jdbcType="VARCHAR" column="piece_video"/>
+    </resultMap>
+    <sql id="elements">
+        (piece_name,piece_pic,piece_audio,piece_video)
+    </sql>
+    <insert id="insert" parameterType="com.example.lune.domain.Piece">
+        insert into piece
+        <include refid="elements"/>
+        values
+        (#{piece_name},#{piece_pic},#{piece_audio},#{piece_vedio})
+    </insert>
+    <insert id="insertSelective" parameterType="com.example.lune.domain.Piece">
+        insert into piece
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pieceName != null">
+                piece_name,
+            </if>
+            <if test="piecePic != null">
+                piece_pic,
+            </if>
+            <if test="pieceAudio != null">
+                piece_audio,
+            </if>
+            <if test="pieceVideo != null">
+                piece_video,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="pieceName != null">
+                #{pieceName},
+            </if>
+            <if test="piecePic != null">
+                #{piecePic},
+            </if>
+            <if test="pieceAudio != null">
+                #{pieceAudio},
+            </if>
+            <if test="pieceVideo != null">
+                #{pieceVideo},
+            </if>
+        </trim>
+    </insert>
+    <select id="pieceOfId" resultMap="BaseResultMap">
+        select * from piece where piece_id = #{id}
+    </select>
+    <select id="pieceOfName" resultMap="BaseResultMap">
+        select * from piece where piece_name = #{name}
+    </select>
+    <select id="allPiece" resultMap="BaseResultMap">
+        select * from piece
+    </select>
+    <update id="update" parameterType="com.example.lune.domain.Piece">
+        update piece
+        <set>
+            <if test="pieceName != null">
+                piece_name = #{pieceName},
+            </if>
+            <if test="piecePic != null">
+                piece_pic = #{piecePic},
+            </if>
+            <if test="pieceAudio != null">
+                piece_audio = #{pieceAudio},
+            </if>
+            <if test="pieceVideo != null">
+                piece_video = #{pieceVideo}
+            </if>
+        </set>
+        where piece_id = #{pieceId}
+    </update>
+    <delete id="deleteById">
+        delete from piece where piece_id = #{pieceId}
+    </delete>
 </mapper>
