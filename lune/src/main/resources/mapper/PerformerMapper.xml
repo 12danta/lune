@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lune.mapper.PerformerMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Performer">
+        <id property="performerId" jdbcType="INTEGER" column=""/>
+        <result property="performerName" jdbcType="VARCHAR" column="performer_name"/>
+        <result property="performerPic" jdbcType="VARCHAR" column="performer_pic"/>
+        <result property="performerIntroduction" jdbcType="VARCHAR" column="performer_introduction"/>
+        <result property="performerType" jdbcType="VARCHAR" column="performer_type"/>
+    </resultMap>
+    <sql id="elements">
+        (performer_name,performer_Pic,performer_introduction,performer_type)
+    </sql>
+    <insert id="insert" parameterType="com.example.lune.domain.Performer">
+        insert into performer
+        <include refid="elements"/>
+        values
+        (#{performerName},#{performerPic},#{performerIntroduction},#{performerType})
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.example.lune.domain.Performer">
+        insert into performer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="performerName != null">
+                performer_name,
+            </if>
+            <if test="performerPic != null">
+                performer_pic,
+            </if>
+            <if test="performerIntroduction != null">
+                performer_introduction,
+            </if>
+            <if test="performerType != null">
+                performer_type,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="performerName != null">
+                #{performerName},
+            </if>
+            <if test="performerPic != null">
+                #{performerPic},
+            </if>
+            <if test="performerIntroduction != null">
+                #{performerIntroduction},
+            </if>
+            <if test="performerType != null">
+                #{performerType},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteById">
+        delete from performer where performer_id = #{performerId}
+    </delete>
+    <select id="allPerformer" resultMap="BaseResultMap">
+        select * from performer
+    </select>
+    <select id="performerOfId" resultMap="BaseResultMap">
+        select * from  performer
+        where performer_id = #{perfomerId}
+    </select>
+    <select id="performerOfType" resultMap="BaseResultMap">
+        select * from performer
+        where performer_type = #{performerType}
+    </select>
+    <select id="performerOfName" resultMap="BaseResultMap">
+        select * from performer
+        where performer_name = #{performerName}
+    </select>
+    <update id="update" parameterType="com.example.lune.domain.Performer">
+        update performer
+        <set>
+            <if test="performerName != null">
+                performer_name = #{performerName},
+            </if>
+            <if test="performerPic != null">
+                performer_pic = #{performerPic},
+            </if>
+            <if test="performerIntroduction != null">
+                performer_introduction = #{performerIntroduction},
+            </if>
+            <if test="performerType != null">
+                performer_type = #{performerType}
+            </if>
+        </set>
+        where performer_id = #{performerId}
+    </update>
+</mapper>
