@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lune.mapper.ComposerMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Composer">
+        <id property="composerId" jdbcType="INTEGER" column="composer_id"/>
+        <result property="composerName" jdbcType="VARCHAR" column="composer_name"/>
+        <result property="composerPic" jdbcType="VARCHAR" column="composer_pic"/>
+        <result property="composerIntroduction" jdbcType="VARCHAR" column="composer_introduction"/>
+        <result property="composerLifeAndDeath" jdbcType="VARCHAR" column="composer_life_and_death"/>
+        <result property="composerPeriod" jdbcType="VARCHAR" column="composer_period"/>
+    </resultMap>
+    <sql id="elements">
+        (composer_name,composer_pic,composer_introduction,composer_life_and_death,composer_period)
+    </sql>
+    <insert id="insert" parameterType="com.example.lune.domain.Composer">
+        insert into composer
+        <include refid="elements"/>
+        values
+        (#{composerName},#{composerPic},#{composerIntroduction},#{composerLifeAndDeath},#{composerPeriod})
+    </insert>
+    <delete id="deleteById" >
+        delete from composer where composer_id = #{id}
+    </delete>
+    <select id="allComposer" resultMap="BaseResultMap">
+        select * from composer
+    </select>
+    <select id="composerOfPeriod" resultMap="BaseResultMap">
+        select * from composer
+        where composer_period = #{period}
+    </select>
+    <select id="composerOfId" resultMap="BaseResultMap">
+        select * from composer
+        where composer_id = #{id}
+    </select>
+    <select id="composerOfName" resultMap="BaseResultMap">
+        select * from composer
+        where composer_name = #{name}
+    </select>
+    <update id="update">
+        update composer
+        <set>
+            <if test="composerName != null">
+                composer_name = #{composerName},
+            </if>
+            <if test="composerPic != null">
+                composer_pic = #{composerPic},
+            </if>
+            <if test="composerIntroduction != null">
+                composer_introduction = #{composerIntroduction},
+            </if>
+            <if test="composerLifeAndDeath != null">
+                composer_life_and_death = #{composerLifeAndDeath},
+            </if>
+            <if test="composerPeriod != null">
+                composer_period = #{composerPeriod}
+            </if>
+        </set>
+        where composer_id = #{composerId}
+    </update>
+</mapper>

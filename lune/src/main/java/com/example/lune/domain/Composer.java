@@ -6,7 +6,7 @@ public class Composer {
     private String composerPic;
     private String composerIntroduction;
     private String composerLifeAndDeath;
-    private String composerPeriods;
+    private String composerPeriod;
 
     public Integer getComposerId() {
         return composerId;
@@ -49,11 +49,11 @@ public class Composer {
     }
 
     public String getComposerPeriods() {
-        return composerPeriods;
+        return composerPeriod;
     }
 
-    public void setComposerPeriods(String composerPeriods) {
-        this.composerPeriods = composerPeriods;
+    public void setComposerPeriods(String composerPeriod) {
+        this.composerPeriod = composerPeriod;
     }
 
     @Override
@@ -64,7 +64,7 @@ public class Composer {
                 ", composerPic='" + composerPic + '\'' +
                 ", composerIntroduction='" + composerIntroduction + '\'' +
                 ", composerLifeAndDeath='" + composerLifeAndDeath + '\'' +
-                ", composerPeriods='" + composerPeriods + '\'' +
+                ", composerPeriods='" + composerPeriod + '\'' +
                 '}';
     }
 }
