@@ -8,7 +8,7 @@ public class User {
     private String userPassword;
     private String userAvatar;
     private String userEmail;
-    private String userAuthority;
+    private Integer userAuthority;
     private Date userRegistrationTime;
 
     public Integer getUserId() {
@@ -51,11 +51,11 @@ public class User {
         this.userEmail = userEmail;
     }
 
-    public String getUserAuthority() {
+    public Integer getUserAuthority() {
         return userAuthority;
     }
 
-    public void setUserAuthority(String userAuthority) {
+    public void setUserAuthority(Integer userAuthority) {
         this.userAuthority = userAuthority;
     }
 

@@ -4,5 +4,118 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.lune.mapper.UserMapper">
 
+    <sql id="elements">
+        (user_name,user_password,user_email,user_avatar,user_registration_time,user_authority)
+    </sql>
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.User">
+        <id column="user_id" jdbcType="INTEGER" property="userId"/>
+        <result column="user_name" jdbcType="VARCHAR" property="userName"/>
+        <result column="user_password" jdbcType="VARCHAR" property="userPassword"/>
+        <result column="user_email" jdbcType="VARCHAR" property="userEmail"/>
+        <result column="user_avatar" jdbcType="VARCHAR" property="userAvatar"/>
+        <result column="user_registration_time" jdbcType="TIMESTAMP" property="userRegistrationTime"/>
+        <result column="user_authority"  jdbcType="INTEGER" property="userAuthority"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.example.lune.domain.User">
+        insert into user
+        <include refid="elements"/>
+        values
+        (#{userName},#{userPassword},#{userEmail},#{userAvatar},#{userRegistrationTime},#{userAuthority})
+    </insert>
+    <delete id="deleteById">
+        delete from user where user_id = #{id};
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.User">
+        update user
+        <set>
+            <if test="userName != null">
+                user_name = #{userName},
+            </if>
+            <if test="userPassword != null">
+                user_password = #{userPassword},
+            </if>
+            <if test="userEmail != null">
+                user_email = #{userEmail},
+            </if>
+            <if test="userAvatar != null">
+                user_avatar = #{userAvatar},
+            </if>
+            <if test="userRegistrationTime != null">
+                user_registration_time = #{userRegistrationTime},
+            </if>
+            <if test="userAuthority != null">
+                user_authority = #{userAuthority}
+            </if>
+        </set>
+        where user_id = #{userId}
+    </update>
+    <select id="FindUserById" resultMap="BaseResultMap">
+        select * from user where
+        user_id = #{id}
+    </select>
+    <select id="allUser" resultMap="BaseResultMap">
+        select * from user
+    </select>
+    <select id="verifyPassword" resultType="java.lang.Integer">
+        select count(*) from user where
+        user_name = #{0} and user_Password = #{1}
+    </select>
+    <insert id="insertUserSelective" parameterType="com.example.lune.domain.User">
+        insert into user
+        <trim prefix="(" suffix=")"  suffixOverrides=",">
+            <if test="userName != null">
+                user_name,
+            </if>
+            <if test="userPassword != null">
+                user_password,
+            </if>
+            <if test="userEmail != null">
+                user_email,
+            </if>
+            <if test="userAvatar != null">
+                user_avatar,
+            </if>
+            <if test="userRegistrationTime != null">
+                user_registration_time,
+            </if>
+            <if test="userAuthority != null">
+                user_authority,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="userName != null">
+                #{userName},
+            </if>
+            <if test="userPassword != null">
+                #{userPassword},
+            </if>
+            <if test="userEmail != null">
+                #{userEmail},
+            </if>
+            <if test="userAvatar != null">
+                #{userAvatar},
+            </if>
+            <if test="userRegistrationTime != null">
+                #{userRegistrationTime},
+            </if>
+            <if test="userAuthority != null">
+                #{userAuthority},
+            </if>
+        </trim>
+
+    </insert>
+    <update id="updateAvatar">
+        update user
+        <set >
+            <if test="userAvatar != null" >
+                user_avatar = #{userAvatar},
+            </if>
+        </set>
+            where user_id = #{userId}
+    </update>
+    <select id="count" resultType="java.lang.Integer">
+        select count(*) from user;
+    </select>
+
 
 </mapper>
