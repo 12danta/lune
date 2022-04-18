@@ -17,7 +17,7 @@
         insert into piece
         <include refid="elements"/>
         values
-        (#{piece_name},#{piece_pic},#{piece_audio},#{piece_vedio})
+        (#{pieceName},#{piecePic},#{pieceAudio},#{pieceVideo})
     </insert>
     <insert id="insertSelective" parameterType="com.example.lune.domain.Piece">
         insert into piece
