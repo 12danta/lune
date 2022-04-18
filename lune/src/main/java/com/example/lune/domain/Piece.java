@@ -6,6 +6,15 @@ public class Piece {
     private String piecePic;
     private String pieceAudio;
     private String pieceVideo;
+    private String pieceSheet;
+
+    public String getPieceSheet() {
+        return pieceSheet;
+    }
+
+    public void setPieceSheet(String pieceSheet) {
+        this.pieceSheet = pieceSheet;
+    }
 
     public Integer getPieceId() {
         return pieceId;
@@ -55,6 +64,7 @@ public class Piece {
                 ", piecePic='" + piecePic + '\'' +
                 ", pieceAudio='" + pieceAudio + '\'' +
                 ", pieceVideo='" + pieceVideo + '\'' +
+                ", pieceSheet='" + pieceSheet + '\'' +
                 '}';
     }
 }

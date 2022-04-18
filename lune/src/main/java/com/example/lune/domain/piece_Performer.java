@@ -1,8 +1,17 @@
 package com.example.lune.domain;
 
-public class piece_performer {
+public class piece_Performer {
+    private Integer id;
     private Integer pieceId;
     private Integer performerId;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
 
     public Integer getPieceId() {
         return pieceId;
@@ -23,7 +32,8 @@ public class piece_performer {
     @Override
     public String toString() {
         return "piece_performer{" +
-                "pieceId=" + pieceId +
+                "id=" + id +
+                ", pieceId=" + pieceId +
                 ", performerId=" + performerId +
                 '}';
     }

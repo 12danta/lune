@@ -1,6 +1,7 @@
 package com.example.lune.domain;
 
 public class Tag {
+
     private Integer tagId;
     private String tagName;
 

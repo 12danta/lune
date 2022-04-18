@@ -1,10 +1,12 @@
 package com.example.lune.domain;
 
+import java.util.Date;
+
 public class Album {
     private Integer albumId;
     private String albumName;
     private String albumPic;
-    private String albumRelaseTime;
+    private Date albumReleaseTime;
     private String albumRecordLabel;
 
     public Integer getAlbumId() {
@@ -31,12 +33,12 @@ public class Album {
         this.albumPic = albumPic;
     }
 
-    public String getAlbumRelaseTime() {
-        return albumRelaseTime;
+    public Date getAlbumRelaseTime() {
+        return albumReleaseTime;
     }
 
-    public void setAlbumRelaseTime(String albumRelaseTime) {
-        this.albumRelaseTime = albumRelaseTime;
+    public void setAlbumRelaseTime(Date albumReleaseTime) {
+        this.albumReleaseTime = albumReleaseTime;
     }
 
     public String getAlbumRecordLabel() {
@@ -53,7 +55,7 @@ public class Album {
                 "albumId=" + albumId +
                 ", albumName='" + albumName + '\'' +
                 ", albumPic='" + albumPic + '\'' +
-                ", albumRelaseTime='" + albumRelaseTime + '\'' +
+                ", albumRelaseTime='" + albumReleaseTime + '\'' +
                 ", albumRecordLabel='" + albumRecordLabel + '\'' +
                 '}';
     }

@@ -2,5 +2,36 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="namespace">
+<mapper namespace="com.example.lune.mapper.TagMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Tag">
+        <id property="tagId" jdbcType="INTEGER" column="tag_id"/>
+        <result property="tagName" jdbcType="VARCHAR" column="tag_name"/>
+    </resultMap>
+
+    <insert id="insert" parameterType="com.example.lune.domain.Tag">
+        insert into tag (tag_name) values (#{tagName})
+    </insert>
+    <delete id="deleteTagById">
+        delete from tag where tag_id = #{id}
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.Tag">
+        update tag
+        <set>
+            <if test="tagName != null">
+                tag_name = #{tagName}
+            </if>
+        </set>
+        where tag_id = #{tagId}
+    </update>
+    <select id="tagOfId" resultMap="BaseResultMap">
+        select * from tag
+        where tag_id = #{tagId}
+    </select>
+    <select id="tagOfName" resultMap="BaseResultMap">
+        select * from tag
+        where tag_name = #{tagName}
+    </select>
+    <select id="allTag" resultMap="BaseResultMap">
+        select * from tag
+    </select>
 </mapper>
