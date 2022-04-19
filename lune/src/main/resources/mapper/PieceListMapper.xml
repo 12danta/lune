@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lune.mapper.PieceListMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.PieceList">
+        <id property="pieceListId" jdbcType="INTEGER" column="pieceList_id"/>
+        <result property="pieceListName" jdbcType="VARCHAR" column="pieceList_name"/>
+        <result property="pieceListPic" jdbcType="VARCHAR" column="pieceList_pic"/>
+        <result property="pieceListDescription" jdbcType="VARCHAR" column="pieceList_description"/>
+        <result property="userId" jdbcType="INTEGER" column="user_id"/>
+    </resultMap>
+
+    <sql id="elements">
+        pieceList_name,pieceList_pic,pieceList_Description,user_id
+    </sql>
+    <insert id="insert" parameterType="com.example.lune.domain.PieceList">
+        insert into pieceList (
+        <include refid="elements"/>
+        )values(
+                #{pieceListName},#{pieceListPic},#{pieceListDescription},#{userId}
+        )
+    </insert>
+    <insert id="insertSelective" parameterType="com.example.lune.domain.PieceList">
+        insert into pieceList
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pieceListName != null">
+                pieceList_name,
+            </if>
+            <if test="pieceListPic != null">
+                pieceList_pic,
+            </if>
+            <if test="pieceListDescription != null">
+                pieceList_description,
+            </if>
+            <if test="userId != null">
+                user_id,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="pieceListName != null">
+                #{pieceListName},
+            </if>
+            <if test="pieceListPic != null">
+                #{pieceListPic},
+            </if>
+            <if test="pieceListDescription != null">
+                #{pieceListDescription},
+            </if>
+            <if test="userId != null">
+                #{userId},
+            </if>
+        </trim>
+    </insert>
+    <delete id="deleteById">
+        delete from pieceList
+        where pieceList_id = #{pieceListId}
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.PieceList">
+        update pieceList
+        <set>
+            <if test="pieceListName != null">
+                pieceList_name = #{pieceListName},
+            </if>
+            <if test="pieceListPic != null">
+                pieceList_pic = #{pieceListPic},
+            </if>
+            <if test="pieceListDescription != null">
+                pieceList_description = #{pieceListDescription},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+        </set>
+            where pieceList_id = #{pieceListId}
+    </update>
+    <select id="pieceListOfId" resultMap="BaseResultMap">
+        select * from pieceList
+        where pieceList_id = #{pieceListId}
+    </select>
+    <select id="allPieceList" resultMap="BaseResultMap">
+        select * from pieceList
+    </select>
+    <select id="pieceListOfName" resultMap="BaseResultMap">
+        select * from pieceList where pieceList_name = #{pieceListName}
+    </select>
+    <update id="updatePic" parameterType="com.example.lune.domain.PieceList">
+        update pieceList
+        <set>
+            <if test="pieceListPic != null">
+                pieceList_pic = #{pieceListPic}
+            </if>
+        </set>
+        where pieceList_id = #{pieceListId}
+    </update>
+    <select id="pieceOfUser" resultMap="BaseResultMap">
+        select * from pieceList where user_id = #{userId}
+    </select>
+</mapper>

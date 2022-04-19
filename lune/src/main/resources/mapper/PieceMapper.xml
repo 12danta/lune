@@ -9,16 +9,15 @@
         <result property="piecePic" jdbcType="VARCHAR" column="piece_pic"/>
         <result property="pieceAudio" jdbcType="VARCHAR" column="piece_audio"/>
         <result property="pieceVideo" jdbcType="VARCHAR" column="piece_video"/>
-        <result property="pieceSheet" jdbcType="VARCHAR" column="piece_sheet"/>
     </resultMap>
     <sql id="elements">
-        (piece_name,piece_pic,piece_audio,piece_video,piece_sheet)
+        (piece_name,piece_pic,piece_audio,piece_video)
     </sql>
     <insert id="insert" parameterType="com.example.lune.domain.Piece">
         insert into piece
         <include refid="elements"/>
         values
-        (#{pieceName},#{piecePic},#{pieceAudio},#{pieceVideo},#{pieceSheet})
+        (#{piece_name},#{piece_pic},#{piece_audio},#{piece_vedio})
     </insert>
     <insert id="insertSelective" parameterType="com.example.lune.domain.Piece">
         insert into piece
@@ -35,9 +34,6 @@
             <if test="pieceVideo != null">
                 piece_video,
             </if>
-            <if test="pieceSheet != null">
-                piece_sheet,
-            </if>
         </trim>
         <trim prefix="values(" suffix=")" suffixOverrides=",">
             <if test="pieceName != null">
@@ -51,9 +47,6 @@
             </if>
             <if test="pieceVideo != null">
                 #{pieceVideo},
-            </if>
-            <if test="pieceSheet != null">
-                #{pieceSheet},
             </if>
         </trim>
     </insert>
@@ -79,10 +72,7 @@
                 piece_audio = #{pieceAudio},
             </if>
             <if test="pieceVideo != null">
-                piece_video = #{pieceVideo},
-            </if>
-            <if test="pieceSheet != null">
-                piece_sheet = #{pieceSheet},
+                piece_video = #{pieceVideo}
             </if>
         </set>
         where piece_id = #{pieceId}
