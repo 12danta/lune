@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lune.mapper.Piece_TagMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Piece_Tag">
+        <id property="id" jdbcType="INTEGER" column="id"/>
+        <result property="pieceId" jdbcType="INTEGER" column="piece_id"/>
+        <result property="tagId" jdbcType="INTEGER" column="tag_id"/>
+    </resultMap>
+    <insert id="insert">
+        insert into piece_tag (piece_id,tag_id) values(#{0},#{1})
+    </insert>
+    <delete id="deleteById">
+        delete from piece_tag where id = #{id}
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.Piece_Tag">
+        update piece_tag
+        <set>
+            <if test="pieceId != null">
+                piece_id = #{pieceId},
+            </if>
+            <if test="tagId != null">
+                tag_id = #{tagId},
+            </if>
+        </set>
+            where id = #{id}
+    </update>
+    <select id="piece_TagOfPiece" resultMap="BaseResultMap">
+        select * from piece_tag where piece_id = #{pieceId}
+    </select>
+    <select id="piece_TagOfTag" resultMap="BaseResultMap">
+        select * from piece_tag where tag_id = #{tagId}
+    </select>
+</mapper>
