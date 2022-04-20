@@ -2,5 +2,35 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="namespace">
+<mapper namespace="com.example.lune.mapper.PieceList_PieceMapper">
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.PieceList_Piece">
+        <id property="id" column="id" jdbcType="INTEGER"/>
+        <result property="pieceListId" column="pieceList_id" jdbcType="INTEGER"/>
+        <result property="pieceId" column="piece_id" jdbcType="INTEGER"/>
+    </resultMap>
+    <insert id="insert">
+        insert into pieceList_piece (pieceList_id,piece_id) values(#{0},#{1})
+    </insert>
+    <select id="pieceList_PieceOfId" resultMap="BaseResultMap">
+        select * from pieceList_piece where
+        id = #{id}
+    </select>
+    <delete id="delete">
+        delete from pieceList_piece where id = #{id}
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.PieceList_Piece">
+        update pieceList_piece
+        <set>
+            <if test="pieceListId != null">
+                pieceList_id = #{pieceListId},
+            </if>
+            <if test="pieceId != null">
+                piece_id = #{pieceId},
+            </if>
+        </set>
+            where id = #{id}
+    </update>
+    <select id="pieceList_PieceOfPieceList" resultMap="BaseResultMap">
+        select * from pieceList_piece where pieceList_id = #{pieceListId}
+    </select>
 </mapper>
