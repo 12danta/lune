@@ -17,19 +17,21 @@ public class AdminServiceTest {
 
     @Test
     void test(){
-        List<Admin> list = adminService.allAdmin();
-        for (Admin admin : list) {
-            System.out.println(admin);
-        }
+//        List<Admin> list = adminService.allAdmin();
+//        for (Admin admin : list) {
+//            System.out.println(admin);
+//        }
+//
+//        Admin admin = new Admin();
+//        admin.setAdminName("test1");
+//        admin.setAdminPassword("password1");
+////        adminService.insert(admin);
+//        adminService.deleteAdmin(4);
+//        System.out.println(adminService.findAdminById(1));
+//
+//        System.out.println("---------------================----------------");
+//        System.out.println(adminService.verifyPassword("admin", "123456"));
 
-        Admin admin = new Admin();
-        admin.setAdminName("test1");
-        admin.setAdminPassword("password1");
-//        adminService.insert(admin);
-        adminService.deleteAdmin(4);
-        System.out.println(adminService.findAdminById(1));
 
-        System.out.println("---------------================----------------");
-        System.out.println(adminService.verifyPassword("admin", "123456"));
     }
 }

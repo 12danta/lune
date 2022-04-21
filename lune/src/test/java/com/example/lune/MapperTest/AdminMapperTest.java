@@ -1,8 +1,7 @@
-package com.example.lune.ControllerTest;
+package com.example.lune.MapperTest;
 
 import com.example.lune.domain.Admin;
 import com.example.lune.mapper.AdminMapper;
-import com.example.lune.mapper.UserMapper;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -10,13 +9,13 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 
 @SpringBootTest
-public class AdminControllerTest {
+public class AdminMapperTest {
 
     @Autowired
     AdminMapper adminMapper;
 
     @Test
-    void userController(){
+    void test(){
         Admin admin = new Admin();
         admin.setAdminName("test1");
         admin.setAdminPassword("password1");
