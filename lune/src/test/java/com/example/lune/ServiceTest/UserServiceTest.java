@@ -34,7 +34,7 @@ public class UserServiceTest {
 //        user.setUserAuthority(1);
 //
 //        userService.insertUserSelective(user);
-//        userService.insert(user);
+        userService.insert(user);
 //        userService.update(user);
 
 //        userService.deleteById(4);

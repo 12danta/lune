@@ -23,7 +23,7 @@ public class AdminController {
 
     @RequestMapping(value = "/admin/login",method = RequestMethod.POST)
     @ResponseBody
-    public Object hello(HttpServletRequest request, HttpSession session){
+    public Object adminLogin(HttpServletRequest request, HttpSession session){
 
         JSONObject jsonObject = new JSONObject();
 
