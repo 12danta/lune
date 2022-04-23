@@ -3,6 +3,7 @@ package com.example.lune.controller;
 import com.alibaba.fastjson.JSONObject;
 import com.example.lune.domain.User;
 import com.example.lune.service.UserService;
+import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
@@ -29,7 +30,6 @@ public class UserController {
         JSONObject jsonObject = new JSONObject();
 
         String userName = request.getParameter("userName");
-        System.out.println("======================"+userName);
         String userPassword = request.getParameter("userPassword");
         String userEmail = request.getParameter("userEmail");
         Integer userAuthority = Integer.parseInt(request.getParameter("userAuthority"));
@@ -59,11 +59,74 @@ public class UserController {
             return jsonObject;
         }catch (DuplicateKeyException e){
             jsonObject.put("code",0);
-            jsonObject.put("msg","注册成功");
+            jsonObject.put("msg","注册失败");
             return jsonObject;
         }
 
     }
-    //
+    // 更新用户信息
+    @RequestMapping(value = "/user/update",method = RequestMethod.POST)
+    @ResponseBody
+    public Object updateUser(HttpServletRequest request) {
+        JSONObject jsonObject = new JSONObject();
+
+        Integer userId = Integer.parseInt(request.getParameter("userId"));
+        String userName = request.getParameter("userName");
+        String userPassword = request.getParameter("userPassword");
+        String userEmail = request.getParameter("userEmail");
+        Integer userAuthority = Integer.parseInt(request.getParameter("userAuthority"));
+
+
+        User user = new User();
+        user.setUserId(userId);
+        user.setUserName(userName);
+        user.setUserPassword(userPassword);
+        user.setUserEmail(userEmail);
+        user.setUserAuthority(userAuthority);
+
+        Boolean flag = userService.update(user);
+        System.out.println(flag);
+
+        try {
+            if (flag) {
+                jsonObject.put("code", 1);
+                jsonObject.put("msg", "更新成功");
+            } else {
+                jsonObject.put("code", 0);
+                jsonObject.put("msg", "更新失败");
+            }
+            return jsonObject;
+        } catch (DuplicateKeyException e) {
+            jsonObject.put("code", 0);
+            jsonObject.put("msg", "更新失败");
+            return jsonObject;
+        }
+    }
+
+        //根据 id 删除用户
+
+        @RequestMapping(value = "/user/deleteById",method = RequestMethod.GET)
+        public Object deleteUser (HttpServletRequest request){
+
+            JSONObject jsonObject = new JSONObject();
+            Integer id = Integer.parseInt(request.getParameter("userId"));
+            Boolean flag = userService.deleteById(id);
+//
+//            if (flag){
+//                jsonObject.put("code",1);
+//                jsonObject.put("msg","删除成功");
+//            }else {
+//                jsonObject.put("code",0);
+//                jsonObject.put("msg","删除失败");
+//            }
+            return flag;
+        }
+        //根据 id 获取用户
+    @RequestMapping(value = "/user/userOfId",method = RequestMethod.GET)
+    public Object FindUserById(HttpServletRequest request){
+        Integer userId = Integer.parseInt(request.getParameter("userId"));
+        return userService.FindUserById(userId);
+    }
+
 
 }
