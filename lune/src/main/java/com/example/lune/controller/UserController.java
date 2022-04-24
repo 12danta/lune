@@ -7,12 +7,13 @@ import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 
 
@@ -121,11 +122,78 @@ public class UserController {
 //            }
             return flag;
         }
-        //根据 id 获取用户
+     //根据 id 获取用户
     @RequestMapping(value = "/user/userOfId",method = RequestMethod.GET)
     public Object FindUserById(HttpServletRequest request){
         Integer userId = Integer.parseInt(request.getParameter("userId"));
         return userService.FindUserById(userId);
+    }
+    //用户登录
+    @ResponseBody
+    @RequestMapping(value = "/user/login/",method = RequestMethod.POST)
+    public Object UserLogin(HttpServletRequest request, HttpSession session){
+
+        JSONObject jsonObject = new JSONObject();
+
+        String userName = request.getParameter("userName");
+        String userPassword = request.getParameter("userPassword");
+
+        Boolean flag = userService.verifyPassword(userName,userPassword);
+        if (flag) {
+            jsonObject.put("code",1);
+            jsonObject.put("msg","登陆成功");
+            session.setAttribute("userName",userName);
+        }else {
+            jsonObject.put("code",0);
+            jsonObject.put("msg","登陆失败");
+        }
+        return jsonObject;
+
+    }
+    //更换头像
+    @ResponseBody
+    @RequestMapping(value = "/user/updateAvatar/",method = RequestMethod.POST)
+    public Object updateAvatar(@RequestParam("userId") Integer userId, @RequestParam("avatarFile")MultipartFile avatarFile){
+
+        JSONObject jsonObject = new JSONObject();
+
+
+
+        //头像图片的存放位置 C:\lune\image\avatar
+        String avatarPath = System.getProperty("user.dir")+System.getProperty("file.separator")+"image"+System.getProperty("file.separator")+"avatar";
+        System.out.println(avatarPath);
+        //如果这个文件夹是空的那么久建立这个文件夹
+        File file = new File(avatarPath);
+        if (!file.exists()) file.mkdir();
+
+
+        //头像名称
+        String avatarName = System.currentTimeMillis() + avatarFile.getOriginalFilename();
+
+        //把头像存储下来,创建一个用于存储的全路径file
+        File fileDest = new File(avatarPath+System.getProperty("file.separator")+avatarName);
+
+        try {
+            avatarFile.transferTo(fileDest);
+            User user = new User();
+            user.setUserId(userId);
+            user.setUserAvatar("/image/avatar/"+avatarName);
+            Boolean flag = userService.updateAvatar(user);
+            if (flag){
+                jsonObject.put("code",1);
+                jsonObject.put("msg","更新头像成功");
+            }else {
+                jsonObject.put("code",0);
+                jsonObject.put("msg","更新头像失败");
+            }
+        } catch (IOException e) {
+            jsonObject.put("code",0);
+            jsonObject.put("msg",e.getMessage());
+            e.printStackTrace();
+        }
+
+
+        return jsonObject;
     }
 
 
