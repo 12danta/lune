@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.lune.mapper.SheetMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.lune.domain.Sheet">
+        <id property="sheetId" jdbcType="INTEGER" column="sheet_id"/>
+        <result property="sheetFile" jdbcType="VARCHAR" column="sheet_file"/>
+        <result property="sheetType" jdbcType="VARCHAR" column="sheet_type"/>
+        <result property="sheetPieceId" jdbcType="INTEGER" column="sheet_piece_id"/>
+    </resultMap>
+
+    <sql id="elements">
+        sheet_file,sheet_type,sheet_piece_id
+    </sql>
+    <insert id="insert" parameterType="com.example.lune.domain.Sheet">
+        insert into sheet
+        (<include refid="elements"/>)
+        values (
+                #{sheetFile},#{sheetType},#{sheetPieceId}
+        )
+    </insert>
+    <delete id="delete" >
+        delete from sheet
+        where sheet_id = #{sheetId}
+    </delete>
+    <update id="update" parameterType="com.example.lune.domain.Sheet">
+        update sheet
+        <set>
+            <if test="sheetFile != null">
+                sheet_file = #{sheetFile},
+            </if>
+            <if test="sheetType != null">
+                sheet_type = #{sheetType},
+            </if>
+            <if test="sheetPieceId != null">
+                sheet_piece_id = #{sheetPieceId},
+            </if>
+        </set>
+            where sheet_id = #{sheetId}
+    </update>
+    <select id="sheetOfId" resultMap="BaseResultMap">
+        select * from sheet
+        where sheet_id = #{sheetId}
+    </select>
+    <select id="sheetOfPiece" resultMap="BaseResultMap">
+        select * from sheet
+        where sheet_piece_id = #{sheetPieceId}
+    </select>
+    <select id="sheetOfTypeAndPiece" resultMap="BaseResultMap">
+        select * from sheet
+        where sheet_piece_id = #{0}
+        and
+        sheet_type = #{1}
+    </select>
+
+</mapper>

@@ -27,7 +27,6 @@ public class PieceServiceTest {
         piece.setPiecePic("12.png");
         piece.setPieceAudio("111");
         piece.setPieceVideo("222");
-        piece.setPieceSheet("sheet");
         pieceService.insert(piece);
 //        pieceService.insertSelective(piece);
 //        pieceService.deleteById(5);

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.io.File;
 import java.io.IOException;
 import java.util.Date;
+import java.util.UUID;
 
 
 @RestController
@@ -168,7 +169,7 @@ public class UserController {
 
 
         //头像名称
-        String avatarName = System.currentTimeMillis() + avatarFile.getOriginalFilename();
+        String avatarName = UUID.randomUUID().toString() + avatarFile.getOriginalFilename();
 
         //把头像存储下来,创建一个用于存储的全路径file
         File fileDest = new File(avatarPath+System.getProperty("file.separator")+avatarName);
