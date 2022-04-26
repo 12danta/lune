@@ -23,7 +23,7 @@ public class PieceServiceTest {
 //        System.out.println(pieceService.pieceOfId(1));
         Piece piece = new Piece();
         piece.setPieceId(4);
-        piece.setPieceName("111test");
+        piece.setPieceName("test");
         piece.setPiecePic("12.png");
         piece.setPieceAudio("111");
         piece.setPieceVideo("222");
@@ -31,7 +31,7 @@ public class PieceServiceTest {
 //        pieceService.insertSelective(piece);
 //        pieceService.deleteById(5);
 //        System.out.println(pieceService.pieceOfName("12test"));
-//        pieceService.update(piece);
+        System.out.println(pieceService.update(piece));
     }
 
 

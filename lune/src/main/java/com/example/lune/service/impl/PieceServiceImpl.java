@@ -38,8 +38,8 @@ public class PieceServiceImpl implements PieceService {
     }
 
     @Override
-    public Integer update(Piece piece) {
-        return pieceMapper.update(piece);
+    public Boolean update(Piece piece) {
+        return pieceMapper.update(piece) > 0;
     }
 
     @Override

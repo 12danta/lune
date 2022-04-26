@@ -16,7 +16,7 @@ public interface PieceService {
     //返回所有 piece
     List<Piece> allPiece();
     //更新 piece
-    Integer update(Piece piece);
+    Boolean update(Piece piece);
     //根据 id 删除 piece
     Boolean deleteById(Integer id);
 }
