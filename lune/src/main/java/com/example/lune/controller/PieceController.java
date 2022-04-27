@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSONObject;
 import com.example.lune.domain.Piece;
 import com.example.lune.service.PieceService;
 import com.fasterxml.jackson.annotation.JsonAlias;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
@@ -220,7 +221,33 @@ public class PieceController {
 
         return jsonObject;
     }
-    //根据 id 返回作品
     //根据 id 删除曲子
+    @RequestMapping(value = "/piece/delete/", method = RequestMethod.GET)
+    public Object deleteById(HttpServletRequest request){
+        JSONObject jsonObject = new JSONObject();
+        Integer pieceId = Integer.parseInt(request.getParameter("pieceId"));
+        Boolean flag = pieceService.deleteById(pieceId);
+        if (flag){
+            jsonObject.put("code",1);
+            jsonObject.put("msg","删除成功");
+        }else {
+            jsonObject.put("code",0);
+            jsonObject.put("msg","删除失败");
+        }
+        return jsonObject;
+    }
+    //根据 id 返回曲子
+    @RequestMapping(value = "piece/pieceOfId",method = RequestMethod.GET)
+    public Object pieceOfId(HttpServletRequest request){
+
+        Integer pieceId = Integer.parseInt(request.getParameter("pieceId"));
+        return pieceService.pieceOfId(pieceId);
+
+    }
+
     //返回所有 piece
+    @RequestMapping(value = "/piece/allPiece/",method = RequestMethod.GET)
+    public Object allPiece(){
+        return pieceService.allPiece();
+    }
 }
