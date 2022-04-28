@@ -10,6 +10,8 @@ public interface ComposerMapper {
 
     //插入 composer
     Integer insert(Composer composer);
+    //根据内容添加 composer
+    Integer insertSelective(Composer composer);
     //根据 id 删除 composer
     Integer deleteById(Integer id);
     //返回所有 Composer

@@ -19,6 +19,11 @@ public class ComposerServiceImpl implements ComposerService {
     }
 
     @Override
+    public Boolean insertSelective(Composer composer) {
+        return composerMapper.insertSelective(composer) > 0;
+    }
+
+    @Override
     public Boolean deleteById(Integer id) {
         return composerMapper.deleteById(id) > 0;
     }

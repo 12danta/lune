@@ -20,6 +20,43 @@
         values
         (#{composerName},#{composerPic},#{composerIntroduction},#{composerLifeAndDeath},#{composerPeriod})
     </insert>
+    <insert id="insertSelective" parameterType="com.example.lune.domain.Composer">
+        insert into composer
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="composerName != null">
+                composer_name,
+            </if>
+            <if test="composerPic != null">
+                composer_pic,
+            </if>
+            <if test="composerIntroduction != null">
+                composer_introduction,
+            </if>
+            <if test="composerLifeAndDeath != null">
+                composer_life_and_death,
+            </if>
+            <if test="composerPeriod != null">
+                composer_period,
+            </if>
+        </trim>
+        <trim prefix="values(" suffix=")" suffixOverrides=",">
+            <if test="composerName != null">
+                #{composerName},
+            </if>
+            <if test="composerPic != null">
+                #{composerPic},
+            </if>
+            <if test="composerIntroduction != null">
+                #{composerIntroduction},
+            </if>
+            <if test="composerLifeAndDeath != null">
+                #{composerLifeAndDeath},
+            </if>
+            <if test="composerPeriod != null">
+                #{composerPeriod},
+            </if>
+        </trim>
+    </insert>
     <delete id="deleteById" >
         delete from composer where composer_id = #{id}
     </delete>

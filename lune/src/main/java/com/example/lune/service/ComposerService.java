@@ -7,6 +7,8 @@ import java.util.List;
 public interface ComposerService {
     //插入 composer
     Boolean insert(Composer composer);
+    //根据内容插入
+    Boolean insertSelective(Composer composer);
     //根据 id 删除 composer
     Boolean deleteById(Integer id);
     //返回所有 Composer

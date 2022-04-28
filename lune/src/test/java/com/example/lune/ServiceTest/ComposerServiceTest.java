@@ -19,7 +19,7 @@ public class ComposerServiceTest {
     void test(){
 
         Composer composer = new Composer();
-        composer.setComposerId(4);
+//        composer.setComposerId(4);
         composer.setComposerName("test2222222222");
         composer.setComposerPeriods("Romantic period");
 //        composer.setComposerPic("test.png");
@@ -40,6 +40,7 @@ public class ComposerServiceTest {
 //        System.out.println(composerService.composerOfId(4));
 //        System.out.println(composerService.composerOfName("test"));
 
+        composerService.insertSelective(composer);
         composerService.update(composer);
     }
 
