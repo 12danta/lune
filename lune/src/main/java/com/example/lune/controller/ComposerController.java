@@ -150,13 +150,13 @@ public class ComposerController {
     }
 
     //根据 id 返回 composer
-    @RequestMapping(value = "/composer/composerOfPeriod/")
+    @RequestMapping(value = "/composer/composerOfId/")
     public Object composerOfId(HttpServletRequest request){
         return composerService.composerOfId(Integer.parseInt(request.getParameter("composerId")));
     }
 
     //根据 name 返回 composer
-    @RequestMapping(value = "/composer/composerOfPeriod/")
+    @RequestMapping(value = "/composer/composerOfName/")
     public Object composerOfName(HttpServletRequest request){
         return composerService.composerOfName(request.getParameter("composerName"));
     }
