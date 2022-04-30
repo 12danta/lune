@@ -141,10 +141,9 @@ public class PerformerController {
     @RequestMapping(value = "/performer/performerOfName/",method = RequestMethod.GET)
     public Object performerOfName(HttpServletRequest request){
         String performerName = request.getParameter("performerName");
-        return performerService.performerOfType(performerName);
+        return performerService.performerOfName(performerName);
     }
     //所有 performer
-    //根据类型查找 performer
     @RequestMapping(value = "/performer/allPerformer/",method = RequestMethod.GET)
     public Object allPerformer(){
         return performerService.allPerformer();

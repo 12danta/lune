@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.lune.mapper.PerformerMapper">
     <resultMap id="BaseResultMap" type="com.example.lune.domain.Performer">
-        <id property="performerId" jdbcType="INTEGER" column=""/>
+        <id property="performerId" jdbcType="INTEGER" column="performer_id"/>
         <result property="performerName" jdbcType="VARCHAR" column="performer_name"/>
         <result property="performerPic" jdbcType="VARCHAR" column="performer_pic"/>
         <result property="performerIntroduction" jdbcType="VARCHAR" column="performer_introduction"/>
