@@ -54,7 +54,7 @@ public class PieceListServiceImpl implements PieceListService {
     }
 
     @Override
-    public List<PieceList> pieceOfUser(Integer userId) {
-        return pieceListMapper.pieceOfUser(userId);
+    public List<PieceList> pieceListOfUser(Integer userId) {
+        return pieceListMapper.pieceListOfUser(userId);
     }
 }

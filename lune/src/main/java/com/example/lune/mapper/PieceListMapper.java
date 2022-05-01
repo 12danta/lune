@@ -26,6 +26,6 @@ public interface PieceListMapper {
     //更新 pieceList_pic
     Integer updatePic(PieceList pieceList);
     //根据 userId 返回 pieceList
-    List<PieceList> pieceOfUser(Integer userId);
+    List<PieceList> pieceListOfUser(Integer userId);
 
 }
