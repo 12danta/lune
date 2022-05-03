@@ -56,7 +56,7 @@ public class AlbumController {
         //图片名称
         String picName = UUID.randomUUID() + albumPic.getOriginalFilename();
         //存储全路径
-        File dist = new File(path + System.getProperty("file.separator"));
+        File dist = new File(path + System.getProperty("file.separator")+picName);
 
         Album album = new Album();
         album.setAlbumName(albumName);
@@ -113,9 +113,10 @@ public class AlbumController {
         //图片名称
         String picName = UUID.randomUUID() + albumPic.getOriginalFilename();
         //存储全路径
-        File dist = new File(path + System.getProperty("file.separator"));
+        File dist = new File(path + System.getProperty("file.separator")+picName);
 
         Album album = new Album();
+        album.setAlbumId(albumId);
         album.setAlbumName(albumName);
         album.setAlbumRecordLabel(albumRecordLabel);
         album.setAlbumRelaseTime(releaseTime);
@@ -164,7 +165,7 @@ public class AlbumController {
     @RequestMapping(value = "/album/albumOfLabel/",method = RequestMethod.GET)
     public Object albumOfLabel(HttpServletRequest request){
         String albumLabel = request.getParameter("albumLabel");
-        return albumService.albumOfName(albumLabel);
+        return albumService.albumOfLabel(albumLabel);
     }
     //返回所有的 album
     @RequestMapping(value = "/album/allAlbum",method = RequestMethod.GET)
