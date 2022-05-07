@@ -14,6 +14,7 @@ class LuneApplicationTests {
         System.out.println(System.getProperty("file.separator"));//当前工作环境下的文件分割符，windows下是\,unix环境下是/
         Admin admin = new Admin();
         admin.setAdminName(null);
+        System.out.println(5/3);
 
     }
 
