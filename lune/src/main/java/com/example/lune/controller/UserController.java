@@ -1,6 +1,7 @@
 package com.example.lune.controller;
 
 import com.alibaba.fastjson.JSONObject;
+import com.example.lune.config.EncryptUtil;
 import com.example.lune.domain.User;
 import com.example.lune.service.UserService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -25,6 +26,9 @@ public class UserController {
     @Autowired
     UserService userService;
 
+
+
+
     // 用户注册
     @RequestMapping(value = "/user/signUp",method = RequestMethod.POST)
     @ResponseBody
@@ -38,6 +42,8 @@ public class UserController {
 
         String userAvatar = "/image/avatar/default.jpg";
 
+        EncryptUtil encryptUtil = new EncryptUtil();
+        userPassword = encryptUtil.generator(userPassword);
 
         User user = new User();
         user.setUserName(userName);
