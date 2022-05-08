@@ -56,9 +56,9 @@
     <select id="allUser" resultMap="BaseResultMap">
         select * from user
     </select>
-    <select id="verifyPassword" resultType="java.lang.Integer">
-        select count(*) from user where
-        user_name = #{0} and user_Password = #{1}
+    <select id="verifyPassword" resultType="java.lang.String">
+        select * from user where
+        user_name = #{0}
     </select>
     <insert id="insertUserSelective" parameterType="com.example.lune.domain.User">
         insert into user

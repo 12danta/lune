@@ -39,8 +39,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public Boolean verifyPassword(String userName, String userPassword) {
-        return userMapper.verifyPassword(userName,userPassword) > 0;
+    public String verifyPassword(String userName) {
+        return userMapper.verifyPassword(userName) ;
     }
 
     @Override

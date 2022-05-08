@@ -27,8 +27,6 @@ public class UserController {
     UserService userService;
 
 
-
-
     // 用户注册
     @RequestMapping(value = "/user/signUp",method = RequestMethod.POST)
     @ResponseBody
@@ -42,8 +40,8 @@ public class UserController {
 
         String userAvatar = "/image/avatar/default.jpg";
 
-        EncryptUtil encryptUtil = new EncryptUtil();
-        userPassword = encryptUtil.generator(userPassword);
+
+        userPassword = EncryptUtil.generator(userPassword);
 
         User user = new User();
         user.setUserName(userName);
@@ -137,7 +135,7 @@ public class UserController {
     }
     //用户登录
     @ResponseBody
-    @RequestMapping(value = "/user/login/",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/login",method = RequestMethod.POST)
     public Object UserLogin(HttpServletRequest request, HttpSession session){
 
         JSONObject jsonObject = new JSONObject();
@@ -145,7 +143,8 @@ public class UserController {
         String userName = request.getParameter("userName");
         String userPassword = request.getParameter("userPassword");
 
-        Boolean flag = userService.verifyPassword(userName,userPassword);
+        String md5psw = userService.verifyPassword(userName);
+        Boolean flag = EncryptUtil.verify(userPassword,md5psw);
         if (flag) {
             jsonObject.put("code",1);
             jsonObject.put("msg","登陆成功");
@@ -159,7 +158,7 @@ public class UserController {
     }
     //更换头像
     @ResponseBody
-    @RequestMapping(value = "/user/updateAvatar/",method = RequestMethod.POST)
+    @RequestMapping(value = "/user/updateAvatar",method = RequestMethod.POST)
     public Object updateAvatar(@RequestParam("userId") Integer userId, @RequestParam("avatarFile")MultipartFile avatarFile){
 
         JSONObject jsonObject = new JSONObject();
@@ -200,6 +199,13 @@ public class UserController {
         }
 
 
+        return jsonObject;
+    }
+    //修改密码
+    @ResponseBody
+    @RequestMapping(value = "/user/changePsw",method = RequestMethod.POST)
+    public Object changePsw(HttpServletRequest httpServletRequest){
+        JSONObject jsonObject = new JSONObject();
         return jsonObject;
     }
 

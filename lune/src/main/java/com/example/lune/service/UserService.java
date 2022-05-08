@@ -17,7 +17,7 @@ public interface UserService {
     //返回所有用户数据
     List<User> allUser();
     //验证账号密码
-    Boolean verifyPassword(String userName,String userPassword);
+    String verifyPassword(String userName);
     //根据内容插入 user
     Boolean insertUserSelective(User user);
     //更换头像

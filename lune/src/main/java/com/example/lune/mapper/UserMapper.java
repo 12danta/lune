@@ -19,8 +19,8 @@ public interface UserMapper {
     User FindUserById(Integer id);
     //返回所有用户数据
     List<User> allUser();
-    //验证账号密码
-    Integer verifyPassword(String userName,String userPassword);
+    //根据账号获取密码
+    String verifyPassword(String userName);
     //根据内容插入 user
     Integer insertUserSelective(User user);
     //更换头像

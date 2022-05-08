@@ -23,7 +23,7 @@ public class UserServiceTest {
             System.out.println(user);
         }
         System.out.println(userService.FindUserById(1));
-        System.out.println(userService.verifyPassword("chloe", "12345"));
+//        System.out.println(userService.verifyPassword("chloe", "12345"));
         User user = new User();
         user.setUserId(4);
         user.setUserName("test_update");
