@@ -57,4 +57,9 @@ public class UserServiceImpl implements UserService {
     public Integer count() {
         return userMapper.count();
     }
+
+    @Override
+    public Boolean updatePassword(User user) {
+        return userMapper.updatePassword(user)>0;
+    }
 }

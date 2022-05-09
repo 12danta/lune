@@ -57,7 +57,7 @@
         select * from user
     </select>
     <select id="verifyPassword" resultType="java.lang.String">
-        select * from user where
+        select user_password from user where
         user_name = #{0}
     </select>
     <insert id="insertUserSelective" parameterType="com.example.lune.domain.User">
@@ -116,6 +116,10 @@
     <select id="count" resultType="java.lang.Integer">
         select count(*) from user;
     </select>
+    <update id="updatePassword">
+        update user set user_password = #{userPassword}
+        where user_id = #{userId};
+</update>
 
 
 </mapper>

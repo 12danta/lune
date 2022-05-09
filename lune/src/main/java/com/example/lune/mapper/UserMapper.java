@@ -27,6 +27,8 @@ public interface UserMapper {
     Integer updateAvatar(User user);
     //查询用户总数
     Integer count();
+    //更新密码
+    Integer updatePassword(User user);
 
 
 }

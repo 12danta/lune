@@ -144,6 +144,7 @@ public class UserController {
         String userPassword = request.getParameter("userPassword");
 
         String md5psw = userService.verifyPassword(userName);
+
         Boolean flag = EncryptUtil.verify(userPassword,md5psw);
         if (flag) {
             jsonObject.put("code",1);
@@ -204,8 +205,22 @@ public class UserController {
     //修改密码
     @ResponseBody
     @RequestMapping(value = "/user/changePsw",method = RequestMethod.POST)
-    public Object changePsw(HttpServletRequest httpServletRequest){
+    public Object changePsw(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
+
+        User user = new User();
+        user.setUserId(Integer.parseInt(request.getParameter("userId")));
+        String userPassword = EncryptUtil.generator(request.getParameter("userPassword"));
+        user.setUserPassword(userPassword);
+        Boolean flag = userService.updatePassword(user);
+
+        if (flag){
+            jsonObject.put("code",1);
+            jsonObject.put("msg","更新密码成功");
+        }else {
+            jsonObject.put("code",0);
+            jsonObject.put("msg","更新密码失败");
+        }
         return jsonObject;
     }
 

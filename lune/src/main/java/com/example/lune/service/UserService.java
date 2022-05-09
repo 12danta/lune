@@ -24,4 +24,6 @@ public interface UserService {
     Boolean updateAvatar(User user);
     //查询用户总数
     Integer count();
+    //更新密码
+    Boolean updatePassword(User user);
 }
