@@ -40,7 +40,7 @@ public class PieceController {
 
     //上传作品
     @ResponseBody
-    @RequestMapping(value = "/piece/upload/",method = RequestMethod.POST)
+    @RequestMapping(value = "/piece/upload",method = RequestMethod.POST)
     public Object uploadPiece(HttpServletRequest request, @RequestParam("pieceAudio")MultipartFile pieceAudio,
                                                           @RequestParam("pieceVideo") MultipartFile pieceVideo,
                                                           @RequestParam("piecePic") MultipartFile piecePic){
@@ -129,7 +129,7 @@ public class PieceController {
     }
     //修改曲子
     @ResponseBody
-    @RequestMapping(value = "/piece/update/",method = RequestMethod.POST)
+    @RequestMapping(value = "/piece/update",method = RequestMethod.POST)
     public Object updatePiece(HttpServletRequest request, @RequestParam("pieceAudio")MultipartFile pieceAudio,
                               @RequestParam("pieceVideo") MultipartFile pieceVideo,
                               @RequestParam("piecePic") MultipartFile piecePic){
@@ -222,7 +222,7 @@ public class PieceController {
         return jsonObject;
     }
     //根据 id 删除曲子
-    @RequestMapping(value = "/piece/delete/", method = RequestMethod.GET)
+    @RequestMapping(value = "/piece/delete", method = RequestMethod.GET)
     public Object deleteById(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
         Integer pieceId = Integer.parseInt(request.getParameter("pieceId"));
@@ -246,7 +246,7 @@ public class PieceController {
     }
 
     //返回所有 piece
-    @RequestMapping(value = "/piece/allPiece/",method = RequestMethod.GET)
+    @RequestMapping(value = "/piece/allPiece",method = RequestMethod.GET)
     public Object allPiece(){
         return pieceService.allPiece();
     }

@@ -25,7 +25,7 @@ public class PerformerController {
     PerformerService performerService;
 
     //添加 performer
-    @RequestMapping(value = "/performer/add/",method = RequestMethod.POST)
+    @RequestMapping(value = "/performer/add",method = RequestMethod.POST)
     @ResponseBody
     public Object addPerformer(HttpServletRequest request, @Param("performerPic")MultipartFile performerPic){
         JSONObject jsonObject = new JSONObject();
@@ -52,7 +52,7 @@ public class PerformerController {
 
         try {
             performerPic.transferTo(picDist);
-            performer.setPerformerPic("/image/performerPic/"+picName);
+            performer.setPerformerPic("/image/performerPic"+picName);
         } catch (IOException e) {
             jsonObject.put("code",0);
             jsonObject.put("msg",e.getMessage());
@@ -71,7 +71,7 @@ public class PerformerController {
         return jsonObject;
     }
     //更新 performer
-    @RequestMapping(value = "/performer/update/",method = RequestMethod.POST)
+    @RequestMapping(value = "/performer/update",method = RequestMethod.POST)
     @ResponseBody
     public Object updatePerformer(HttpServletRequest request, @Param("performerPic")MultipartFile performerPic){
         JSONObject jsonObject = new JSONObject();
@@ -119,32 +119,32 @@ public class PerformerController {
         return jsonObject;
     }
     //根据 id 删除 performer
-    @RequestMapping(value = "/performer/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/performer/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         Integer performerId = Integer.parseInt(request.getParameter("performerId"));
         return performerService.deleteById(performerId);
     }
     //根据 id 查找 performer
     //根据 id 删除 performer
-    @RequestMapping(value = "/performer/performerOfId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/performer/performerOfId",method = RequestMethod.GET)
     public Object performerOfId(HttpServletRequest request){
         Integer performerId = Integer.parseInt(request.getParameter("performerId"));
         return performerService.performerOfId(performerId);
     }
     //根据类型查找 performer
-    @RequestMapping(value = "/performer/performerOfType/",method = RequestMethod.GET)
+    @RequestMapping(value = "/performer/performerOfType",method = RequestMethod.GET)
     public Object performerOfType(HttpServletRequest request){
         String performerType = request.getParameter("performerType");
         return performerService.performerOfType(performerType);
     }
     //根据名字查找 performer
-    @RequestMapping(value = "/performer/performerOfName/",method = RequestMethod.GET)
+    @RequestMapping(value = "/performer/performerOfName",method = RequestMethod.GET)
     public Object performerOfName(HttpServletRequest request){
         String performerName = request.getParameter("performerName");
         return performerService.performerOfName(performerName);
     }
     //所有 performer
-    @RequestMapping(value = "/performer/allPerformer/",method = RequestMethod.GET)
+    @RequestMapping(value = "/performer/allPerformer",method = RequestMethod.GET)
     public Object allPerformer(){
         return performerService.allPerformer();
     }

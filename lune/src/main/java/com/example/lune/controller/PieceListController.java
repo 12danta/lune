@@ -27,7 +27,7 @@ public class PieceListController {
 
     //添加 pieceList
     @ResponseBody
-    @RequestMapping(value = "/pieceList/addPieceList/",method = RequestMethod.POST)
+    @RequestMapping(value = "/pieceList/addPieceList",method = RequestMethod.POST)
     public Object addPieceList(HttpServletRequest request, @Param("pieceListPic")MultipartFile pieceListPic){
 
         JSONObject jsonObject = new JSONObject();
@@ -73,7 +73,7 @@ public class PieceListController {
     }
     //更新 pieceList
     @ResponseBody
-    @RequestMapping(value = "/pieceList/updatePieceList/",method = RequestMethod.POST)
+    @RequestMapping(value = "/pieceList/updatePieceList",method = RequestMethod.POST)
     public Object updatePieceList(HttpServletRequest request, @Param("pieceListPic")MultipartFile pieceListPic){
 
         JSONObject jsonObject = new JSONObject();
@@ -122,7 +122,7 @@ public class PieceListController {
 
     //更新 pieceList pic
     @ResponseBody
-    @RequestMapping(value = "/pieceList/updatePic/",method = RequestMethod.POST)
+    @RequestMapping(value = "/pieceList/updatePic",method = RequestMethod.POST)
     public Object updatePic( @Param("pieceListPic")MultipartFile pieceListPic,HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
 
@@ -165,28 +165,28 @@ public class PieceListController {
     }
 
     //根据 id 删除 pieceList
-    @RequestMapping(value = "/pieceList/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceList/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         Integer pieceListId = Integer.parseInt(request.getParameter("pieceListId"));
         return pieceListService.deleteById(pieceListId);
     }
 
     //根据 id 返回 pieceList
-    @RequestMapping(value = "/pieceList/pieceListOfId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceList/pieceListOfId",method = RequestMethod.GET)
     public Object pieceListOfId(HttpServletRequest request){
         Integer pieceListId = Integer.parseInt(request.getParameter("pieceListId"));
         return pieceListService.pieceListOfId(pieceListId);
     }
 
     //根据名字返回 pieceList
-    @RequestMapping(value = "/pieceList/pieceListOfName/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceList/pieceListOfName",method = RequestMethod.GET)
     public Object pieceListOfName(HttpServletRequest request){
         String pieceListName = request.getParameter("pieceListName");
         return pieceListService.pieceListOfName(pieceListName);
     }
 
     //根据 用户 id 返回 pieceList
-    @RequestMapping(value = "/pieceList/pieceListOfUserId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceList/pieceListOfUserId",method = RequestMethod.GET)
     public Object pieceListOfUserId(HttpServletRequest request){
         Integer userId = Integer.parseInt(request.getParameter("userId"));
         return pieceListService.pieceListOfUser(userId);

@@ -40,7 +40,7 @@ public class Piece_TagController {
         return jsonObject;
     }
     //更新 piece_tag
-    @RequestMapping(value = "/pieceTag/updatePieceTag/",method = RequestMethod.POST)
+    @RequestMapping(value = "/pieceTag/updatePieceTag",method = RequestMethod.POST)
     @ResponseBody
     public Object updatePieceTag(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
@@ -65,19 +65,19 @@ public class Piece_TagController {
         return jsonObject;
     }
     //根据 id 删除 piece_Tag 关联
-    @RequestMapping(value = "/pieceTag/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceTag/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         Integer id = Integer.parseInt(request.getParameter("id"));
         return piece_tagService.deleteById(id);
     }
     //根据 pieceId 获取 piece_tag
-    @RequestMapping(value = "/pieceTag/pieceTagOfPiece/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceTag/pieceTagOfPiece",method = RequestMethod.GET)
     public Object pieceTagOfPiece(HttpServletRequest request){
         Integer pieceId = Integer.parseInt(request.getParameter("pieceId"));
         return piece_tagService.piece_TagOfPiece(pieceId);
     }
     //根据 tagId 获取 pieceId
-    @RequestMapping(value = "/pieceTag/PieceTagOfTag/",method = RequestMethod.GET)
+    @RequestMapping(value = "/pieceTag/PieceTagOfTag",method = RequestMethod.GET)
     public Object pieceTagOfTag(HttpServletRequest request){
         Integer tagId = Integer.parseInt(request.getParameter("tagId"));
         return piece_tagService.piece_TagOfTag(tagId);

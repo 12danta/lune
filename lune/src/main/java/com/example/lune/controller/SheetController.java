@@ -25,7 +25,7 @@ public class SheetController {
     SheetService sheetService;
 
     //添加 sheet
-    @RequestMapping(value = "/sheet/addSheet/",method = RequestMethod.POST)
+    @RequestMapping(value = "/sheet/addSheet",method = RequestMethod.POST)
     @ResponseBody
     public Object addSheet(HttpServletRequest request, @Param("sheetFile")MultipartFile sheetFile){
         JSONObject jsonObject = new JSONObject();
@@ -69,7 +69,7 @@ public class SheetController {
     }
 
     //更新 sheet
-    @RequestMapping(value = "/sheet/updateSheet/",method = RequestMethod.POST)
+    @RequestMapping(value = "/sheet/updateSheet",method = RequestMethod.POST)
     @ResponseBody
     public Object updateSheet(HttpServletRequest request, @Param("sheetFile")MultipartFile sheetFile){
         JSONObject jsonObject = new JSONObject();
@@ -114,25 +114,25 @@ public class SheetController {
         return jsonObject;
     }
     //根据 id 删除 sheet
-    @RequestMapping(value = "/sheet/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/sheet/delete",method = RequestMethod.GET)
     public Object deleteSheet(HttpServletRequest request){
         Integer sheetId = Integer.parseInt(request.getParameter("sheetId"));
         return sheetService.delete(sheetId);
     }
     //根据 id 返回 sheet
-    @RequestMapping(value = "/sheet/sheetOfId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/sheet/sheetOfId",method = RequestMethod.GET)
     public Object sheetOfId(HttpServletRequest request){
         Integer sheetId = Integer.parseInt(request.getParameter("sheetId"));
         return sheetService.sheetOfId(sheetId);
     }
     //根据 曲子 id 返回 sheet
-    @RequestMapping(value = "/sheet/sheetOfPiece/",method = RequestMethod.GET)
+    @RequestMapping(value = "/sheet/sheetOfPiece",method = RequestMethod.GET)
     public Object sheetOfPiece(HttpServletRequest request){
         Integer pieceId = Integer.parseInt(request.getParameter("sheetPieceId"));
         return sheetService.sheetOfPiece(pieceId);
     }
     //根据 曲子 id 和曲谱类型返回 sheet
-    @RequestMapping(value = "/sheet/sheetOfPieceAndType/",method = RequestMethod.GET)
+    @RequestMapping(value = "/sheet/sheetOfPieceAndType",method = RequestMethod.GET)
     public Object sheetOfPieceAndType(HttpServletRequest request){
         Integer pieceId = Integer.parseInt(request.getParameter("sheetPieceId"));
         String sheetType = request.getParameter("sheetType");

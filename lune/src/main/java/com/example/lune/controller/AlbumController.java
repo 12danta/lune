@@ -30,7 +30,7 @@ public class AlbumController {
     AlbumService albumService;
 
     //添加专辑
-    @RequestMapping(value = "/album/addAlbum/",method = RequestMethod.POST)
+    @RequestMapping(value = "/album/addAlbum",method = RequestMethod.POST)
     @ResponseBody
     public Object addAlbum(HttpServletRequest request, @Param("albumPic")MultipartFile albumPic){
         JSONObject jsonObject = new JSONObject();
@@ -65,7 +65,7 @@ public class AlbumController {
 
         try {
             albumPic.transferTo(dist);
-            album.setAlbumPic("/image/albumPic/"+picName);
+            album.setAlbumPic("/image/albumPic"+picName);
         } catch (IOException e) {
             jsonObject.put("code",0);
             jsonObject.put("msg",e.getMessage());
@@ -86,7 +86,7 @@ public class AlbumController {
         return jsonObject;
     }
     //更新专辑
-    @RequestMapping(value = "/album/updateAlbum/",method = RequestMethod.POST)
+    @RequestMapping(value = "/album/updateAlbum",method = RequestMethod.POST)
     @ResponseBody
     public Object updateAlbum(HttpServletRequest request, @Param("albumPic")MultipartFile albumPic){
         JSONObject jsonObject = new JSONObject();
@@ -144,25 +144,25 @@ public class AlbumController {
         return jsonObject;
     }
     //根据 id 删除 album
-    @RequestMapping(value = "/album/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/album/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         Integer albumId = Integer.parseInt(request.getParameter("albumId"));
         return albumService.deleteById(albumId);
     }
     //根据 id 查找 album
-    @RequestMapping(value = "/album/albumOfId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/album/albumOfId",method = RequestMethod.GET)
     public Object albumOfId(HttpServletRequest request){
         Integer albumId = Integer.parseInt(request.getParameter("albumId"));
         return albumService.albumOfId(albumId);
     }
     //根据 name 查找 album
-    @RequestMapping(value = "/album/albumOfName/",method = RequestMethod.GET)
+    @RequestMapping(value = "/album/albumOfName",method = RequestMethod.GET)
     public Object albumOfName(HttpServletRequest request){
         String albumName = request.getParameter("albumName");
         return albumService.albumOfName(albumName);
     }
     //根据 label 查找 album
-    @RequestMapping(value = "/album/albumOfLabel/",method = RequestMethod.GET)
+    @RequestMapping(value = "/album/albumOfLabel",method = RequestMethod.GET)
     public Object albumOfLabel(HttpServletRequest request){
         String albumLabel = request.getParameter("albumLabel");
         return albumService.albumOfLabel(albumLabel);

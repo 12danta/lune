@@ -24,7 +24,7 @@ public class ComposerController {
     ComposerService composerService;
 
     //添加 composer
-    @RequestMapping(value = "/composer/addComposer/",method = RequestMethod.POST)
+    @RequestMapping(value = "/composer/addComposer",method = RequestMethod.POST)
     @ResponseBody
     public Object addComposer(HttpServletRequest request, @Param("composerPic")MultipartFile composerPic){
 
@@ -77,7 +77,7 @@ public class ComposerController {
     }
 
     //修改 composer
-    @RequestMapping(value = "/composer/updateComposer/",method = RequestMethod.POST)
+    @RequestMapping(value = "/composer/updateComposer",method = RequestMethod.POST)
     @ResponseBody
     public Object updateComposer(HttpServletRequest request, @Param("composerPic")MultipartFile composerPic){
 
@@ -132,31 +132,31 @@ public class ComposerController {
     }
 
     //根据 id 删除 composer
-    @RequestMapping(value = "/composer/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/composer/delete",method = RequestMethod.GET)
     public Object deleteComposer(HttpServletRequest request){
         return composerService.deleteById(Integer.parseInt(request.getParameter("composerId")));
     }
 
     //所有的 composer
-    @RequestMapping(value = "/composer/allComposer/",method = RequestMethod.GET)
+    @RequestMapping(value = "/composer/allComposer",method = RequestMethod.GET)
     public Object allComposer(){
         return composerService.allComposer();
     }
 
     //根据 period 返回 composer
-    @RequestMapping(value = "/composer/composerOfPeriod/")
+    @RequestMapping(value = "/composer/composerOfPeriod")
     public Object composerOfPeriod(HttpServletRequest request){
         return composerService.composerOfPeriod(request.getParameter("composerPeriod"));
     }
 
     //根据 id 返回 composer
-    @RequestMapping(value = "/composer/composerOfId/")
+    @RequestMapping(value = "/composer/composerOfId")
     public Object composerOfId(HttpServletRequest request){
         return composerService.composerOfId(Integer.parseInt(request.getParameter("composerId")));
     }
 
     //根据 name 返回 composer
-    @RequestMapping(value = "/composer/composerOfName/")
+    @RequestMapping(value = "/composer/composerOfName")
     public Object composerOfName(HttpServletRequest request){
         return composerService.composerOfName(request.getParameter("composerName"));
     }

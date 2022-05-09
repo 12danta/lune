@@ -21,7 +21,7 @@ public class PieceList_PieceController {
 
     //向曲目表添加 piece
     @ResponseBody
-    @RequestMapping(value = "/ListPiece/addListPiece/",method = RequestMethod.POST)
+    @RequestMapping(value = "/ListPiece/addListPiece",method = RequestMethod.POST)
     public Object addListPiece(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
 
@@ -40,7 +40,7 @@ public class PieceList_PieceController {
     }
     //修改 pieceList_piece
     @ResponseBody
-    @RequestMapping(value = "/ListPiece/updateListPiece/",method = RequestMethod.POST)
+    @RequestMapping(value = "/ListPiece/updateListPiece",method = RequestMethod.POST)
     public Object updateListPiece(HttpServletRequest request){
         JSONObject jsonObject = new JSONObject();
 
@@ -64,20 +64,20 @@ public class PieceList_PieceController {
         return jsonObject;
     }
     //根据 id 删除 pieceList_piece
-    @RequestMapping(value = "/ListPiece/delete/",method = RequestMethod.GET)
+    @RequestMapping(value = "/ListPiece/delete",method = RequestMethod.GET)
     public Object delete(HttpServletRequest request){
         Integer id = Integer.parseInt(request.getParameter("id"));
         return pieceList_pieceService.delete(id);
     }
     //根据 id 返回 pieceList_piece
-    @RequestMapping(value = "/ListPiece/ListPieceOfId/",method = RequestMethod.GET)
+    @RequestMapping(value = "/ListPiece/ListPieceOfId",method = RequestMethod.GET)
     public Object ListPieceOfId(HttpServletRequest request){
         Integer id = Integer.parseInt(request.getParameter("id"));
         return pieceList_pieceService.pieceList_PieceOfId(id);
     }
 
     //根据 PieceList 返回 pieceList_piece
-    @RequestMapping(value = "/ListPiece/ListPieceOfList/",method = RequestMethod.GET)
+    @RequestMapping(value = "/ListPiece/ListPieceOfList",method = RequestMethod.GET)
     public Object ListPieceOfList(HttpServletRequest request){
         Integer pieceListId = Integer.parseInt(request.getParameter("pieceListId"));
         return pieceList_pieceService.pieceList_PieceOfPieceList(pieceListId);
