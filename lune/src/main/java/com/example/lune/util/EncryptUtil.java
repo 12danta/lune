@@ -1,12 +1,9 @@
-package com.example.lune.config;
+package com.example.lune.util;
 
 import org.apache.tomcat.util.buf.HexUtils;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
-import org.springframework.util.DigestUtils;
 
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.Random;
 
 @Component

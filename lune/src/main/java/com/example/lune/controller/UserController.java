@@ -1,10 +1,9 @@
 package com.example.lune.controller;
 
 import com.alibaba.fastjson.JSONObject;
-import com.example.lune.config.EncryptUtil;
+import com.example.lune.util.EncryptUtil;
 import com.example.lune.domain.User;
 import com.example.lune.service.UserService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
