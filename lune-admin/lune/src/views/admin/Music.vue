@@ -1,7 +1,7 @@
 <template>
 <div class="page_width">
   <el-table
-     :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
+    :data="tableData.filter(data => !search || data.name.toLowerCase().includes(search.toLowerCase()))"
     ref="multipleTable"
     tooltip-effect="dark"
     style="width: 100%"
@@ -27,19 +27,19 @@
       :filters="[{ text: 'cello', value: 'cello' }, { text: 'mozart', value: 'mozart' },{ text: 'Snatas', value: 'Snatas' }]"
       :filter-method="filterTag"
       filter-placement="bottom-end">
-      <template slot-scope="scope">
+      <template >
       </template>
-         <template slot-scope="scope">
-                <div>
-                  <el-tag :type="success" v-for="item in scope.row.tags" :key="item.tag"
-                   disable-transitions>
-                   {{item.tag}}
-                   </el-tag>
-                </div>
+      <template slot-scope="scope">
+            <div>
+              <el-tag :type="success" v-for="item in scope.row.tags" :key="item.tag"
+                disable-transitions>
+                {{item.tag}}
+              </el-tag>
+            </div>
       </template>
     </el-table-column>
-    <el-table-column   align="right">
-        <template slot="header" slot-scope="scope">
+    <el-table-column align="right">
+        <template slot="header" \>
         <el-input
           v-model="search"
           size="mini"
@@ -175,5 +175,5 @@ export default {
 
 </script>
 
-<style scope>
+<style>
 </style>
