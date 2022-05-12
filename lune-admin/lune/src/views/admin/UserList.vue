@@ -10,9 +10,10 @@
     <el-table-column label="Registration Date" width="200">
       <template slot-scope="scope">{{ scope.row.date }}</template>
     </el-table-column>
-    <el-table-column prop="nickname" label="nickname" width="120"> </el-table-column>
-    <el-table-column prop="username" label="username" width="120"></el-table-column>
-    <el-table-column prop="password" label="password" width="200"></el-table-column>
+    <el-table-column prop="userName" label="userName" width="120"> </el-table-column>
+    <el-table-column prop="Avatar" label="Avatar" width="120"></el-table-column>
+    <el-table-column prop="Email" label="Email" width="200"></el-table-column>
+    <el-table-column prop="Registration Time" label="Registration Time" width="200"></el-table-column>
     <el-table-column
       prop="tag"
       label="status"
