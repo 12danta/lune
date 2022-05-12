@@ -1,12 +1,12 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
 import Header from '../components/layout/Header'
 import Data from '../views/admin/Data'
 import Users from '../views/admin/UserList'
 import Music from '../views/admin/Music'
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   routes: [
     {
       path: '/',
