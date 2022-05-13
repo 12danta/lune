@@ -7,13 +7,13 @@
     style="width: 100%"
     @selection-change="handleSelectionChange">
     <el-table-column type="selection" width="55"> </el-table-column>
-    <el-table-column label="Registration Date" width="200">
-      <template slot-scope="scope">{{ scope.row.date }}</template>
-    </el-table-column>
+
     <el-table-column prop="userName" label="userName" width="120"> </el-table-column>
     <el-table-column prop="Avatar" label="Avatar" width="120"></el-table-column>
     <el-table-column prop="Email" label="Email" width="200"></el-table-column>
-    <el-table-column prop="Registration Time" label="Registration Time" width="200"></el-table-column>
+    <el-table-column label="Registration Date" width="200">
+      <template slot-scope="scope">{{ scope.row.date }}</template>
+    </el-table-column>
     <el-table-column
       prop="tag"
       label="status"
@@ -55,59 +55,52 @@ export default {
       tableData: [
         {
           date: '2016-05-03',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
+          userName: 'moonm',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
           user_status: 'user'
         },
         {
-          date: '2016-05-02',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
+          user_status: 'user'
+        },
+        {
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
+          user_status: 'user'
+        },
+        {
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
           user_status: 'admin'
         },
         {
-          date: '2016-05-04',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          user_status: 'user'
-        },
-        {
-          date: '2016-05-01',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
           user_status: 'admin'
         },
         {
-          date: '2016-05-08',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          user_status: 'user'
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
+          user_status: 'admin'
         },
         {
-          date: '2016-05-06',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          user_status: 'user'
-        },
-        {
-          date: '2016-05-07',
-          username: 'moon',
-          password: '123',
-          nickname: '王小虎',
-          address: '上海市普陀区金沙江路 1518 弄',
-          user_status: 'user'
+          date: '2016-05-03',
+          userName: 'moon',
+          Avatar: '/user/avatar/avatar.png',
+          Email: 'lune@gmail.com',
+          user_status: 'admin'
         }
       ],
       search: '',
