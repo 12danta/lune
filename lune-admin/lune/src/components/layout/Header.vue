@@ -29,7 +29,7 @@
   </el-header>
   <!-- 侧边栏 -->
   <el-container>
-    <el-aside width="200px">
+    <el-aside width="200px" style="overflow: hidden">
       <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
         <el-menu-item index="/data">
           <i class="el-icon-house"></i>

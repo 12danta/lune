@@ -1,54 +1,60 @@
 <template>
-  <div
-    class="echart"
-    id="mychart"
-    :style="{ float: 'left', width: '100%', height: '400px' }"
-  ></div>
+<div>
+<div>
+  <el-row :gutter="20">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+</div>
+<div>
+  <el-row :gutter="20">
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+</el-row>
+</div>
+</div>
 </template>
 
 <script>
-import * as echarts from 'echarts'
 
 export default {
-  data () {
-    return {
-      name: '张雪',
-      xData: ['2020-02', '2020-03', '2020-04', '2020-05'], // 横坐标数据
-      yData: [30, 132, 80, 134] // 纵坐标数据，与横坐标对应
-    }
-  },
-  mounted () {
-    this.initEcharts()
-  },
-  methods: {
-    initEcharts () {
-      const option = {
-        title: {
-          text: 'ECharts 入门示例'
-        },
-        tooltip: {},
-        legend: {
-          data: ['销量']
-        },
-        xAxis: {
-          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-        },
-        yAxis: {},
-        series: [
-          {
-            name: '销量',
-            type: 'bar', // 类型为柱状图
-            data: [5, 20, 36, 10, 10, 20]
-          }
-        ]
-      }
-      const myChart = echarts.init(document.getElementById('mychart'))// 图标初始化
-      myChart.setOption(option)// 渲染页面
-      // 随着屏幕大小调节图表
-      window.addEventListener('resize', () => {
-        myChart.resize()
-      })
-    }
-  }
+
 }
 </script>
+<style>
+.grid-content {
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+.el-row {
+    margin-bottom: 20px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .el-col {
+    border-radius: 4px;
+  }
+  .bg-purple-dark {
+    background: #99a9bf;
+  }
+  .bg-purple {
+    background: #d3dce6;
+  }
+  .bg-purple-light {
+    background: #e5e9f2;
+  }
+  .grid-content {
+    border-radius: 4px;
+    min-height: 36px;
+  }
+  .row-bg {
+    padding: 10px 0;
+    background-color: #f9fafc;
+  }
+</style>
