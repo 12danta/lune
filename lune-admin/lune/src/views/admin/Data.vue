@@ -9,14 +9,12 @@
 </el-row>
 </div>
 <div>
-  <el-row :gutter="20">
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-row :gutter="30">
+  <el-col :span="12"><div class="cav-info box" >
+    <div id="container" ref = 'aaa' ></div>
+    </div></el-col>
 </el-row>
 </div>
-<div id="container" ref = 'aaa'></div>
 </div>
 
 </template>
@@ -166,4 +164,14 @@ export default{
     padding: 10px 0;
     background-color: #f9fafc;
   }
+.box {
+    height: 500px;
+    width: 1000px;
+}
+.cav-info {
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #d7e0ec;
+}
+
 </style>
