@@ -10,8 +10,9 @@
 </div>
 <div>
   <el-row :gutter="30">
-  <el-col :span="12"><div class="cav-info box" >
-    <div id="container" ref = 'aaa' ></div>
+  <el-col :span="12">
+    <div class="cav-info box" >
+      <div id="container" ref = 'aaa' ></div>
     </div></el-col>
 </el-row>
 </div>
@@ -31,10 +32,11 @@ export default{
           }
         },
         title: {
-          left: 'center',
+          left: '250',
           text: 'Large Area Chart'
         },
         toolbox: {
+          right: '50',
           feature: {
             dataZoom: {
               yAxisIndex: 'none'
@@ -42,6 +44,13 @@ export default{
             restore: {},
             saveAsImage: {}
           }
+        },
+        grid: {
+          x: 100,
+          y: 100,
+          x2: 100,
+          y2: 100,
+          borderWidth: 1
         },
         xAxis: {
           type: 'category',
@@ -130,8 +139,12 @@ export default{
 </script>
 <style>
 #container{
-    width: 1000px;
-    height: 500px;
+  margin-right: 0px;
+  margin-left: 0px;
+  margin-top: 20px;
+    width: 700px;
+    height: 400px;
+
 }
 .grid-content {
   display: flex;
@@ -165,8 +178,8 @@ export default{
     background-color: #f9fafc;
   }
 .box {
-    height: 500px;
-    width: 1000px;
+    height: 450px;
+    width: 700px;
 }
 .cav-info {
   border-radius: 6px;
