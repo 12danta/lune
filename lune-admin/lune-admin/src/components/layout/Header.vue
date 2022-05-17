@@ -31,9 +31,9 @@
   <el-container>
     <el-aside width="200px" style="overflow: hidden">
       <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
-        <el-menu-item index="/data">
+        <el-menu-item index="/dashboard">
           <i class="el-icon-house"></i>
-          <span slot="title">Web Data</span>
+          <span slot="title">Dashboard</span>
         </el-menu-item>
         <el-menu-item index="/music">
           <i class="el-icon-service"></i>
@@ -59,7 +59,7 @@
 export default {
   data () {
     return {
-      activeIndex: '/data',
+      activeIndex: '/dashboard',
       isCollapse: false,
       username: 'admin',
       userPic: require('@/assets/img/user.jpg'),

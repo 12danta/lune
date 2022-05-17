@@ -1,11 +1,32 @@
 <template>
 <div>
 <div>
-  <el-row :gutter="20">
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-  <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+  <el-row :gutter="40">
+  <el-col :span="8">
+    <div class="grid-content bg-purple">
+      <div class="stats-content">
+        <div class="stats-name">user count</div>
+        <div class="stats-data">{{user_count}}</div>
+      </div>
+    </div>
+  </el-col>
+  <el-col :span="8">
+    <div class="grid-content bg-purple">
+      <div class="stats-content">
+        <div class="stats-name">piece count</div>
+        <div class="stats-data">{{piece_count}}</div>
+      </div>
+    </div>
+  </el-col>
+  <el-col :span="8">
+    <div class="grid-content bg-purple">
+      <div class="stats-content">
+        <div class="stats-name">sheet count</div>
+        <div class="stats-data">{{sheet_count}}</div>
+      </div>
+    </div>
+  </el-col>
+
 </el-row>
 </div>
 <div>
@@ -14,6 +35,12 @@
     <div class="cav-info box" >
       <div id="container" ref = 'aaa' ></div>
     </div></el-col>
+</el-row>
+</div>
+<div>
+  <el-row :gutter="20">
+  <el-col :span="12"><div class="grid-bottom bg-purple"></div></el-col>
+  <el-col :span="12"><div class="grid-bottom bg-purple"></div></el-col>
 </el-row>
 </div>
 </div>
@@ -32,8 +59,8 @@ export default{
           }
         },
         title: {
-          left: '250',
-          text: 'Large Area Chart'
+          left: 'center',
+          text: 'Flow Statistic'
         },
         toolbox: {
           right: '50',
@@ -47,7 +74,7 @@ export default{
         },
         grid: {
           x: 100,
-          y: 100,
+          y: 30,
           x2: 100,
           y2: 100,
           borderWidth: 1
@@ -99,7 +126,10 @@ export default{
             data: [47.51675878445181, 57, 55, 55, 50, 43, 53, 44, 45, 40, 50, 50, 50, 40, 44, 42, 39, 33, 29]
           }
         ]
-      }
+      },
+      user_count: 2415,
+      piece_count: 410,
+      sheet_count: 378
 
     }
   },
@@ -138,18 +168,28 @@ export default{
 }
 </script>
 <style>
+
 #container{
   margin-right: 0px;
   margin-left: 0px;
   margin-top: 20px;
-    width: 700px;
-    height: 400px;
-
+    width: 1200px;
+    height: 300px;
+}
+.box {
+    height: 350px;
+    width: 1180px;
 }
 .grid-content {
   display: flex;
   align-items: center;
   height: 100px;
+}
+.grid-bottom{
+  display: flex;
+  border-radius: 4px;
+  align-items: center;
+  height: 290px;
 }
 .el-row {
     margin-bottom: 20px;
@@ -177,14 +217,35 @@ export default{
     padding: 10px 0;
     background-color: #f9fafc;
   }
-.box {
-    height: 450px;
-    width: 700px;
-}
 .cav-info {
   border-radius: 6px;
   overflow: hidden;
   background-color: #d7e0ec;
 }
+.stats-content{
+  display: inline-flex;
+    margin: 2px 50px;
+    height: 60px;
+    width: 300px;
+}
+.stats-name{
 
+    width: 100px;
+    height: 30px;
+    margin-left: 10px;
+    margin-top: 20px;
+    color:#ebeef3;
+    font-weight: 700;
+
+}
+.stats-data{
+
+    font-size: 200%;
+    width: 100px;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 5px;
+    color: #9da1a7;
+    font-weight: 800;
+}
 </style>
