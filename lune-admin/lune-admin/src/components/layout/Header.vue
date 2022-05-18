@@ -28,8 +28,8 @@
     </div>
   </el-header>
   <!-- 侧边栏 -->
-  <el-container>
-    <el-aside width="200px" style="overflow: hidden">
+  <el-container style="display:flex">
+    <el-aside style="overflow: hidden" v-bind:style="{width:isCollapse ? '64px':'200px'}">
       <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
         <el-menu-item index="/dashboard">
           <i class="el-icon-house"></i>
@@ -45,7 +45,7 @@
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-main>
+    <el-main style="flex:1">
       <div>
         <router-view/>
       </div>

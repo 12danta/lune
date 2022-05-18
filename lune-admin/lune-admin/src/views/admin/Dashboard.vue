@@ -31,7 +31,7 @@
 </div>
 <div>
   <el-row :gutter="30">
-  <el-col :span="12">
+  <el-col :span="24">
     <div class="cav-info box" >
       <div id="container" ref = 'aaa' ></div>
     </div></el-col>
@@ -63,7 +63,7 @@ export default{
           text: 'Flow Statistic'
         },
         toolbox: {
-          right: '50',
+          right: '20',
           feature: {
             dataZoom: {
               yAxisIndex: 'none'
@@ -73,9 +73,9 @@ export default{
           }
         },
         grid: {
-          x: 100,
+          x: 40,
           y: 30,
-          x2: 100,
+          x2: 30,
           y2: 100,
           borderWidth: 1
         },
@@ -265,15 +265,17 @@ export default{
 <style>
 
 #container{
-  margin-right: 0px;
-  margin-left: 0px;
-  margin-top: 20px;
-    width: 1200px;
+    display: flex;
+    width: 90%;
+    margin: auto;
+     justify-content:center;
     height: 300px;
 }
 .box {
+    width: 100%;
+    display: flex;
     height: 350px;
-    width: 1180px;
+
 }
 .grid-content {
   display: flex;
