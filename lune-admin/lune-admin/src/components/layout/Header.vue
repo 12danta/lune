@@ -37,11 +37,15 @@
         </el-menu-item>
         <el-menu-item index="/music">
           <i class="el-icon-service"></i>
-          <span slot="title">music Manage</span>
+          <span slot="title">Music Manage</span>
         </el-menu-item>
         <el-menu-item index="/users">
           <i class="el-icon-s-custom"></i>
-          <span slot="title">User Manager</span>
+          <span slot="title">User Manage</span>
+        </el-menu-item>
+        <el-menu-item index="/composer">
+          <i class="el-icon-s-custom"></i>
+          <span slot="title">Composer Manage</span>
         </el-menu-item>
       </el-menu>
     </el-aside>

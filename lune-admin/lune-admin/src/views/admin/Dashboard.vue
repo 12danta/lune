@@ -268,7 +268,7 @@ export default{
     display: flex;
     width: 90%;
     margin: auto;
-     justify-content:center;
+    justify-content:center;
     height: 300px;
 }
 .box {
