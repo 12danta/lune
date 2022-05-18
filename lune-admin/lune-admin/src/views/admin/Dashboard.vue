@@ -39,8 +39,8 @@
 </div>
 <div>
   <el-row :gutter="20">
-  <el-col :span="12"><div class="grid-bottom bg-purple"></div></el-col>
-  <el-col :span="12"><div class="grid-bottom bg-purple"></div></el-col>
+  <el-col :span="12"><div class="grid-bottom bg-purple" ref="bbb"></div></el-col>
+  <el-col :span="12"><div class="grid-bottom bg-purple" ref="ccc"></div></el-col>
 </el-row>
 </div>
 </div>
@@ -82,7 +82,7 @@ export default{
         xAxis: {
           type: 'category',
           boundaryGap: false,
-          //   data: this.date
+          // data: this.date
           data: ['1968/10/4', '1968/10/5', '1968/10/6', '1968/10/7', '1968/10/8', '1968/10/9', '1968/10/10', '1968/10/11', '1968/10/12']
 
         },
@@ -127,6 +127,93 @@ export default{
           }
         ]
       },
+      second_option: {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: 1048, name: 'Search Engine' },
+              { value: 735, name: 'Direct' },
+              { value: 580, name: 'Email' },
+              { value: 484, name: 'Union Ads' },
+              { value: 300, name: 'Video Ads' }
+            ]
+          }
+        ]
+      },
+      third_option: {
+        tooltip: {
+          trigger: 'item'
+        },
+        legend: {
+          top: '5%',
+          left: 'center'
+        },
+        series: [
+          {
+            name: 'Access From',
+            type: 'pie',
+            radius: ['40%', '70%'],
+            avoidLabelOverlap: false,
+            itemStyle: {
+              borderRadius: 10,
+              borderColor: '#fff',
+              borderWidth: 2
+            },
+            label: {
+              show: false,
+              position: 'center'
+            },
+            emphasis: {
+              label: {
+                show: true,
+                fontSize: '40',
+                fontWeight: 'bold'
+              }
+            },
+            labelLine: {
+              show: false
+            },
+            data: [
+              { value: 1048, name: 'Search Engine' },
+              { value: 735, name: 'Direct' },
+              { value: 580, name: 'Email' },
+              { value: 484, name: 'Union Ads' },
+              { value: 300, name: 'Video Ads' }
+            ]
+          }
+        ]
+      },
+
       user_count: 2415,
       piece_count: 410,
       sheet_count: 378
@@ -138,13 +225,13 @@ export default{
       let base = +new Date(1968, 9, 3)
       let oneDay = 24 * 3600 * 1000
       let date = []
-      let data = [Math.random() * 300]
+      let datas = [Math.random() * 300]
       for (let i = 1; i < 20000; i++) {
         var now = new Date((base += oneDay))
         date.push([now.getFullYear(), now.getMonth() + 1, now.getDate()].join('/'))
-        data.push(Math.round((Math.random() - 0.5) * 20 + data[i - 1]))
+        datas.push(Math.round((Math.random() - 0.5) * 20 + datas[i - 1]))
       }
-      return data
+      return datas
     },
     date () {
       let base = +new Date(1968, 9, 3)
@@ -164,6 +251,14 @@ export default{
     const myCharts = echarts.init(dom)
     myCharts.setOption(this.Option)
     console.log(this.datas, this.date)
+
+    const dom2 = this.$refs.bbb
+    const myCharts2 = echarts.init(dom2)
+    myCharts2.setOption(this.second_option)
+
+    const dom3 = this.$refs.ccc
+    const myCharts3 = echarts.init(dom3)
+    myCharts3.setOption(this.third_option)
   }
 }
 </script>
@@ -188,8 +283,9 @@ export default{
 .grid-bottom{
   display: flex;
   border-radius: 4px;
+  padding-top: 15px;
   align-items: center;
-  height: 290px;
+  height: 280px;
 }
 .el-row {
     margin-bottom: 20px;
