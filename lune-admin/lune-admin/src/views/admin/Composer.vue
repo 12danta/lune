@@ -9,8 +9,23 @@
     <el-table-column type="selection" width="55"> </el-table-column>
 
     <el-table-column prop="performerName" label="Name" width="180"> </el-table-column>
-    <el-table-column prop="performerPic" label="Pic" width="200"></el-table-column>
-    <el-table-column prop="performerIntroduction" label="Introduction" width="300"></el-table-column>
+    <el-table-column label="Pic" width="200">
+        <template slot-scope="scope">
+          <div class="demo-image__preview">
+          <el-image
+          style="width: 100px; height: 100px"
+          :src="url"
+          :preview-src-list="srcList">
+        </el-image>
+      </div>
+          <el-button
+              size="mini"
+              type="warning"
+              plain
+              @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
+        </template>
+    </el-table-column>
+    <el-table-column prop="performerIntroduction" label="Introduction" width="400" ></el-table-column>
     <el-table-column
       prop="performerType"
       label="perfomerType"
@@ -79,6 +94,11 @@ export default {
           performerType: 'violinist'
         }
       ],
+      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      srcList: [
+        'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
+        'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
+      ],
       search: '',
       multipleSelection: []
     }
@@ -99,6 +119,15 @@ export default {
     },
     filterTag (value, row) {
       return row.user_status === value
+    },
+    handleUpdatePic (index, row) {
+      console.log(index, row)
+    },
+    handleEdit (index, row) {
+      console.log(index, row)
+    },
+    handleDelete (index, row) {
+      console.log(index, row)
     }
   }
 }

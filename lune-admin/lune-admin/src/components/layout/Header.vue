@@ -70,6 +70,9 @@ export default {
       nusicName: 'music'
     }
   },
+  mounted () {
+    this.activeIndex = this.handleSelect()
+  },
   methods: {
     // 用户名下拉菜单选择事件
     // 侧边栏折叠
@@ -78,7 +81,12 @@ export default {
     },
     handleSelect (key, keyPath) {
       console.log(key, keyPath)
+      // this.activeIndex = keyPath[0]
+      console.log(this.activeIndex)
       this.$router.push(key)
+      return key
+
+      // return keyPath[0]
     },
     // 用户名下拉菜单选择事件
     handleCommand (command) {
