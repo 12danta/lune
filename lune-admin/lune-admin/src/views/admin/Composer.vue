@@ -8,26 +8,22 @@
     @selection-change="handleSelectionChange">
     <el-table-column type="selection" width="55"> </el-table-column>
 
-    <el-table-column prop="userName" label="userName" width="120"> </el-table-column>
-    <el-table-column prop="Avatar" label="Avatar" width="120"></el-table-column>
-    <el-table-column prop="Email" label="Email" width="200"></el-table-column>
-    <el-table-column label="Registration Date" width="200">
-      <template slot-scope="scope">{{ scope.row.date }}</template>
-    </el-table-column>
+    <el-table-column prop="performerName" label="Name" width="180"> </el-table-column>
+    <el-table-column prop="performerPic" label="Pic" width="200"></el-table-column>
+    <el-table-column prop="performerIntroduction" label="Introduction" width="300"></el-table-column>
     <el-table-column
-      prop="tag"
-      label="status"
-      :filters="[{ text: 'user', value: 'user' }, { text: 'admin', value: 'admin' }]"
+      prop="performerType"
+      label="perfomerType"
+      :filters="[{ text: 'violinist', value: 'violinsit' }, { text: 'pianist', value: 'pianist' }]"
       :filter-method="filterTag"
       filter-placement="bottom-end">
       <template slot-scope="scope">
         <el-tag
-          :type="scope.row.user_status === 'user' ? 'primary' : 'success'"
-          disable-transitions>{{scope.row.user_status}}</el-tag>
+          disable-transitions>{{scope.row.performerType}}</el-tag>
       </template>
     </el-table-column>
     <el-table-column   align="right">
-        <template slot="header" slot-scope="scope">
+        <template slot="header">
         <el-input
           v-model="search"
           size="mini"
@@ -53,53 +49,34 @@ export default {
     return {
       tableData: [
         {
-          date: '2016-05-03',
-          userName: 'moonm',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'user'
+          performerName: 'Hilary Hahn',
+          performerPic: 'Pic',
+          performerIntroduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.',
+          performerType: 'violinist'
         },
         {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'user'
+          performerName: 'Hilary Hahn',
+          performerPic: 'Pic',
+          performerIntroduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.',
+          performerType: 'violinist'
         },
         {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'user'
+          performerName: 'Hilary Hahn',
+          performerPic: 'Pic',
+          performerIntroduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.',
+          performerType: 'violinist'
         },
         {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'admin'
+          performerName: 'Hilary Hahn',
+          performerPic: 'Pic',
+          performerIntroduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.',
+          performerType: 'violinist'
         },
         {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'admin'
-        },
-        {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'admin'
-        },
-        {
-          date: '2016-05-03',
-          userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
-          Email: 'lune@gmail.com',
-          user_status: 'admin'
+          performerName: 'Hilary Hahn',
+          performerPic: 'Pic',
+          performerIntroduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.',
+          performerType: 'violinist'
         }
       ],
       search: '',
