@@ -4,7 +4,7 @@ import Header from '../components/layout/Header'
 import Dashboard from '../views/admin/Dashboard'
 import Users from '../views/admin/UserList'
 import Music from '../views/admin/Music'
-import Composer from '../views/admin/Composer'
+import Performer from '../views/admin/Performer'
 
 Vue.use(VueRouter)
 
@@ -39,8 +39,8 @@ export default new VueRouter({
           component: Music
         },
         {
-          path: '/composer',
-          component: Composer
+          path: '/performer',
+          component: Performer
         }
       ]
     }

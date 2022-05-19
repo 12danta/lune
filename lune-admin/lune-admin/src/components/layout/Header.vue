@@ -43,9 +43,9 @@
           <i class="el-icon-s-custom"></i>
           <span slot="title">User Manage</span>
         </el-menu-item>
-        <el-menu-item index="/composer">
+        <el-menu-item index="/performer">
           <i class="el-icon-s-custom"></i>
-          <span slot="title">Composer Manage</span>
+          <span slot="title">Performer Manage</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
