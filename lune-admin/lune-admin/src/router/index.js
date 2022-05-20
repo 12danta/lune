@@ -5,6 +5,7 @@ import Dashboard from '../views/admin/Dashboard'
 import Users from '../views/admin/UserList'
 import Music from '../views/admin/Music'
 import Performer from '../views/admin/Performer'
+import Composer from '../views/admin/Composer'
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,10 @@ export default new VueRouter({
         {
           path: '/performer',
           component: Performer
+        },
+        {
+          path: '/composer',
+          component: Composer
         }
       ]
     }
