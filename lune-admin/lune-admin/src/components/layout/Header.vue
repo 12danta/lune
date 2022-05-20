@@ -51,6 +51,10 @@
           <i class="el-icon-s-custom"></i>
           <span slot="title">Composer Manage</span>
         </el-menu-item>
+        <el-menu-item index="/album">
+          <i class="el-icon-s-custom"></i>
+          <span slot="title">Album Manage</span>
+        </el-menu-item>
       </el-menu>
     </el-aside>
     <el-main style="flex:1">
