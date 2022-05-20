@@ -3,12 +3,13 @@ package com.example.lune.config;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisConnectionFactory;
 
-import javax.crypto.KeyGenerator;
+
 
 @Configuration
 @EnableCaching
@@ -20,6 +21,7 @@ public class RedisConfig extends CachingConfigurerSupport {
         RedisCacheManager cacheManager = RedisCacheManager.builder(factory).build();
         return cacheManager;
     }
+
     //自定义缓存key生成策略
     @Bean
     public KeyGenerator keyGenerator() {
