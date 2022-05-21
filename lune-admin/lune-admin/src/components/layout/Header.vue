@@ -32,9 +32,12 @@
     <el-aside style="overflow: hidden" v-bind:style="{width:isCollapse ? '64px':'200px'}">
       <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
         <el-menu-item index="/dashboard">
-          <i class="el-icon-house"></i>
+        <div class="icon">
+          <img src="../../assets/icon/dashboard.svg" />
+        </div>
           <span slot="title">Dashboard</span>
         </el-menu-item>
+
         <el-menu-item index="/music">
           <i class="el-icon-service"></i>
           <span slot="title">Music Manage</span>
@@ -159,5 +162,14 @@ export default {
   width: 40px;
   height: 40px;
   border-radius: 40%;
+}
+.icon{
+  width: 20px;
+}
+.icon img{
+  align-items: center;
+  display: flex;
+  width: 20px;
+  height: 20px;
 }
 </style>
