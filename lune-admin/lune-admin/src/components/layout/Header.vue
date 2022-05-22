@@ -32,31 +32,29 @@
     <el-aside style="overflow: hidden" v-bind:style="{width:isCollapse ? '64px':'200px'}">
       <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
         <el-menu-item index="/dashboard">
-        <div class="icon">
-          <img src="../../assets/icon/dashboard.svg" />
-        </div>
-          <span slot="title">Dashboard</span>
+          <li class="iconfont icon-dashboard icon"></li>
+          <span slot="title" class="title">Dashboard</span>
+        </el-menu-item>
+        <el-menu-item index="/music">
+          <li class="iconfont icon-music icon"></li>
+          <span slot="title" class="title">Music Manage</span>
         </el-menu-item>
 
-        <el-menu-item index="/music">
-          <i class="el-icon-service"></i>
-          <span slot="title">Music Manage</span>
-        </el-menu-item>
         <el-menu-item index="/users">
-          <i class="el-icon-s-custom"></i>
-          <span slot="title">User Manage</span>
+          <li class="iconfont icon-user icon"></li>
+          <span slot="title" class="title">User Manage</span>
         </el-menu-item>
         <el-menu-item index="/performer">
-          <i class="el-icon-s-custom"></i>
-          <span slot="title">Performer Manage</span>
+          <li class="iconfont icon-piano icon"></li>
+          <span slot="title" class="title">Performer Manage</span>
         </el-menu-item>
         <el-menu-item index="/composer">
-          <i class="el-icon-s-custom"></i>
-          <span slot="title">Composer Manage</span>
+          <li class="iconfont icon-line-quillpenyumaobi icon"></li>
+          <span slot="title" class="title">Composer Manage</span>
         </el-menu-item>
         <el-menu-item index="/album">
-          <i class="el-icon-s-custom"></i>
-          <span slot="title">Album Manage</span>
+          <li class="iconfont icon-album icon"></li>
+          <span slot="title" class="title">Album Manage</span>
         </el-menu-item>
       </el-menu>
     </el-aside>
@@ -164,12 +162,19 @@ export default {
   border-radius: 40%;
 }
 .icon{
+  display: inline;
   width: 20px;
 }
+.select{
+  padding-top: 10px;
+}
 .icon img{
-  align-items: center;
-  display: flex;
+  margin-left: 6px;
+  margin-top: -4px;
   width: 20px;
   height: 20px;
+}
+.title{
+  margin-left: 10px;
 }
 </style>
