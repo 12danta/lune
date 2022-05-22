@@ -3,7 +3,7 @@
   <el-header>
     <div class= "header">
       <div class="menu-btn" @click="handleCollapse">
-        <el-icon class='el-icon-menu' ></el-icon>
+        <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
       </div>
       <div class="header-right">
       <div class="header-user-con">
@@ -130,10 +130,12 @@ export default {
 .menu-btn{
   all:unset;
   width: 40px;
+  height: 40px;
   float: left;
   cursor: pointer;
   line-height: 70px;
-  margin-left: 10px;
+  margin-left: 15px;
+  margin-top: 10px;
 }
 
 .header-right {
@@ -176,5 +178,10 @@ export default {
 }
 .title{
   margin-left: 10px;
+}
+menu-btn img{
+  display:block;
+  width:20px;
+  height: 20px;
 }
 </style>
