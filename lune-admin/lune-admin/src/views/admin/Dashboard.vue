@@ -128,6 +128,7 @@ export default{
         ]
       },
       second_option: {
+        color: ['#D6D5B7', '#D1BA74', '#E6CEAC', '#F4606C', '#ECAD9E'],
         tooltip: {
           trigger: 'item'
         },
@@ -171,6 +172,7 @@ export default{
         ]
       },
       third_option: {
+        color: ['#19CAAD', '#8CC7B5', '#A0EEE1', '#BEE7E9', '#BEEDC7'],
         tooltip: {
           trigger: 'item'
         },
@@ -302,7 +304,8 @@ export default{
     background: #99a9bf;
   }
   .bg-purple {
-    background: #d3dce6;
+    background-color: #fefefe;
+  box-shadow: 0px 0px 8px 2px rgba(213, 202, 202, 0.3);
   }
   .bg-purple-light {
     background: #e5e9f2;
@@ -318,7 +321,8 @@ export default{
 .cav-info {
   border-radius: 6px;
   overflow: hidden;
-  background-color: #d7e0ec;
+  background-color: #fefefe;
+  box-shadow: 0px 0px 8px 2px rgba(213, 202, 202, 0.3);
 }
 .stats-content{
   display: inline-flex;
@@ -332,7 +336,7 @@ export default{
     height: 30px;
     margin-left: 10px;
     margin-top: 20px;
-    color:#ebeef3;
+    color:#d4d6da;
     font-weight: 700;
 
 }

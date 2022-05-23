@@ -30,7 +30,7 @@
   <!-- 侧边栏 -->
   <el-container style="display:flex">
     <el-aside style="overflow: hidden" v-bind:style="{width:isCollapse ? '64px':'200px'}">
-      <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex">
+      <el-menu  :collapse="isCollapse"  @select="handleSelect" :default-active="activeIndex"  style="margin-top:10px">
         <el-menu-item index="/dashboard">
           <li class="iconfont icon-dashboard icon"></li>
           <span slot="title" class="title">Dashboard</span>
@@ -58,7 +58,7 @@
         </el-menu-item>
       </el-menu>
     </el-aside>
-    <el-main style="flex:1">
+    <el-main style="flex:1 ;background:rgb(231, 236, 235); margin-top:10px" >
       <div>
         <router-view/>
       </div>
@@ -123,8 +123,8 @@ export default {
   height: 70px;
   font-size: 30px;
   color: #0f382a;
-  background: #71a5a8;
   box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
+  border-bottom: #9b9f9e;
 }
 
 .menu-btn{
