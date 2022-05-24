@@ -78,7 +78,7 @@
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+          @click="handleDelete(scope.$index, scope.row);open()">Delete</el-button>
         </div>
       </template>
     </el-table-column>
@@ -207,6 +207,23 @@ export default {
     },
     handleDelete (index, row) {
       console.log(index, row)
+    },
+    open () {
+      this.$confirm('Are you sure to delete it?', 'Tip', {
+        confirmButtonText: 'yes',
+        cancelButtonText: 'no',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: 'Deleted successfully!'
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: 'Deletions have been reversed'
+        })
+      })
     }
   }
 }
