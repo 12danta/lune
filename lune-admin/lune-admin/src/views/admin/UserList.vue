@@ -40,7 +40,7 @@
         <el-button
           size="mini"
           type="danger"
-          @click="handleDelete(scope.$index, scope.row)">Del</el-button>
+          @click="handleDelete(scope.$index, scope.row);open()">Del</el-button>
       </template>
     </el-table-column>
   </el-table>
@@ -123,6 +123,23 @@ export default {
     },
     filterTag (value, row) {
       return row.user_status === value
+    },
+    open () {
+      this.$confirm('Are you sure to delete it?', 'Tip', {
+        confirmButtonText: 'yes',
+        cancelButtonText: 'no',
+        type: 'warning'
+      }).then(() => {
+        this.$message({
+          type: 'success',
+          message: 'Deleted successfully!'
+        })
+      }).catch(() => {
+        this.$message({
+          type: 'info',
+          message: 'Deletions have been reversed'
+        })
+      })
     }
   }
 }
