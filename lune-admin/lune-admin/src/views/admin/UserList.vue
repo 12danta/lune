@@ -143,6 +143,12 @@ export default {
         })
         .catch(_ => {})
     },
+    handleEdit (index, row) {
+      console.log(index, row)
+    },
+    handleDelete (index, row) {
+      console.log(index, row)
+    },
     open () {
       this.$confirm('Are you sure to delete it?', 'Tip', {
         confirmButtonText: 'yes',
