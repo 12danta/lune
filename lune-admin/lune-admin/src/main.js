@@ -7,9 +7,10 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/icon/iconfont.css'
 import './assets/icon/iconfont.js'
+import locale from 'element-ui/lib/locale/lang/en'
 // import echarts from 'echarts'
 // Vue.prototype.$echarts = echarts
-Vue.use(ElementUI)
+Vue.use(ElementUI, { locale })
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
