@@ -26,7 +26,7 @@
           disable-transitions>{{scope.row.user_status}}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column   align="right">
+    <el-table-column>
         <template slot="header" slot-scope="scope">
         <el-input
           v-model="search"

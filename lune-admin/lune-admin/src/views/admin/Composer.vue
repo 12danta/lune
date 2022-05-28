@@ -38,7 +38,7 @@
           disable-transitions>{{scope.row.composerPeriod}}</el-tag>
       </template>
     </el-table-column>
-    <el-table-column   align="right">
+    <el-table-column>
         <template slot="header">
         <el-input
           v-model="search"

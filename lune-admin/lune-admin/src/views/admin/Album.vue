@@ -27,7 +27,7 @@
     </el-table-column>
     <el-table-column prop="albumReleaseTime" label="Release Time" width="300" ></el-table-column>
     <el-table-column prop="albumRecordLabel" label="Record Label" width="150" ></el-table-column>
-    <el-table-column   align="right">
+    <el-table-column>
         <template slot="header">
         <el-input
           v-model="search"
