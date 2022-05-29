@@ -76,7 +76,7 @@
           size="mini"
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
           <el-dialog
-            title="Edit"
+            title="Music"
             :visible.sync="dialogVisible"
             width="60%"
             :before-close="handleClose">
@@ -95,8 +95,8 @@
               </el-form-item>
               <el-form-item label="tag">
                 <div>
-                  <el-tag>标签一</el-tag>
-                  <el-tag type="success">标签二</el-tag>
+                  <el-tag>Violin</el-tag>
+                  <el-tag type="success">Mozart</el-tag>
                   <el-tag type="info">标签三</el-tag>
                   <el-tag type="warning">标签四</el-tag>
                   <el-tag type="danger">标签五</el-tag>
