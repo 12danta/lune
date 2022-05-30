@@ -49,7 +49,7 @@
           size="mini"
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
           <el-dialog
-            title="Edit"
+            title="Performer"
             :visible.sync="dialogVisible"
             width="60%"
             :before-close="handleClose">
