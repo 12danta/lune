@@ -50,14 +50,65 @@
           size="mini"
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
           <el-dialog
-            title="提示"
+            title="Composer"
             :visible.sync="dialogVisible"
-            width="30%"
+            width="60%"
             :before-close="handleClose">
-            <span>这是一段信息</span>
+            <el-form ref="form" :model="form" label-width="100px">
+              <el-form-item label="name">
+                <el-input v-model="form.name"></el-input>
+              </el-form-item>
+              <el-form-item label="Composer">
+                <el-input v-model="form.composer"></el-input>
+              </el-form-item>
+              <el-form-item label="活动区域">
+                <el-select v-model="form.region" placeholder="请选择活动区域">
+                  <el-option label="区域一" value="shanghai"></el-option>
+                  <el-option label="区域二" value="beijing"></el-option>
+                </el-select>
+              </el-form-item>
+              <el-form-item label="tag">
+                <div>
+                  <el-tag>标签一</el-tag>
+                  <el-tag type="success">标签二</el-tag>
+                  <el-tag type="info">标签三</el-tag>
+                  <el-tag type="warning">标签四</el-tag>
+                  <el-tag type="danger">标签五</el-tag>
+                </div>
+                <el-button @click="handleTags(scope.$index, scope.row);tagVisible = true">pick tags</el-button>
+
+              </el-form-item>
+              <el-dialog append-to-body
+                  title="提示"
+                  :visible.sync="tagVisible"
+                  width="50%"
+                  :before-close="handleClose">
+                  <template>
+                    <el-transfer
+                      filterable
+                      :filter-method="filterMethod"
+                      filter-placeholder="请输入城市拼音"
+                      v-model="value"
+                      :data="data">
+                    </el-transfer>
+                  </template>
+                  <span slot="footer" class="dialog-footer">
+                    <el-button @click="tagVisible = false">取 消</el-button>
+                    <el-button type="primary" @click="tagVisible = false">确 定</el-button>
+                  </span>
+                </el-dialog>
+
+              <el-form-item label="Introduction">
+                <el-input type="textarea" v-model="form.desc"></el-input>
+              </el-form-item>
+              <el-form-item>
+                <el-button type="primary" @click="onSubmit">ok</el-button>
+                <el-button>Cancel</el-button>
+              </el-form-item>
+            </el-form>
             <span slot="footer" class="dialog-footer">
-              <el-button @click="dialogVisible = false">取 消</el-button>
-              <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+              <el-button @click="dialogVisible = false">Cancel</el-button>
+              <el-button type="primary" @click="dialogVisible = false">Confirm</el-button>
             </span>
           </el-dialog>
         <el-button
@@ -73,8 +124,37 @@
 <script>
 export default {
   data () {
+    const generateData = _ => {
+      const data = []
+      const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都']
+      const pinyin = ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'nanjing', 'xian', 'chengdu']
+      cities.forEach((city, index) => {
+        data.push({
+          label: city,
+          key: index,
+          pinyin: pinyin[index]
+        })
+      })
+      return data
+    }
     return {
+      data: generateData(),
+      value: [],
+      filterMethod (query, item) {
+        return item.pinyin.indexOf(query) > -1
+      },
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
       dialogVisible: false,
+      tagVisible: false,
       tableData: [
         {
           composerName: 'Pyotr Ilyich Tchaikovsky',
@@ -152,13 +232,16 @@ export default {
       console.log(index, row)
     },
     handleClose (done) {
-      this.$confirm('确认关闭？')
+      this.$confirm('Are you sure to close it ?')
         .then(_ => {
           done()
         })
         .catch(_ => {})
     },
     handleDelete (index, row) {
+      console.log(index, row)
+    },
+    handleTags (index, row) {
       console.log(index, row)
     },
     open () {
