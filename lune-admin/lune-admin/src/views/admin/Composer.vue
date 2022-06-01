@@ -18,11 +18,23 @@
           :preview-src-list="srcList">
         </el-image>
       </div>
-          <el-button
+      <el-upload
+        class="upload-demo"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :before-remove="beforeRemove"
+        multiple
+        :limit="3"
+        :on-exceed="handleExceed"
+        :file-list="fileList">
+        <el-button
               size="mini"
               type="warning"
               plain
               @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
+        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+      </el-upload>
         </template>
     </el-table-column>
     <el-table-column prop="composerIntroduction" label="Introduction" width="300" ></el-table-column>
