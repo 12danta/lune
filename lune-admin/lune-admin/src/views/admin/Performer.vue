@@ -33,7 +33,7 @@
               type="warning"
               plain
               @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        <div slot="tip" class="el-upload__tip">Only jpg/png files can be uploaded, and no more than 500kb</div>
       </el-upload>
         </template>
     </el-table-column>
@@ -65,49 +65,19 @@
             :visible.sync="dialogVisible"
             width="60%"
             :before-close="handleClose">
-            <el-form ref="form" :model="form" label-width="100px">
+            <el-form ref="form" :model="form" label-width="120px">
               <el-form-item label="name">
                 <el-input v-model="form.name"></el-input>
               </el-form-item>
               <el-form-item label="Composer">
                 <el-input v-model="form.composer"></el-input>
               </el-form-item>
-              <el-form-item label="活动区域">
+              <el-form-item label="performer type">
                 <el-select v-model="form.region" placeholder="请选择活动区域">
                   <el-option label="区域一" value="shanghai"></el-option>
                   <el-option label="区域二" value="beijing"></el-option>
                 </el-select>
               </el-form-item>
-              <el-form-item label="tag">
-                <div>
-                  <el-tag>标签一</el-tag>
-                  <el-tag type="success">标签二</el-tag>
-                  <el-tag type="info">标签三</el-tag>
-                  <el-tag type="warning">标签四</el-tag>
-                  <el-tag type="danger">标签五</el-tag>
-                </div>
-                <el-button @click="handleTags(scope.$index, scope.row);tagVisible = true">pick tags</el-button>
-
-              </el-form-item>
-              <el-dialog append-to-body
-                  title="提示"
-                  :visible.sync="tagVisible"
-                  width="50%"
-                  :before-close="handleClose">
-                  <template>
-                    <el-transfer
-                      filterable
-                      :filter-method="filterMethod"
-                      filter-placeholder="请输入城市拼音"
-                      v-model="value"
-                      :data="data">
-                    </el-transfer>
-                  </template>
-                  <span slot="footer" class="dialog-footer">
-                    <el-button @click="tagVisible = false">取 消</el-button>
-                    <el-button type="primary" @click="tagVisible = false">确 定</el-button>
-                  </span>
-                </el-dialog>
 
               <el-form-item label="Introduction">
                 <el-input type="textarea" v-model="form.desc"></el-input>

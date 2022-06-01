@@ -33,7 +33,7 @@
               type="warning"
               plain
               @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
-        <div slot="tip" class="el-upload__tip">只能上传jpg/png文件，且不超过500kb</div>
+        <div slot="tip" class="el-upload__tip">Only jpg/png files can be uploaded, and no more than 500kb</div>
       </el-upload>
         </template>
     </el-table-column>
