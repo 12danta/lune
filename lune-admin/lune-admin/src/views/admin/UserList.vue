@@ -9,7 +9,34 @@
     <el-table-column type="selection" width="55"> </el-table-column>
 
     <el-table-column prop="userName" label="userName" width="120"> </el-table-column>
-    <el-table-column prop="Avatar" label="Avatar" width="120"></el-table-column>
+    <el-table-column label="Avatar" width="180">
+        <template slot-scope="scope">
+          <div class="demo-image__preview">
+          <el-image
+          style="width: 100px; height: 100px"
+          :src="url"
+          :preview-src-list="srcList">
+        </el-image>
+      </div>
+      <el-upload
+        class="upload-demo"
+        action="https://jsonplaceholder.typicode.com/posts/"
+        :on-preview="handlePreview"
+        :on-remove="handleRemove"
+        :before-remove="beforeRemove"
+        multiple
+        :limit="3"
+        :on-exceed="handleExceed"
+        :file-list="fileList">
+        <el-button
+              size="mini"
+              type="warning"
+              plain
+              @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
+        <div slot="tip" class="el-upload__tip">Only jpg/png files can be uploaded, and no more than 500kb</div>
+      </el-upload>
+        </template>
+    </el-table-column>
     <el-table-column prop="Email" label="Email" width="200"></el-table-column>
     <el-table-column label="Registration Date" width="200">
       <template slot-scope="scope">{{ scope.row.date }}</template>
@@ -68,49 +95,42 @@ export default {
         {
           date: '2016-05-03',
           userName: 'moonm',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'user'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'user'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'user'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'admin'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'admin'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'admin'
         },
         {
           date: '2016-05-03',
           userName: 'moon',
-          Avatar: '/user/avatar/avatar.png',
           Email: 'lune@gmail.com',
           user_status: 'admin'
         }
@@ -147,6 +167,9 @@ export default {
       console.log(index, row)
     },
     handleDelete (index, row) {
+      console.log(index, row)
+    },
+    handleUpdatePic (index, row) {
       console.log(index, row)
     },
     open () {

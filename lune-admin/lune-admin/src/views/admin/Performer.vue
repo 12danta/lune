@@ -66,26 +66,23 @@
             width="60%"
             :before-close="handleClose">
             <el-form ref="form" :model="form" label-width="120px">
-              <el-form-item label="name">
+              <el-form-item label="Name">
                 <el-input v-model="form.name"></el-input>
               </el-form-item>
-              <el-form-item label="Composer">
-                <el-input v-model="form.composer"></el-input>
-              </el-form-item>
-              <el-form-item label="performer type">
-                <el-select v-model="form.region" placeholder="请选择活动区域">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-              </el-form-item>
-
               <el-form-item label="Introduction">
                 <el-input type="textarea" v-model="form.desc"></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item label="performer type">
+                <el-select v-model="form.region" placeholder="pick a type...">
+                  <el-option label="violinist" value="violinist"></el-option>
+                  <el-option label="pianist" value="pianist"></el-option>
+                </el-select>
+              </el-form-item>
+
+              <!-- <el-form-item>
                 <el-button type="primary" @click="onSubmit">ok</el-button>
                 <el-button>Cancel</el-button>
-              </el-form-item>
+              </el-form-item> -->
             </el-form>
             <span slot="footer" class="dialog-footer">
               <el-button @click="dialogVisible = false">Cancel</el-button>
@@ -105,21 +102,7 @@
 <script>
 export default {
   data () {
-    const generateData = _ => {
-      const data = []
-      const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都']
-      const pinyin = ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'nanjing', 'xian', 'chengdu']
-      cities.forEach((city, index) => {
-        data.push({
-          label: city,
-          key: index,
-          pinyin: pinyin[index]
-        })
-      })
-      return data
-    }
     return {
-      data: generateData(),
       value: [],
       filterMethod (query, item) {
         return item.pinyin.indexOf(query) > -1

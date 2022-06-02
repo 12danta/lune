@@ -128,8 +128,8 @@
                 <el-input type="textarea" v-model="form.desc"></el-input>
               </el-form-item>
               <el-form-item>
-                <el-button type="primary" @click="onSubmit">ok</el-button>
-                <el-button>Cancel</el-button>
+                <!-- <el-button type="primary" @click="onSubmit">ok</el-button>
+                <el-button>Cancel</el-button> -->
               </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">

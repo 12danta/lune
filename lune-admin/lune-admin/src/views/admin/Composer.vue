@@ -67,25 +67,38 @@
             width="60%"
             :before-close="handleClose">
             <el-form ref="form" :model="form" label-width="100px">
-              <el-form-item label="name">
+              <el-form-item label="Name">
                 <el-input v-model="form.name"></el-input>
               </el-form-item>
-              <el-form-item label="Composer">
-                <el-input v-model="form.composer"></el-input>
-              </el-form-item>
-              <el-form-item label="活动区域">
-                <el-select v-model="form.region" placeholder="请选择活动区域">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
-              </el-form-item>
-
               <el-form-item label="Introduction">
                 <el-input type="textarea" v-model="form.desc"></el-input>
               </el-form-item>
-              <el-form-item>
+              <el-form-item label="Life and Death" label-width="120px">
+                <template>
+                  <div class="block">
+                    <!-- <span class="demonstration">带快捷选项</span> -->
+                    <el-date-picker
+                      v-model="value2"
+                      type="daterange"
+                      align="right"
+                      unlink-panels
+                      range-separator="至"
+                      start-placeholder="开始日期"
+                      end-placeholder="结束日期"
+                      :picker-options="pickerOptions">
+                    </el-date-picker>
+                  </div>
+                </template>
+              </el-form-item>
+              <!-- <el-form-item>
                 <el-button type="primary" @click="onSubmit">ok</el-button>
                 <el-button>Cancel</el-button>
+              </el-form-item> -->
+            <el-form-item label="Pieriod">
+                <el-select v-model="form.region" placeholder="pick the Pieriod">
+                  <el-option label="Romantic period" value="Romantic period"></el-option>
+                  <el-option label="Classical period" value="Classical period"></el-option>
+                </el-select>
               </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
@@ -187,7 +200,36 @@ export default {
         'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
       ],
       search: '',
-      multipleSelection: []
+      multipleSelection: [],
+      pickerOptions: {
+        shortcuts: [{
+          text: '最近一周',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近一个月',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 30)
+            picker.$emit('pick', [start, end])
+          }
+        }, {
+          text: '最近三个月',
+          onClick (picker) {
+            const end = new Date()
+            const start = new Date()
+            start.setTime(start.getTime() - 3600 * 1000 * 24 * 90)
+            picker.$emit('pick', [start, end])
+          }
+        }]
+      },
+      value1: '',
+      value2: ''
     }
   },
 
