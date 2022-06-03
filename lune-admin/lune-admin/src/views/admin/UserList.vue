@@ -28,12 +28,14 @@
         :limit="3"
         :on-exceed="handleExceed"
         :file-list="fileList">
+        <el-tooltip placement="bottom" effect="light">
+        <div slot="content">Only jpg/png files can be uploaded, <br/> and no more than 500kb</div>
         <el-button
               size="mini"
               type="warning"
               plain
               @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
-        <div slot="tip" class="el-upload__tip">Only jpg/png files can be uploaded, and no more than 500kb</div>
+      </el-tooltip>
       </el-upload>
         </template>
     </el-table-column>
@@ -91,6 +93,11 @@ export default {
   data () {
     return {
       dialogVisible: false,
+      url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
+      srcList: [
+        'https://fuss10.elemecdn.com/8/27/f01c15bb73e1ef3793e64e6b7bbccjpeg.jpeg',
+        'https://fuss10.elemecdn.com/1/8e/aeffeb4de74e2fde4bd74fc7b4486jpeg.jpeg'
+      ],
       tableData: [
         {
           date: '2016-05-03',

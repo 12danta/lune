@@ -28,12 +28,14 @@
         :limit="3"
         :on-exceed="handleExceed"
         :file-list="fileList">
+      <el-tooltip placement="bottom" effect="light">
+        <div slot="content">Only jpg/png files can be uploaded, <br/> and no more than 500kb</div>
         <el-button
               size="mini"
               type="warning"
               plain
               @click="handleUpdatePic(scope.$index, scope.row)">update</el-button>
-        <div slot="tip" class="el-upload__tip">Only jpg/png files can be uploaded, and no more than 500kb</div>
+      </el-tooltip>
       </el-upload>
         </template>
     </el-table-column>
