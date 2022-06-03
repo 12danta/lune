@@ -58,24 +58,28 @@
             width="60%"
             :before-close="handleClose">
             <el-form ref="form" :model="form" label-width="100px">
-              <el-form-item label="name">
+              <el-form-item label="Name">
                 <el-input v-model="form.name"></el-input>
               </el-form-item>
               <el-form-item label="Composer">
                 <el-input v-model="form.composer"></el-input>
               </el-form-item>
-              <el-form-item label="活动区域">
-                <el-select v-model="form.region" placeholder="请选择活动区域">
-                  <el-option label="区域一" value="shanghai"></el-option>
-                  <el-option label="区域二" value="beijing"></el-option>
-                </el-select>
+              <el-form-item label="Release Time">
+                <template>
+                  <div class="block">
+
+                    <el-date-picker
+                      v-model="value2"
+                      align="right"
+                      type="date"
+                      placeholder="pick release time..."
+                      :picker-options="pickerOptions">
+                    </el-date-picker>
+                  </div>
+                </template>
               </el-form-item>
-              <el-form-item label="Introduction">
-                <el-input type="textarea" v-model="form.desc"></el-input>
-              </el-form-item>
-              <el-form-item>
-                <el-button type="primary" @click="onSubmit">ok</el-button>
-                <el-button>Cancel</el-button>
+              <el-form-item label="Record Label">
+                <el-input v-model="form.composer"></el-input>
               </el-form-item>
             </el-form>
             <span slot="footer" class="dialog-footer">
@@ -127,6 +131,33 @@ export default {
       },
       dialogVisible: false,
       tagVisible: false,
+      pickerOptions: {
+        disabledDate (time) {
+          return time.getTime() > Date.now()
+        },
+        shortcuts: [{
+          text: '今天',
+          onClick (picker) {
+            picker.$emit('pick', new Date())
+          }
+        }, {
+          text: '昨天',
+          onClick (picker) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24)
+            picker.$emit('pick', date)
+          }
+        }, {
+          text: '一周前',
+          onClick (picker) {
+            const date = new Date()
+            date.setTime(date.getTime() - 3600 * 1000 * 24 * 7)
+            picker.$emit('pick', date)
+          }
+        }]
+      },
+      value1: '',
+      value2: '',
       tableData: [
         {
           albumName: 'Higdon & Tchaikovsky: Violin Concertos',
