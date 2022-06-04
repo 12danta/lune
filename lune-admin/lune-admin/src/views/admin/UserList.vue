@@ -67,14 +67,22 @@
           size="mini"
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
           <el-dialog
-            title="提示"
+            title="user status"
             :visible.sync="dialogVisible"
             width="30%"
             :before-close="handleClose">
-            <span>这是一段信息</span>
+            <el-form ref="form" :model="form" label-width="100px">
+
+            <el-form-item label="Status">
+                <el-select v-model="form.region" placeholder="change the status">
+                  <el-option label="Admin" value="Admin"></el-option>
+                  <el-option label="User" value="User"></el-option>
+                </el-select>
+            </el-form-item>
+            </el-form>
             <span slot="footer" class="dialog-footer">
-              <el-button @click="dialogVisible = false">取 消</el-button>
-              <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+              <el-button @click="dialogVisible = false">cancel</el-button>
+              <el-button type="primary" @click="dialogVisible = false">confirm</el-button>
             </span>
           </el-dialog>
         <el-button
@@ -92,6 +100,16 @@
 export default {
   data () {
     return {
+      form: {
+        name: '',
+        region: '',
+        date1: '',
+        date2: '',
+        delivery: false,
+        type: [],
+        resource: '',
+        desc: ''
+      },
       dialogVisible: false,
       url: 'https://fuss10.elemecdn.com/e/5d/4a731a90594a4af544c0c25941171jpeg.jpeg',
       srcList: [
@@ -164,7 +182,7 @@ export default {
       return row.user_status === value
     },
     handleClose (done) {
-      this.$confirm('确认关闭？')
+      this.$confirm('Are you sure to close ?')
         .then(_ => {
           done()
         })
@@ -178,6 +196,9 @@ export default {
     },
     handleUpdatePic (index, row) {
       console.log(index, row)
+    },
+    onSubmit () {
+      console.log('submit!')
     },
     open () {
       this.$confirm('Are you sure to delete it?', 'Tip', {
