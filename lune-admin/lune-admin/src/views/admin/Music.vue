@@ -113,7 +113,7 @@
                     <el-transfer
                       filterable
                       :filter-method="filterMethod"
-                      filter-placeholder="请输入城市拼音"
+                      filter-placeholder="please input tags"
                       v-model="value"
                       :data="data">
                     </el-transfer>
@@ -158,8 +158,8 @@ export default {
   data () {
     const generateData = _ => {
       const data = []
-      const cities = ['上海', '北京', '广州', '深圳', '南京', '西安', '成都']
-      const pinyin = ['shanghai', 'beijing', 'guangzhou', 'shenzhen', 'nanjing', 'xian', 'chengdu']
+      const cities = ['Violin', 'Piano', 'Concerto', 'Symphony', 'Orchestra', 'Mozart', 'Tchaikovsky']
+      const pinyin = ['Violin', 'Piano', 'Concerto', 'Symphony', 'Orchestra', 'Mozart', 'Tchaikovsky']
       cities.forEach((city, index) => {
         data.push({
           label: city,
