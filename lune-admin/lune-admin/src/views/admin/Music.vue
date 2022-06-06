@@ -24,15 +24,13 @@
       prop="movement"
       label="movement"
       show-overflow-tooltip>
-               <template slot-scope="scope">
-                <div>
-                  <ul>
-                    <li v-for="item in scope.row.movements" :key="item.movement">
-                      {{ item.movement }}
-                    </li>
-                  </ul>
-                </div>
-              </template>
+        <template slot-scope="scope">
+
+            <div @click="dialogVisible = true" v-for="item in scope.row.movements" :key="item.movement">
+              <el-button type="text">{{ item.movement }}</el-button>
+            </div>
+
+        </template>
     </el-table-column>
     <el-table-column
       prop="Introduction"
