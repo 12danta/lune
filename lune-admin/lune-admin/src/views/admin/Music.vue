@@ -13,7 +13,20 @@
     <el-table-column
       label="name"
       width="200">
-      <template slot-scope="scope">{{ scope.row.name }}</template>
+      <template slot-scope="scope">
+        <el-link type="primary" :underline="false"  @click="fileVisible = true">{{ scope.row.name }}</el-link>
+      </template>
+      <el-dialog
+        title="提示"
+        :visible.sync="fileVisible"
+        width="30%"
+        :before-close="handleClose">
+        <span>这是一段信息</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="fileVisible = false">取 消</el-button>
+          <el-button type="primary" @click="fileVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
     </el-table-column>
     <el-table-column
       prop="Composer"
@@ -24,13 +37,15 @@
       prop="movement"
       label="movement"
       show-overflow-tooltip>
-        <template slot-scope="scope">
-
-            <div @click="dialogVisible = true" v-for="item in scope.row.movements" :key="item.movement">
-              <el-button type="text">{{ item.movement }}</el-button>
-            </div>
-
-        </template>
+               <template slot-scope="scope">
+                <div>
+                  <ul>
+                    <div v-for="item in scope.row.movements" :key="item.movement">
+                      {{ item.movement }}
+                    </div>
+                  </ul>
+                </div>
+              </template>
     </el-table-column>
     <el-table-column
       prop="Introduction"
@@ -185,6 +200,7 @@ export default {
       },
       dialogVisible: false,
       tagVisible: false,
+      fileVisible: false,
       tableData: [
         {
           name: 'Cello Sonata in E major, Op.19',
