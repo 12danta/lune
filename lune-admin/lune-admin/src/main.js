@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/icon/iconfont.css'
 import './assets/icon/iconfont.js'
 import locale from 'element-ui/lib/locale/lang/en'
+
 // import echarts from 'echarts'
 // Vue.prototype.$echarts = echarts
 Vue.use(ElementUI, { locale })

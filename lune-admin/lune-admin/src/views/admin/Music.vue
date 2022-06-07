@@ -16,17 +16,6 @@
       <template slot-scope="scope">
         <el-link type="primary" :underline="false"  @click="fileVisible = true">{{ scope.row.name }}</el-link>
       </template>
-      <el-dialog
-        title="提示"
-        :visible.sync="fileVisible"
-        width="30%"
-        :before-close="handleClose">
-        <span>这是一段信息</span>
-        <span slot="footer" class="dialog-footer">
-          <el-button @click="fileVisible = false">取 消</el-button>
-          <el-button type="primary" @click="fileVisible = false">确 定</el-button>
-        </span>
-      </el-dialog>
     </el-table-column>
     <el-table-column
       prop="Composer"
@@ -88,6 +77,33 @@
         <el-button
           size="mini"
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
+
+      <el-dialog
+        title="music manage"
+        :visible.sync="fileVisible"
+        width="60%"
+        :before-close="handleClose">
+        <div style="height:500px;overflow:auto">
+              <el-upload
+                class="upload-demo"
+                drag
+                action="https://jsonplaceholder.typicode.com/posts/"
+                multiple>
+                <i class="el-icon-upload"></i>
+                <div class="el-upload__text">drop the file here, or <em>click to update</em></div>
+                <div class="el-upload__tip" slot="tip">only for jpg/png, and cannot exceed 500kb</div>
+              </el-upload>
+              <div>Document List</div>
+              <div>sheet</div>
+              <div>audio</div>
+              <div>video</div>
+
+              <span slot="footer" class="dialog-footer">
+                <el-button @click="fileVisible = false">Cancel</el-button>
+                <el-button type="primary" @click="fileVisible = false">Confirm</el-button>
+              </span>
+        </div>
+        </el-dialog>
           <el-dialog
             title="Music"
             :visible.sync="dialogVisible"
@@ -353,5 +369,12 @@ export default {
 <style>
   .tag{
     margin: 2px 2px;
+  }
+  ::-webkit-scrollbar{
+    width: 10px;
+  }
+  ::-webkit-scrollbar-thumb{
+    background: #ccc;
+    border-radius: 5px;
   }
 </style>
