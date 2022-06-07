@@ -3,7 +3,7 @@
     <div class="pageHeader">
        <el-button @click.stop="prePage">上一页</el-button>
        <el-button @click.stop="nextPage">下一页</el-button>
-       <div>{{pageNum}}/{{pageTotalNum}}</div>
+       <div class="pageNum">{{pageNum}}/{{pageTotalNum}}</div>
     </div>
     <div class="pdfPage">
     <pdf ref = "pdf"
@@ -72,6 +72,11 @@ export default {
   margin-top: 30px;
   width:20%;
   margin-left: 45%;
+}
+.pageNum{
+  margin-top: 10px;
+  margin-left: 70px;
+  width: 10%;
 }
 
 </style>
