@@ -56,8 +56,7 @@
           :type="scope.row.tag === 'cello' ? 'primary' : 'success'"
           v-for="item in scope.row.tags" :key="item.row"
           disable-transitions
-          class="tag"
-          >
+          class="tag">
           {{item.tag}}
           </el-tag>
         </div>
@@ -93,15 +92,29 @@
                 <div class="el-upload__text">drop the file here, or <em>click to update</em></div>
                 <div class="el-upload__tip" slot="tip">only for jpg/png, and cannot exceed 500kb</div>
               </el-upload>
-              <div>Document List</div>
-              <div>sheet</div>
-              <div>audio</div>
-              <div>video</div>
+              <div class="listTitle">Document List</div>
+              <div class="fileBlock">
+                  <router-link to="/pdfView">
+                    <el-button>预览pdf</el-button>
+                  </router-link>
 
-              <span slot="footer" class="dialog-footer">
+                <div class="listFont">sheet</div>
+                <div class="file"></div>
+              </div>
+              <div class= "fileBlock">
+                <div class="listFont">video</div>
+                <div class="file">
+                </div>
+              </div>
+              <div class="fileBlock">
+                <div class="listFont">audio</div>
+                <div class="file">
+                </div>
+              </div>
+              <div slot="footer" class="dialogFooter">
                 <el-button @click="fileVisible = false">Cancel</el-button>
                 <el-button type="primary" @click="fileVisible = false">Confirm</el-button>
-              </span>
+              </div>
         </div>
         </el-dialog>
           <el-dialog
@@ -183,7 +196,11 @@
 </template>
 
 <script>
+import pdf from 'vue-pdf'
 export default {
+  components: {
+    pdf
+  },
   data () {
     const generateData = _ => {
       const data = []
@@ -199,6 +216,7 @@ export default {
       return data
     }
     return {
+      url: 'http://storage.xuetangx.com/public_assets/xuetangx/PDF/PlayerAPI_v1.0.6.pdf',
       data: generateData(),
       value: [],
       filterMethod (query, item) {
@@ -307,6 +325,7 @@ export default {
     }
   },
   methods: {
+
     onSubmit () {
       console.log('submit!')
     },
@@ -376,5 +395,26 @@ export default {
   ::-webkit-scrollbar-thumb{
     background: #ccc;
     border-radius: 5px;
+  }
+  .listTitle{
+    margin-top: 5%;
+    font-size: 120%;
+    color: rgb(175, 190, 195);
+
+  }
+  .fileBlock{
+    margin-left: 5%;
+    margin-top: 2%;
+  }
+  .listFont{
+    color: rgb(112, 104, 104);
+  }
+  .file{
+
+  }
+  .dialogFooter{
+    margin-top: 3%;
+    margin-left: 70%;
+
   }
 </style>

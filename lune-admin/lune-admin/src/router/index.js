@@ -7,6 +7,7 @@ import Music from '../views/admin/Music'
 import Performer from '../views/admin/Performer'
 import Composer from '../views/admin/Composer'
 import Album from '../views/admin/Album'
+import PDFView from '../views/admin/PDFView'
 
 Vue.use(VueRouter)
 
@@ -23,6 +24,10 @@ export default new VueRouter({
     {
       path: '/',
       redirect: '/dashboard'
+    },
+    {
+      path: '/pdfView',
+      component: PDFView
     },
     {
       path: '/index',
