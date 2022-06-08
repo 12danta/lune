@@ -78,15 +78,25 @@
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
 
       <el-dialog
-        title="提示"
+        title="upload file"
         :visible.sync="uploadVisible"
         append-to-body
-        width="30%"
+        width="50%"
         :before-close="handleClose">
-        <span>这是一段信息</span>
+        <div class="uploadBox">
+          <el-upload
+            class="upload-demo"
+            drag
+            action="https://jsonplaceholder.typicode.com/posts/"
+            multiple>
+            <i class="el-icon-upload"></i>
+            <div class="el-upload__text">drop the file here, or <em>click to update</em></div>
+            <div class="el-upload__tip" slot="tip">only for jpg/png, and cannot exceed 500kb</div>
+            </el-upload>
+        </div>
         <span slot="footer" class="dialog-footer">
-          <el-button @click="uploadVisible = false">取 消</el-button>
-          <el-button type="primary" @click="uploadVisible = false">确 定</el-button>
+          <el-button @click="uploadVisible = false">Cancel</el-button>
+          <el-button type="primary" @click="uploadVisible = false">Upload</el-button>
         </span>
       </el-dialog>
 
@@ -130,15 +140,6 @@
                     </el-table-column>
                   </el-table>
                 </template>
-                <el-upload
-                class="upload-demo"
-                drag
-                action="https://jsonplaceholder.typicode.com/posts/"
-                multiple>
-                <i class="el-icon-upload"></i>
-                <div class="el-upload__text">drop the file here, or <em>click to update</em></div>
-                <div class="el-upload__tip" slot="tip">only for jpg/png, and cannot exceed 500kb</div>
-              </el-upload>
 
               </template>
               <div slot="footer" class="dialogFooter">
@@ -453,5 +454,8 @@ export default {
     margin-top: 3%;
     margin-left: 70%;
 
+  }
+  .uploadBox{
+    margin-left: 20%;
   }
 </style>
