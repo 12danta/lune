@@ -78,12 +78,59 @@
           @click="handleEdit(scope.$index, scope.row);dialogVisible = true">Edit</el-button>
 
       <el-dialog
+        title="提示"
+        :visible.sync="uploadVisible"
+        append-to-body
+        width="30%"
+        :before-close="handleClose">
+        <span>这是一段信息</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="uploadVisible = false">取 消</el-button>
+          <el-button type="primary" @click="uploadVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
+
+      <el-dialog
         title="music manage"
         :visible.sync="fileVisible"
         width="60%"
         :before-close="handleClose">
         <div style="height:500px;overflow:auto">
-              <el-upload
+              <div class="listTitle">Document List</div>
+              <template>
+                 <template>
+                  <el-table
+                    :data="fileData"
+                    style="width: 100%">
+                    <el-table-column
+                      label="File Type"
+                      width="180"
+                      prop="fileType">
+
+                    </el-table-column>
+                    <el-table-column
+                      label="Preview file"
+                      width="180">
+                      <router-link to="/pdfView">
+                      <el-button>Preview pdf</el-button>
+                    </router-link>
+                    </el-table-column>
+                    <el-table-column
+                      label="Upload or Replace"
+                      width="180">
+                      <template>
+                        <el-button @click="uploadVisible = true">update</el-button>
+                      </template>
+                    </el-table-column>
+                    <el-table-column
+                      label="delete">
+                      <template>
+                        <el-button>del</el-button>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                </template>
+                <el-upload
                 class="upload-demo"
                 drag
                 action="https://jsonplaceholder.typicode.com/posts/"
@@ -92,31 +139,14 @@
                 <div class="el-upload__text">drop the file here, or <em>click to update</em></div>
                 <div class="el-upload__tip" slot="tip">only for jpg/png, and cannot exceed 500kb</div>
               </el-upload>
-              <div class="listTitle">Document List</div>
-              <div class="fileBlock">
-                  <router-link to="/pdfView">
-                    <el-button>预览pdf</el-button>
-                  </router-link>
 
-                <div class="listFont">sheet</div>
-                <div class="file"></div>
-              </div>
-              <div class= "fileBlock">
-                <div class="listFont">video</div>
-                <div class="file">
-                </div>
-              </div>
-              <div class="fileBlock">
-                <div class="listFont">audio</div>
-                <div class="file">
-                </div>
-              </div>
+              </template>
               <div slot="footer" class="dialogFooter">
                 <el-button @click="fileVisible = false">Cancel</el-button>
                 <el-button type="primary" @click="fileVisible = false">Confirm</el-button>
               </div>
         </div>
-        </el-dialog>
+      </el-dialog>
           <el-dialog
             title="Music"
             :visible.sync="dialogVisible"
@@ -235,6 +265,7 @@ export default {
       dialogVisible: false,
       tagVisible: false,
       fileVisible: false,
+      uploadVisible: false,
       tableData: [
         {
           name: 'Cello Sonata in E major, Op.19',
@@ -320,6 +351,11 @@ export default {
             {tag: 'mozart'}
           ]
         }],
+      fileData: [
+        {fileType: 'sheet'},
+        {fileType: 'audio'},
+        {fileType: 'video'}
+      ],
       search: '',
       multipleSelection: []
     }
@@ -397,6 +433,7 @@ export default {
     border-radius: 5px;
   }
   .listTitle{
+    margin-bottom: 5%;
     margin-top: 5%;
     font-size: 120%;
     color: rgb(175, 190, 195);

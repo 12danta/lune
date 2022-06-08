@@ -63,6 +63,7 @@ export default {
 .page{
 }
 .pdfPage{
+  box-shadow: 0 4px 8px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   width: 50%;
   margin-left: 25%;
 }
