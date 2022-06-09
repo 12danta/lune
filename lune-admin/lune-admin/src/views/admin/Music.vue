@@ -101,7 +101,7 @@
       </el-dialog>
 
       <el-dialog
-        title="music manage"
+
         :visible.sync="fileVisible"
         width="60%"
         :before-close="handleClose">
@@ -435,7 +435,7 @@ export default {
   }
   .listTitle{
     margin-bottom: 5%;
-    margin-top: 5%;
+    margin-top: 0%;
     font-size: 120%;
     color: rgb(175, 190, 195);
 
