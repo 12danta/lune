@@ -135,7 +135,10 @@
                     <el-table-column
                       label="delete">
                       <template>
-                        <el-button>del</el-button>
+                        <el-button 
+                        type="danger"
+                        size="mini"
+                        @click="handleDelete(scope.$index, scope.row);open()">del</el-button>
                       </template>
                     </el-table-column>
                   </el-table>
