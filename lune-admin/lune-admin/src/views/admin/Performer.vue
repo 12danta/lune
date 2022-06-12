@@ -98,6 +98,10 @@
       </template>
     </el-table-column>
   </el-table>
+  <div style="margin-top: 20px">
+    <el-button @click="toggleSelection([tableData[1], tableData[2]])">切换第二、第三行的选中状态</el-button>
+    <el-button @click="toggleSelection()">Cancel select</el-button>
+  </div>
 
   </div>
 </template>
