@@ -109,8 +109,9 @@
               <div class="listTitle">Document List</div>
               <template>
                  <template>
+                   <!--pdf-->
                   <el-table
-                    :data="fileData"
+                    :data="pdfData"
                     style="width: 100%">
                     <el-table-column
                       label="File Type"
@@ -135,7 +136,65 @@
                     <el-table-column
                       label="delete">
                       <template>
-                        <el-button 
+                        <el-button
+                        type="danger"
+                        size="mini"
+                        @click="handleDelete(scope.$index, scope.row);open()">del</el-button>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                  <!--video-->
+                  <el-table
+                    :data="videoData"
+                    style="width: 100%">
+                    <el-table-column
+                      width="180"
+                      prop="fileType">
+                    </el-table-column>
+                    <el-table-column
+                      width="180">
+                      <router-link to="/pdfView">
+                      <el-button>Preview pdf</el-button>
+                    </router-link>
+                    </el-table-column>
+                    <el-table-column
+                      width="180">
+                      <template>
+                        <el-button @click="uploadVisible = true">update</el-button>
+                      </template>
+                    </el-table-column>
+                    <el-table-column>
+                      <template>
+                        <el-button
+                        type="danger"
+                        size="mini"
+                        @click="handleDelete(scope.$index, scope.row);open()">del</el-button>
+                      </template>
+                    </el-table-column>
+                  </el-table>
+                  <!--audio-->
+                  <el-table
+                    :data="audioData"
+                    style="width: 100%">
+                    <el-table-column
+                      width="180"
+                      prop="fileType">
+                    </el-table-column>
+                    <el-table-column
+                      width="180">
+                      <router-link to="/pdfView">
+                      <el-button>Preview pdf</el-button>
+                    </router-link>
+                    </el-table-column>
+                    <el-table-column
+                      width="180">
+                      <template>
+                        <el-button @click="uploadVisible = true">update</el-button>
+                      </template>
+                    </el-table-column>
+                    <el-table-column>
+                      <template>
+                        <el-button
                         type="danger"
                         size="mini"
                         @click="handleDelete(scope.$index, scope.row);open()">del</el-button>
@@ -355,10 +414,14 @@ export default {
             {tag: 'mozart'}
           ]
         }],
-      fileData: [
-        {fileType: 'sheet'},
-        {fileType: 'audio'},
+      pdfData: [
+        {fileType: 'sheet'}
+      ],
+      videoData: [
         {fileType: 'video'}
+      ],
+      audioData: [
+        {fileType: 'audio'}
       ],
       search: '',
       multipleSelection: []
