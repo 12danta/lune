@@ -153,7 +153,7 @@
                     </el-table-column>
                     <el-table-column
                       width="180">
-                      <router-link to="/pdfView">
+                      <router-link to="/video">
                       <el-button>Preview pdf</el-button>
                     </router-link>
                     </el-table-column>

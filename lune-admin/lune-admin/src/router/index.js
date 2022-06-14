@@ -8,6 +8,7 @@ import Performer from '../views/admin/Performer'
 import Composer from '../views/admin/Composer'
 import Album from '../views/admin/Album'
 import PDFView from '../views/admin/PDFView'
+import VideoPlayer from '../views/admin/VideoPlayer'
 
 Vue.use(VueRouter)
 
@@ -28,6 +29,10 @@ export default new VueRouter({
     {
       path: '/pdfView',
       component: PDFView
+    },
+    {
+      path: '/video',
+      component: VideoPlayer
     },
     {
       path: '/index',
