@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="video-content">
-      <player-video :src="src" ref="video"></player-video>
+      <player-video :src="src" ref="video" onloadstart="this.volume=0.5"></player-video>
     </div>
   </div>
 </template>
@@ -51,6 +51,9 @@ export default {
     volumeDownVideo () {
       this.video.volumeDown()
     },
+    beforeCreate () {
+    this.volume = window.localStorage.volume
+  },
     toggleToFenghuangwang () {
       this.video.toggleTv({
         src: {
@@ -69,10 +72,6 @@ export default {
         load: 'http://vjs.zencdn.net/v/oceans.mp4'
       })
     }
-  },
-  beforeCreate () {
-    console.log('volume===========' + window.localStorage.volume)
-    this.volume = window.localStorage.volume
   }
 }
 

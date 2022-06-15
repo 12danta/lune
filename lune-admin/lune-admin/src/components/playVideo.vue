@@ -61,11 +61,9 @@ export default {
         // 存储音量
         _this.volumeVideo = this.volume()
         window.localStorage.volume = this.volume()
-        console.log('thisvolume>>>>>>>>>' + this.volume())
       })
       this.on('play', () => {
         this.volume(this.volumeVideo)
-        console.log('thisvolume-------' + this.volume())
       })
     })
   }
