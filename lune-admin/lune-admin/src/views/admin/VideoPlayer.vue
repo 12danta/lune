@@ -52,8 +52,8 @@ export default {
       this.video.volumeDown()
     },
     beforeCreate () {
-    this.volume = window.localStorage.volume
-  },
+      this.volume = window.localStorage.volume
+    },
     toggleToFenghuangwang () {
       this.video.toggleTv({
         src: {
