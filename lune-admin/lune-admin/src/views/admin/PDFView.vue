@@ -5,15 +5,23 @@
        <el-button @click.stop="nextPage">下一页</el-button>
        <div class="pageNum">{{pageNum}}/{{pageTotalNum}}</div>
     </div>
-    <div class="pdfPage">
-    <pdf ref = "pdf"
-      :src="url"
-      :page="pageNum"
-      @progress="loadedRatio = $event"
-      @num-pages="pageTotalNum=$event"
-      @error="pdfError($event)"
-      @link-clicked="page = $event">
-    </pdf>
+    <div class = "parent">
+      <div class="left">
+          <div class="el-icon-arrow-left" @click.stop="prePage" style="font-size:50px ;color: rgb(210, 241, 230);" ></div>
+      </div>
+      <div class="pdfPage">
+        <pdf ref = "pdf"
+        :src="url"
+        :page="pageNum"
+        @progress="loadedRatio = $event"
+        @num-pages="pageTotalNum=$event"
+        @error="pdfError($event)"
+        @link-clicked="page = $event">
+      </pdf>
+      </div>
+      <div class = "right">
+        <div class="el-icon-arrow-right" @click.stop="nextPage" style="font-size:50px;color: rgb(210, 241, 230);"></div>
+        </div>
     </div>
   </div>
 </template>
@@ -61,11 +69,15 @@ export default {
 
 <style scope>
 .page{
+
+}
+.parent {
+  display: flex;
 }
 .pdfPage{
   box-shadow: 0 4px 8px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
   width: 50%;
-  margin-left: 25%;
+  margin-left: 10%;
 }
 .pageHeader {
 
@@ -78,6 +90,19 @@ export default {
   margin-top: 10px;
   margin-left: 70px;
   width: 10%;
+}
+.left {
+  margin-top: 25%;
+  margin-left: 10%;
+  width: 100px;
+  height: 100px;
+}
+.right {
+  width:100px;
+  margin-top: 25%;
+  height: 100px;
+  margin-left: 10%;
+
 }
 
 </style>

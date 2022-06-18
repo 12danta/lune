@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="video-content">
-      <player-video :src="src" ref="video" onloadstart="this.volume=0.5"></player-video>
+      <player-video :src="src" ref="video" onloadstart="this.volume=0.2"></player-video>
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@ export default {
   },
   data () {
     return {
-      volume: 0.5,
+      volume: 0.2,
       src: 'http://vjs.zencdn.net/v/oceans.mp4'
     }
   },
