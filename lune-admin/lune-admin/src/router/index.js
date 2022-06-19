@@ -9,6 +9,7 @@ import Composer from '../views/admin/Composer'
 import Album from '../views/admin/Album'
 import PDFView from '../views/admin/PDFView'
 import VideoPlayer from '../views/admin/VideoPlayer'
+import playMusic from '../components/playMusic'
 
 Vue.use(VueRouter)
 
@@ -33,6 +34,10 @@ export default new VueRouter({
     {
       path: '/video',
       component: VideoPlayer
+    },
+    {
+      path: '/mscplay',
+      component: playMusic
     },
     {
       path: '/index',
