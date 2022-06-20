@@ -1,6 +1,8 @@
 <template>
   <div>
-      <audio controls ref="singeBox"></audio>
+      <audio controls >
+          <source src="..\assets\audio\Surkin - Tiger Rhythm.mp3" type="audio/mpeg">
+      </audio>
   </div>
 
 </template>
@@ -10,10 +12,10 @@ export default {
   data () {
     return {
       box: undefined,
-      musicPath: '******', // mp3链接
-      coverPath: '******', // 封面
-      musicTitle: '', // 当前播放标题
-      musicImg: '', //  当前播放封面
+      musicPath: '../asset/audio/Surkin - Tiger Rhythm.mp3', // mp3链接
+      coverPath: '../asset/img/user.jpg', // 封面
+      musicTitle: 'music', // 当前播放标题
+      musicImg: '../asset/img/user.jpg', //  当前播放封面
       list: [ // 数据格式
       ]
     }
