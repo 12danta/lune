@@ -182,7 +182,7 @@
                     </el-table-column>
                     <el-table-column
                       width="180">
-                      <router-link to="/mucPlay">
+                      <router-link to="/mscPlay">
                       <el-button>Preview audio</el-button>
                     </router-link>
                     </el-table-column>
