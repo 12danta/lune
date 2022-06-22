@@ -1,341 +1,80 @@
 <template>
-  <div class="audio-player">
-    <!-- :src="require(`${list[index].url}`) closeIcon -->
-    <audio controls ref="audio-player"></audio>
-
-    <div class="audio-mock-player" v-if="isShowAudioPlayer">
-      <img :src="closeIcon" class="closeicon" @click="closeAudioPlay" />
-      <!-- 上一首 -->
-      <img
-        @click="musicPlay('pre')"
-        src="../assets/img/user.jpg"
-        class="preicon"
-      />
-      <!-- "暂停" : "播放" -->
-      <img
-        @click="musicPlay('play')"
-        class="play-sty"
-        :src="play ? plozeIcon : playIcon"
-      />
-      <!-- 下一首 -->
-      <img @click="musicPlay('next')" src="../assets/img/user.jpg" class="preicon" />
-
-      <div class="right-menu">
-        <div class="song-name">{{ list[index].name }}</div>
-        <div class="bottom">
-          <!--  播放进度条 -->
-          <el-slider
-            class="progress"
-            v-model="sliderVal"
-            :format-tooltip="formatTooltip"
-            :min="sliderMin"
-            :max="sliderMax"
-            @change="spliderSelect"
-          />
-
-          <span class="current">{{ currentTime }}</span>
-          <span class="duration">/{{ duration }}</span>
-          <div class="vulumn" @click="changeVolumns">
-            <!-- <img :src="require('./asset/vulumn.png')" alt=""/> -->
-            <!-- 有时候我们在对于一些hover定位元素，当离开时候就没了，这个时候可以使用ctrl+shift+c的快捷键来获取。 -->
-            <el-popover
-              placement="top-start"
-              trigger="hover"
-              popper-class="poppervulumn-class"
-            >
-              <el-slider
-                class="vulumn-progress"
-                vertical
-                height="100px"
-                :step="0.1"
-                v-model="sliderValVolumn"
-                :format-tooltip="formatTooltipVolumn"
-                :min="0"
-                :max="1"
-                @change="spliderSelectVolumn"
-              />
-              <img
-                slot="reference"
-                :src="sliderValVolumn ? vulumnIcon : mutedIcon"
-                alt=""
-                style="width: 18.5px; height: 15px"
-              />
-            </el-popover>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
+  <audio :src='songUrl' controls='controls' :ref='player' preload='true' @canplay='canplay' @timeupdate='timeupdate' @ended='ended'>
+    <!--（1）属性：controls，preload（2）事件：canplay，timeupdate，ended（3）方法：play()，pause() -->
+    <!--controls：向用户显示音频控件（播放/暂停/进度条/音量）-->
+    <!--preload：属性规定是否在页面加载后载入音频-->
+    <!--canplay：当音频/视频处于加载过程中时，会发生的事件-->
+    <!--timeupdate：当目前的播放位置已更改时-->
+    <!--ended：当目前的播放列表已结束时-->
+  </audio>
 </template>
 
-<script>
-export default {
-  props: {
-    // 显示隐藏
-    isShowAudioPlayer: {
-      default: true
-    },
-    // 播放列表
-    list: {
-      default: function () {
-        return [
-          // 数据格式
-          {
-            id: 1,
-            name: '美人鱼',
-            url: '../assets/audio/1.mp3',
-            cover: 'ChenYou',
-            singer: '林俊杰'
-          },
-          {
-            id: 2,
-            name: '起风了',
-            url: '../assets/audio/1.mp3',
-            cover: 'ChenYou',
-            singer: '林俊杰'
-          }
-        ]
-      }
+<script lang="ts">
+import {
+  defineComponent,
+  ref,
+  getCurrentInstance,
+  computed,
+  watch,
+} from "vue";
+import { useStore } from "vuex";
+
+export default defineComponent({
+  setup() {
+    const { proxy } = getCurrentInstance();
+    const store = useStore();
+    const divRef = ref<HTMLAudioElement>();
+    const player = (el) => {
+      divRef.value = el;
+    };
+
+    const songUrl = computed(() => store.getters.songUrl); // 音乐链接
+    const isPlay = computed(() => store.getters.isPlay); // 播放状态
+    const volume = computed(() => store.getters.volume); // 音量
+    const changeTime = computed(() => store.getters.changeTime); // 指定播放时刻
+    const autoNext = computed(() => store.getters.autoNext); // 用于触发自动播放下一首
+    // 监听播放还是暂停
+    watch(isPlay, () => togglePlay())
+    // 跳到指定时刻播放
+    watch(changeTime, () => divRef.value.currentTime = changeTime.value)
+    watch(volume, value => divRef.value.volume = value)
+
+    // 开始 / 暂停
+    function togglePlay () {
+      isPlay.value ? divRef.value.play() : divRef.value.pause()
     }
-    //  播放索引
-    // index
-  },
-  data () {
+    // 获取歌曲链接后准备播放
+    function canplay () {
+      //  记录音乐时长
+      proxy.$store.commit('setDuration', divRef.value.duration)
+      //  开始播放
+      divRef.value.play()
+      proxy.$store.commit('setIsPlay', true)
+    }
+    // 音乐播放时记录音乐的播放位置
+    function timeupdate () {
+      proxy.$store.commit('setCurTime', divRef.value.currentTime)
+    }
+    // 音乐播放结束时触发
+    function ended () {
+      proxy.$store.commit('setIsPlay', false)
+      proxy.$store.commit('setCurTime', 0)
+      proxy.$store.commit('setAutoNext', !autoNext.value)
+    }
+
     return {
-      playIcon: require('../assets/img/user.jpg'),
-      plozeIcon: require('../assets/img/user.jpg'),
-      vulumnIcon: require('../assets/img/user.jpg'),
-      mutedIcon: require('../assets/img/user.jpg'),
-      closeIcon: require('../assets/img/user.jpg'),
-      box: undefined,
-      index: 0, // 当前播放的音乐素质索引
-      play: false, // 播放状态，true为正在播放
-      sliderVal: 0, // 这个对接当前时长。
-      sliderMin: 0,
-      sliderMax: 0, // 这个对接总时长。
-      sliderValVolumn: 0.5, // 音量
-      copySliderValVolumn: 0.5,
-      duration: undefined, // 音乐总时长
-      currentTime: undefined // 当前播放时长
+      songUrl,
+      player,
+      canplay,
+      timeupdate,
+      ended,
     }
   },
-  mounted () {
-    this.init()
-  },
-  methods: {
-    init () {
-      this.box = this.$refs['audio-player']
-      this.box.src = require(`${this.list[this.index].url}`)
-      console.log(this.box, '音频播放器DOM')
-      const that = this
-
-      //  this.duration  =  this.formatTime(this.box.duration)
-      // 绑定三个触发方法
-      // 当时长有变化时触发，由"NaN"变为实际时长也算
-      this.box.ondurationchange = function () {
-        console.log('时长发生了变化')
-        console.log(that.box.duration)
-        // that.
-        // that.duration  =  that.formatTime(that.box.duration)
-        that.sliderMax = Math.floor(that.box.duration)
-        that.updateTime()
-      }
-      // 当前数据可用是触发
-      this.box.oncanplay = function () {
-        console.log('已经可以播放了')
-      }
-      // 播放位置发送改变时触发。
-      this.box.ontimeupdate = function () {
-        console.log('播放位置发送了变动')
-        that.updateTime()
-      }
-      // 音频播放完毕
-      this.box.onended = function () {
-        console.log('播放完毕，谢谢收听')
-      }
-      // 音频播放完毕
-      this.box.onerror = function () {
-        console.log('加载出错！')
-      }
-    },
-    changeVolumns () {
-      // 静音切换
-      if (this.sliderValVolumn > 0) {
-        this.sliderValVolumn = 0
-      } else {
-        this.sliderValVolumn = this.copySliderValVolumn
-      }
-    },
-    // 播放
-    musicPlay (flag) {
-      switch (flag) {
-        case 'pre':
-          if (this.list[this.index - 1]) {
-            this.box.src = this.list[this.index - 1].url
-            this.index -= 1
-          } else {
-            this.box.src = this.list[this.list.length - 1].url
-            this.index = this.list.length - 1
-          }
-          this.init()
-          if (this.play) {
-            this.box.play()
-          } else {
-            this.box.pause()
-          }
-          break
-        case 'play':
-          this.play = !this.play
-          if (this.play) {
-            this.box.play()
-          } else {
-            this.box.pause()
-          }
-          break
-        case 'next':
-          if (this.list[this.index + 1]) {
-            this.box.src = this.list[this.index + 1].url
-            this.index += 1
-          } else {
-            this.box.src = this.list[0].url
-            this.index = 0
-          }
-          this.init()
-          if (this.play) {
-            this.box.play()
-          } else {
-            this.box.pause()
-          }
-          break
-      }
-    },
-    formatTooltip (val) {
-      // 格式化毫秒数，由于组件提示为纯数字，所以这里需要将数字转化为我们所需要的的格式，string类型的。'03:45',
-      const time = this.formatTime(val)
-      return `${time.min}:${time.sec}`
-    },
-    // 音量显示100%
-    formatTooltipVolumn (val) {
-      return val * 100 + '%'
-    },
-    spliderSelectVolumn () {
-      this.box.volume = this.sliderValVolumn
-      // 备份音量
-      this.copySliderValVolumn = this.sliderValVolumn
-    },
-    updateTime () {
-      const total = this.formatTime(this.box.duration)
-      const current = this.formatTime(this.box.currentTime)
-      this.duration = `${total.min}:${total.sec}`
-      this.currentTime = `${current.min}:${current.sec}`
-      // 值为xx.xxxxx 需要取整
-      this.sliderVal = Math.floor(this.box.currentTime)
-    },
-    formatTime (time) {
-      // 格式化毫秒，返回String型分秒对象
-
-      if (!time) return { min: '00', sec: '00' }
-      return {
-        min: Math.floor(time / 60)
-          .toString()
-          .padStart(2, '0'),
-        sec: Math.floor(time % 60)
-          .toString()
-          .padStart(2, '0')
-      }
-    },
-    closeAudioPlay () {
-      this.isShowAudioPlayer = false
-    },
-    spliderSelect () {
-      // 滑块松动后触发。更新当前时长，
-      // 时长发生变动会init里的方法进行更新数据
-      this.box.currentTime = this.sliderVal
-    }
-  }
-}
+})
 </script>
 
-<style  lang='scss'>
-.poppervulumn-class {
-  min-width: 20px !important;
-  padding: 12px 5px !important;
-}
-.audio-player {
-  .audio-mock-player {
-    position: relative;
-    width: 580px;
-    padding: 20px;
-    background: rgba(34, 34, 34, 0.8);
-    border: 1px solid rgba(34, 34, 34, 1);
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    .play-sty {
-      margin: 0 16px;
-      width: 52px;
-      height: 52px;
-    }
-    .preicon {
-      width: 32px;
-      height: 32px;
-    }
-    .closeicon {
-      position: absolute;
-      right: -10px;
-      top: -10px;
-      width: 20px;
-      height: 20px;
-    }
-    .right-menu {
-      margin-left: 40px;
-      flex: 1;
-      .bottom {
-        display: flex;
-        align-items: center;
-        .progress {
-          flex: 1;
-        }
-        .current {
-          font-family: PingFangSC-Regular;
-          font-size: 12px;
-          color: #ffffff;
-          text-align: left;
-          font-weight: 400;
-          margin-left: 12px;
-        }
-        .duration {
-          opacity: 0.6;
-          font-family: PingFangSC-Regular;
-          font-size: 12px;
-          color: #ffffff;
-          text-align: left;
-          font-weight: 400;
-          margin-right: 16px;
-        }
-        .vulumn {
-          position: relative;
-          img {
-            width: 18.5px;
-            height: 15px;
-          }
-          .vulumn-progress {
-            position: absolute;
-            top: -73px;
-            left: -12px;
-          }
-        }
-      }
-      .song-name {
-        height: 25px;
-        font-family: PingFangSC-Regular;
-        font-size: 18px;
-        color: #ffffff;
-        text-align: left;
-        font-weight: 400;
-        margin-bottom: 15px;
-      }
-    }
-  }
+<style scoped>
+audio {
+  display: none;
 }
 </style>
