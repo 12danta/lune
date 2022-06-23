@@ -10,6 +10,10 @@ import './assets/icon/iconfont.js'
 import locale from 'element-ui/lib/locale/lang/en'
 import videojs from 'video.js'
 import 'video.js/dist/video-js.css'
+import Vuex from 'vuex'
+
+Vue.use(Vuex)
+
 Vue.prototype.$video = videojs
 
 // import echarts from 'echarts'

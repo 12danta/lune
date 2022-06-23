@@ -10,6 +10,7 @@ import Album from '../views/admin/Album'
 import PDFView from '../views/admin/PDFView'
 import VideoPlayer from '../views/admin/VideoPlayer'
 import playMusic from '../components/playMusic'
+import indexVideo from '../views/client/index'
 
 Vue.use(VueRouter)
 
@@ -23,9 +24,10 @@ VueRouter.prototype.push = function push (location) {
 
 export default new VueRouter({
   routes: [
+
     {
-      path: '/',
-      redirect: '/dashboard'
+      path: '/clientIndex',
+      component: indexVideo
     },
     {
       path: '/pdfView',
