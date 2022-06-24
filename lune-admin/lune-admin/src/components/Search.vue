@@ -1,7 +1,7 @@
 <template>
 
     <section class="city-search">
-        <van-icon class="search-icon" name="search" />
+        <li class="iconfont icon-fenxiang searchIcon" name = "search" style="list-style:none;"></li>
         <input  placeholder="" v-model="KeyWord">
         <van-icon class="clear-icon" name="clear" v-show="KeyWord" @click="clearSearchInput" />
     </section>
@@ -57,6 +57,11 @@ input {
 ::-webkit-input-placeholder{
   color: rgb(253, 250, 250);
   font-size: 110%;
+}
+.searchIcon{
+  color: rgba(241, 237, 237, 0.792);
+  font-weight: 600;
+  margin-left: 10px;
 }
 
 </style>

@@ -116,8 +116,8 @@ header-left{
   height: 70px;
   font-size: 30px;
   color: #0f382a;
-  box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
-  border-bottom: #9b9f9e;
+  /* //box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
+  //border-bottom: #9b9f9e; */
 }
 .footer{
     background-color: #4b4954;
@@ -157,6 +157,9 @@ header-left{
 
 .user-name {
   margin-left: 10px;
+  color: rgb(249, 241, 241);
+  font-weight: 800;
+  font-size: 60%;
 }
 
 .user-avator {

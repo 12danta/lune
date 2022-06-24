@@ -4,12 +4,12 @@
     <div class="legalBox">
       <ul class="legalList">
         <li>Websites Privacy Notice</li>
-        <li>|</li>
+        <li class="erect">|</li>
         <li>Cookies</li>
-        <li>|</li>
+        <li class="erect">|</li>
         <li>Legal</li>
-        <li>|</li>
-        <li>Contact Us</li>
+        <li class="erect">|</li>
+        <li>Feedback</li>
       </ul>
     </div>
   </div>
@@ -33,16 +33,19 @@ export default {
   flex:50px;
 }
 .legalList li{
-    margin-right: 20px;
-    list-style:none;
-    cursor: pointer;
+  margin-right: 20px;
+  list-style:none;
+  cursor: pointer;
 }
 .copyright{
   font-size: 100%;
   color: white;
 }
 .legalBox{
-      font-size: 100%;
-      color: white;
+  font-size: 100%;
+  color: white;
+}
+.erect{
+  color: rgb(160, 163, 165);
 }
 </style>
