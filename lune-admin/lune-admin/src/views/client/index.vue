@@ -12,8 +12,9 @@
                     </div>
                     <!--搜索框-->
                     <div class="header-search">
-                        <input type="text" placeholder="搜索音乐" >
+                        <search></search>
                     </div>
+
                 </div>
                 <div class="header-right">
                     <div class="header-user-con">
@@ -50,9 +51,10 @@
 
 <script>
 import pageFooter from '../../components/layout/pageFooter.vue'
+import Search from '../../components/Search.vue'
 
 export default {
-  components: { pageFooter },
+  components: { pageFooter, Search },
 
   data () {
     return {
@@ -125,10 +127,10 @@ header-left{
     padding-top: 30px;
 }
 .header-search {
-    margin-top: 1%;
+
     margin-left: 3%;
     float: left;
-    width: 15%;
+    width: 20%;
 }
 
 .menu-btn{
