@@ -1,52 +1,59 @@
 <template>
   <div>
-  <video playsinline autoplay muted loop poster="..\..\assets\img\videoCover.png" id="bgvid">
-    <source src="..\..\assets\video\Recordplayer1_1080p_Videvo_x264.mp4" type="video/mp4">
-  </video>
-  <el-container>
-    <el-header>
-        <div class= "header">
-            <div class="header-left">
-                <div class="menu-btn" @click="handleCollapse">
-                    <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
-                </div>
-                <!--搜索框-->
-                <div class="header-search">
-                    <input type="text" placeholder="搜索音乐" >
-                </div>
-            </div>
-            <div class="header-right">
-                <div class="header-user-con">
-                    <!-- 用户头像 -->
-                    <div class="user-avator">
-                        <img :src="userPic" />
+    <video playsinline autoplay muted loop poster="..\..\assets\img\videoCover.png" id="bgvid">
+        <source src="..\..\assets\video\Recordplayer1_1080p_Videvo_x264.mp4" type="video/mp4">
+    </video>
+    <el-container>
+        <el-header>
+            <div class= "header">
+                <div class="header-left">
+                    <div class="menu-btn" @click="handleCollapse">
+                        <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
                     </div>
-                    <!-- 用户名下拉菜单 -->
-                    <el-dropdown class="user-name" trigger="click" @command="handleCommand" >
-                        <span class="el-dropdown-link">
-                            {{username}}
-                            <i class="el-icon-caret-bottom"></i>
-                        </span>
-                        <template #dropdown>
-                            <el-dropdown-menu>
-                            <el-dropdown-item command="loginout">Log Out</el-dropdown-item>
-                            </el-dropdown-menu>
-                        </template>
-                    </el-dropdown>
+                    <!--搜索框-->
+                    <div class="header-search">
+                        <input type="text" placeholder="搜索音乐" >
+                    </div>
+                </div>
+                <div class="header-right">
+                    <div class="header-user-con">
+                        <!-- 用户头像 -->
+                        <div class="user-avator">
+                            <img :src="userPic" />
+                        </div>
+                        <!-- 用户名下拉菜单 -->
+                        <el-dropdown class="user-name" trigger="click" @command="handleCommand" >
+                            <span class="el-dropdown-link">
+                                {{username}}
+                                <i class="el-icon-caret-bottom"></i>
+                            </span>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                <el-dropdown-item command="loginout">Log Out</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+                    </div>
                 </div>
             </div>
-        </div>
 
-    </el-header>
-  </el-container>
-  <div class="mainPage">
+        </el-header>
+    </el-container>
+    <div class="mainPage">
 
-  </div>
+    </div>
+    <div class="footer">
+        <page-footer></page-footer>
+    </div>
   </div>
 </template>
 
 <script>
+import pageFooter from '../../components/layout/pageFooter.vue'
+
 export default {
+  components: { pageFooter },
+
   data () {
     return {
       username: 'admin',
@@ -109,6 +116,13 @@ header-left{
   color: #0f382a;
   box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
   border-bottom: #9b9f9e;
+}
+.footer{
+    background-color: #4b4954;
+    height: 80px;
+    margin-top: 0;
+    width: 100%;
+    padding-top: 30px;
 }
 .header-search {
     margin-top: 1%;
