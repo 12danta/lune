@@ -7,14 +7,15 @@
         <el-header>
             <div class= "header">
                 <div class="header-left">
-                    <div class="menu-btn" @click="handleCollapse">
+                    <left-sider></left-sider>
+                    <div class="menu-btn">
                         <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
                     </div>
                     <!--搜索框-->
                     <div class="header-search">
                         <search></search>
                     </div>
-                    <left-sider></left-sider>
+
                 </div>
                 <div class="header-right">
                     <div class="header-user-con">
@@ -40,7 +41,6 @@
         </el-header>
     </el-container>
     <div class="mainPage">
-
     </div>
     <div class="footer">
         <page-footer></page-footer>
@@ -58,6 +58,8 @@ export default {
 
   data () {
     return {
+      drawer: false,
+      direction: 'ltr',
       username: 'admin',
       userPic: require('@/assets/img/user.jpg'),
       nusicName: 'music'
@@ -69,6 +71,13 @@ export default {
     handleCommand (command) {
       if (command === 'loginout') {
       }
+    },
+    handleDrawClose (done) {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          done()
+        })
+        .catch(_ => {})
     }
   }
 
@@ -100,6 +109,7 @@ video#bgvid {
     margin-top: 10%;
 }
 header-left{
+    display: inline;
     float: left;
     width: 500px;
 }

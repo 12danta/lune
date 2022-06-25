@@ -1,9 +1,7 @@
 <template>
-
     <section class="city-search">
         <li class="iconfont icon-fenxiang searchIcon" name = "search" style="list-style:none;"></li>
         <input  placeholder="" v-model="KeyWord">
-        <van-icon class="clear-icon" name="clear" v-show="KeyWord" @click="clearSearchInput" />
     </section>
 
 </template>
