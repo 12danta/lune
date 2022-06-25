@@ -14,7 +14,7 @@
                     <div class="header-search">
                         <search></search>
                     </div>
-
+                    <left-sider></left-sider>
                 </div>
                 <div class="header-right">
                     <div class="header-user-con">
@@ -37,7 +37,6 @@
                     </div>
                 </div>
             </div>
-
         </el-header>
     </el-container>
     <div class="mainPage">
@@ -50,11 +49,12 @@
 </template>
 
 <script>
+import LeftSider from '../../components/layout/LeftSider.vue'
 import pageFooter from '../../components/layout/pageFooter.vue'
 import Search from '../../components/Search.vue'
 
 export default {
-  components: { pageFooter, Search },
+  components: { pageFooter, Search, LeftSider },
 
   data () {
     return {
