@@ -1,8 +1,9 @@
 <template>
     <div class="memu">
-        <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
+        <!-- <el-button @click="drawer = true" type="primary" style="margin-left: 16px;">
             点我打开
-        </el-button>
+        </el-button> -->
+        <li class="iconfont icon-caidan menu_btn" @click="drawer = true" style="list-style:none;margin-left: 16px;"></li>
 
         <el-drawer
             :append-to-body="true"
@@ -10,14 +11,19 @@
             title="我是标题"
             :visible.sync="drawer"
             :direction="direction"
-            :before-close="handleDrawClose">
+            :before-close="handleDrawClose"
+            size = "80%"
+            class="drawer">
+            <search></search>
             <span>我来啦!</span>
         </el-drawer>
     </div>
 </template>
 
 <script>
+import Search from '../Search.vue'
 export default {
+  components: { Search },
   data () {
     return {
       drawer: false,
@@ -38,8 +44,16 @@ export default {
 
 <style scope>
 .memu{
-    width: 200px;
+    width: 100px;
+    margin-top: 10px;
     float: left;
+}
+.menu_btn{
+    font-size: 150%;
+    color: rgba(241, 237, 237, 0.792);
+}
+.drawer{
+   background-color: antiquewhite;
 }
 
 </style>
