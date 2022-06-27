@@ -12,7 +12,7 @@
             title="我是标题"
             :visible.sync="drawer"
             :direction="direction"
-            :before-close="handleDrawClose"
+            :with-header="false"
             size = "80%">
             <search></search>
             <span>我来啦!</span>
@@ -31,13 +31,6 @@ export default {
     }
   },
   methods: {
-    handleDrawClose (done) {
-      this.$confirm('确认关闭？')
-        .then(_ => {
-          done()
-        })
-        .catch(_ => {})
-    }
   }
 }
 </script>
@@ -61,9 +54,9 @@ export default {
       left: 1100px;
       top: 154px;
       padding: 0;
-      
+
       height: 28.385vw;
-      background: rgba(7, 18, 26, 0.8);
+      background: #4b4954be;
       font-size: 16px;
 
     }
