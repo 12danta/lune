@@ -8,9 +8,9 @@
             <div class= "header">
                 <div class="header-left">
                     <left-sider></left-sider>
-                    <div class="menu-btn">
+                    <!-- <div class="menu-btn">
                         <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
-                    </div>
+                    </div> -->
                     <!--搜索框-->
                     <div class="header-search">
                         <search></search>
@@ -138,7 +138,7 @@ header-left{
 }
 .header-search {
 
-    margin-left: 3%;
+    margin-left: 1%;
     float: left;
     width: 20%;
 }

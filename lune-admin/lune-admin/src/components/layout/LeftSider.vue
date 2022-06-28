@@ -14,8 +14,16 @@
             :direction="direction"
             :with-header="false"
             size = "80%">
-            <search></search>
-            <span>我来啦!</span>
+            <div class="esc_btn">
+                <li class="iconfont icon-esc menu_btn" @click="drawer = false" style="list-style:none;margin-left: 16px;"></li>
+            </div>
+            <div class="search">
+                <search></search>
+            </div>
+            <div class="searchTitle">
+                search
+            </div>
+            <div style="clear:both;">我来啦!</div>
         </el-drawer>
     </div>
 </template>
@@ -60,5 +68,26 @@ export default {
       font-size: 16px;
 
     }
-
+.searchTitle{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-weight: bolder;
+    float: left;
+    color: rgba(241, 237, 237, 0.792);
+    font-size: 160%;
+    width: 100px;
+    height: 50px;
+}
+.search{
+    float: left;
+    width: 256px;
+    margin-left: 66px;
+}
+.esc_btn{
+    font-size: 170%;
+    color: rgba(241, 237, 237, 0.792);
+    width: 50px;
+    margin-top: 10px;
+    float: left;
+}
 </style>

@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 3483872 */
-  src: url('iconfont.woff2?t=1656343299637') format('woff2'),
-       url('iconfont.woff?t=1656343299637') format('woff'),
-       url('iconfont.ttf?t=1656343299637') format('truetype');
+  src: url('iconfont.woff2?t=1656440615622') format('woff2'),
+       url('iconfont.woff?t=1656440615622') format('woff'),
+       url('iconfont.ttf?t=1656440615622') format('truetype');
 }
 
 .iconfont {
@@ -11,6 +11,10 @@
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-esc:before {
+  content: "\e611";
 }
 
 .icon-caidan:before {
