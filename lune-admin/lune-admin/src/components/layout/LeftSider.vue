@@ -70,7 +70,7 @@ export default {
 
     }
 .searchTitle{
-    margin-top: 20px;
+    margin-top: 66px;
     margin-left: 20px;
     font-weight: bolder;
     float: left;
@@ -83,13 +83,14 @@ export default {
     float: left;
     width: 256px;
     margin-left: 66px;
+    margin-top: 46px;
 }
 .esc_btn{
     font-size: 170%;
     color: rgba(241, 237, 237, 0.792);
     width: 50px;
     font-weight: 800;
-    margin-top: 10px;
+    margin-top: 55px;
     float: left;
 }
 </style>
