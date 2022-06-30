@@ -40,6 +40,12 @@
             </div>
         </el-header>
     </el-container>
+    <div class="helloFont">
+        <div class="firstLine">lune</div>
+        <div class="secondLine">Melody&nbsp;&nbsp;&nbsp;&nbsp;flowing&nbsp;&nbsp;&nbsp;&nbsp;like&nbsp;&nbsp;&nbsp;&nbsp;moonlight .</div>
+        <el-button type="text" class="listen_btn">Litsen Now !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>><br>____________________</el-button>
+
+    </div>
     <div class="mainPage">
     </div>
     <div class="footer">
@@ -207,8 +213,45 @@ menu-btn img{
     width: 100%;
     opacity: 90%;
     height: 800px;
-    margin-top: 50%;
+    margin-top: 20%;
     background-color: rgb(255, 255, 255);
     color: white;
+}
+.helloFont{
+    width: 400px;
+    height: 200px;
+    margin-top: 15%;
+    margin-left: 15%;
+}
+.firstLine{
+    color: #837f99;
+    font-size: 500%;
+    font-weight:bolder;
+}
+.secondLine{
+    color: #4b4954;
+    font-size: 100%;
+    font-weight: 600;
+}
+.listen_btn{
+    font-size: 150%;
+    font-weight: 700;
+    margin-top: 8%;
+    height: 25px;
+    text-align: left;
+    color:  rgb(59, 37, 71);
+}
+.line{
+    height: 2px;
+    width: 200px;
+    margin-left: 0px;
+    background-color: rgb(100, 58, 125);
+}
+.listen_btn:hover {
+  color: rgb(201, 197, 197);
+}
+
+.listen_btn:focus{
+    color:  rgb(59, 37, 71);
 }
 </style>
