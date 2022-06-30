@@ -43,7 +43,7 @@
     <div class="helloFont">
         <div class="firstLine">lune</div>
         <div class="secondLine">Melody&nbsp;&nbsp;&nbsp;&nbsp;flowing&nbsp;&nbsp;&nbsp;&nbsp;like&nbsp;&nbsp;&nbsp;&nbsp;moonlight .</div>
-        <el-button type="text" class="listen_btn">Litsen Now !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>><br>____________________</el-button>
+        <el-button type="text" class="listen_btn">Litsen Now !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>><br>____________________</el-button>
 
     </div>
     <div class="mainPage">
@@ -124,6 +124,8 @@ header-left{
 }
 
 .header {
+  position:fixed;
+  margin-top: 3%;
   margin-left: -20px;
   position: absolute;
   z-index: 100;
@@ -218,28 +220,33 @@ menu-btn img{
     color: white;
 }
 .helloFont{
-    width: 400px;
+    width: 600px;
     height: 200px;
     margin-top: 15%;
     margin-left: 15%;
 }
 .firstLine{
+    display:inline;
     color: #837f99;
-    font-size: 500%;
+    font-size: 700%;
     font-weight:bolder;
+    width: 200px;
 }
 .secondLine{
+    margin-left: 2%;
+    display:inline;
     color: #4b4954;
-    font-size: 100%;
+    font-size: 80%;
     font-weight: 600;
 }
 .listen_btn{
     font-size: 150%;
     font-weight: 700;
-    margin-top: 8%;
+    margin-top: 3%;
     height: 25px;
     text-align: left;
     color:  rgb(59, 37, 71);
+    line-height: 10px;
 }
 .line{
     height: 2px;

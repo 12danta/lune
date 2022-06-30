@@ -51,6 +51,7 @@ export default {
 }
 .menu_btn{
     font-size: 150%;
+    font-weight: 800;
     color: rgba(241, 237, 237, 0.792);
 }
 ::v-deep.el-drawer__wrapper {
@@ -87,6 +88,7 @@ export default {
     font-size: 170%;
     color: rgba(241, 237, 237, 0.792);
     width: 50px;
+    font-weight: 800;
     margin-top: 10px;
     float: left;
 }

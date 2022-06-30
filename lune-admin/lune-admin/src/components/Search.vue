@@ -27,15 +27,15 @@ export default {
 <style scope>
 .city-search {
 
-    border: 2px solid rgba(241, 237, 237, 0.792);
+    border: 5px solid rgba(241, 237, 237, 0.792);
     background-color: #f7f8fa00;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     height: 2.3rem;
     width: 250px;
-    margin-top: 15px;
-    border-radius: 8px;
+    margin-top: 13px;
+    border-radius: 18px;
 }
 .search-icon {
     margin-left: 5px;
@@ -59,7 +59,7 @@ input {
 }
 .searchIcon{
   color: rgba(241, 237, 237, 0.792);
-  font-weight: 600;
+  font-weight:900;
   margin-left: 10px;
 }
 
