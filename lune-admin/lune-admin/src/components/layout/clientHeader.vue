@@ -1,84 +1,94 @@
 <template>
 <el-container>
-  <el-header>
-    <div class= "manage_header">
-      <div class="menu-btn" @click="handleCollapse">
-        <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
-      </div>
-      <div class="header-right">
-      <div class="header-user-con">
-        <!-- 用户头像 -->
-        <div class="user-avator">
-          <img :src="userPic" />
-        </div>
-        <!-- 用户名下拉菜单 -->
-        <el-dropdown class="user-name" trigger="click" @command="handleCommand" >
-          <span class="el-dropdown-link">
-            {{username}}
-            <i class="el-icon-caret-bottom"></i>
-          </span>
-          <template #dropdown>
-            <el-dropdown-menu>
-              <el-dropdown-item command="loginout">Log Out</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-      </div>
-    </div>
-    </div>
-  </el-header>
-</el-container>
+        <el-header>
+            <div class= "header">
+                <div class="header-left">
+                    <left-sider></left-sider>
+                    <!-- <div class="menu-btn">
+                        <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
+                    </div> -->
+                    <!--搜索框-->
+                    <div class="header-search">
+                        <search></search>
+                    </div>
+
+                </div>
+                <div class="header-right">
+                    <div class="header-user-con">
+                        <!-- 用户头像 -->
+                        <div class="user-avator">
+                            <img :src="userPic" />
+                        </div>
+                        <!-- 用户名下拉菜单 -->
+                        <el-dropdown class="user-name" trigger="click" @command="handleCommand" >
+                            <span class="el-dropdown-link">
+                                {{username}}
+                                <i class="el-icon-caret-bottom"></i>
+                            </span>
+                            <template #dropdown>
+                                <el-dropdown-menu>
+                                <el-dropdown-item command="loginout">Log Out</el-dropdown-item>
+                                </el-dropdown-menu>
+                            </template>
+                        </el-dropdown>
+                    </div>
+                </div>
+            </div>
+        </el-header>
+    </el-container>
 </template>
 
 <script>
 
+import LeftSider from '../../components/layout/LeftSider.vue'
+import pageFooter from '../../components/layout/pageFooter.vue'
+import Search from '../../components/Search.vue'
+
 export default {
+  components: { pageFooter, Search, LeftSider },
+
   data () {
     return {
-      activeIndex: '/dashboard',
-      isCollapse: false,
+      drawer: false,
+      direction: 'ltr',
       username: 'admin',
       userPic: require('@/assets/img/user.jpg'),
       nusicName: 'music'
     }
   },
-  mounted () {
-    this.activeIndex = this.handleSelect()
-  },
   methods: {
-    // 用户名下拉菜单选择事件
-    // 侧边栏折叠
-    handleCollapse () {
-      this.isCollapse = !this.isCollapse
-    },
-    handleSelect (key, keyPath) {
-      console.log(key, keyPath)
-      // this.activeIndex = keyPath[0]
-      console.log(this.activeIndex)
-      this.$router.push(key)
-      return key
 
-      // return keyPath[0]
-    },
     // 用户名下拉菜单选择事件
     handleCommand (command) {
       if (command === 'loginout') {
       }
+    },
+    handleDrawClose (done) {
+      this.$confirm('确认关闭？')
+        .then(_ => {
+          done()
+        })
+        .catch(_ => {})
     }
   }
+
 }
 </script>
 
 <style scoped>
 
-.el-header{
-  padding: 0;
+header-left{
+    display: inline;
+    float: left;
+    width: 500px;
 }
 .el-aside {
     line-height: 200px;
 }
 
-.manage_header {
+.header {
+  position:fixed;
+  margin-left: -20px;
   position: absolute;
   z-index: 100;
   box-sizing: border-box;
@@ -86,8 +96,15 @@ export default {
   height: 70px;
   font-size: 30px;
   color: #0f382a;
-  box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
-  border-bottom: #9b9f9e;
+  /* //box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
+  //border-bottom: #9b9f9e; */
+}
+
+.header-search {
+
+    margin-left: 1%;
+    float: left;
+    width: 20%;
 }
 
 .menu-btn{
@@ -114,6 +131,9 @@ export default {
 
 .user-name {
   margin-left: 10px;
+  color: rgb(249, 241, 241);
+  font-weight: 800;
+  font-size: 60%;
 }
 
 .user-avator {
@@ -147,4 +167,5 @@ menu-btn img{
   width:20px;
   height: 20px;
 }
+
 </style>

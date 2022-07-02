@@ -11,6 +11,7 @@ import PDFView from '../views/admin/PDFView'
 import VideoPlayer from '../views/admin/VideoPlayer'
 import playMusic from '../components/playMusic'
 import indexVideo from '../views/client/index'
+import profile from '../views/client/Profile'
 
 Vue.use(VueRouter)
 
@@ -40,6 +41,10 @@ export default new VueRouter({
     {
       path: '/mscplay',
       component: playMusic
+    },
+    {
+      path: '/profile',
+      component: profile
     },
     {
       path: '/index',

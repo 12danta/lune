@@ -3,43 +3,9 @@
     <video playsinline autoplay muted loop poster="..\..\assets\img\videoCover.png" id="bgvid">
         <source src="..\..\assets\video\Recordplayer1_1080p_Videvo_x264.mp4" type="video/mp4">
     </video>
-    <el-container>
-        <el-header>
-            <div class= "header">
-                <div class="header-left">
-                    <left-sider></left-sider>
-                    <!-- <div class="menu-btn">
-                        <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
-                    </div> -->
-                    <!--搜索框-->
-                    <div class="header-search">
-                        <search></search>
-                    </div>
-
-                </div>
-                <div class="header-right">
-                    <div class="header-user-con">
-                        <!-- 用户头像 -->
-                        <div class="user-avator">
-                            <img :src="userPic" />
-                        </div>
-                        <!-- 用户名下拉菜单 -->
-                        <el-dropdown class="user-name" trigger="click" @command="handleCommand" >
-                            <span class="el-dropdown-link">
-                                {{username}}
-                                <i class="el-icon-caret-bottom"></i>
-                            </span>
-                            <template #dropdown>
-                                <el-dropdown-menu>
-                                <el-dropdown-item command="loginout">Log Out</el-dropdown-item>
-                                </el-dropdown-menu>
-                            </template>
-                        </el-dropdown>
-                    </div>
-                </div>
-            </div>
-        </el-header>
-    </el-container>
+    <div class="header_container">
+      <client-header></client-header>
+    </div>
     <div class="helloFont">
         <div class="firstLine">
             <p class="animate__animated animate__fadeInDown" style="width:300px;display:block;margin-bottom:-10px;">lune</p>
@@ -57,12 +23,13 @@
 </template>
 
 <script>
+import ClientHeader from '../../components/layout/clientHeader.vue'
 import LeftSider from '../../components/layout/LeftSider.vue'
 import pageFooter from '../../components/layout/pageFooter.vue'
 import Search from '../../components/Search.vue'
 
 export default {
-  components: { pageFooter, Search, LeftSider },
+  components: { pageFooter, Search, LeftSider, ClientHeader },
 
   data () {
     return {
@@ -270,5 +237,8 @@ menu-btn img{
     width: 450px;
     height: 3px;
     background-color: rgb(116, 88, 132);
+}
+.header_container{
+   margin-top: 2%;
 }
 </style>
