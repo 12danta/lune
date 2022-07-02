@@ -41,10 +41,12 @@
         </el-header>
     </el-container>
     <div class="helloFont">
-        <div class="firstLine">lune</div>
-        <div class="secondLine">Melody&nbsp;&nbsp;&nbsp;&nbsp;flowing&nbsp;&nbsp;&nbsp;&nbsp;like&nbsp;&nbsp;&nbsp;&nbsp;moonlight .</div>
-        <el-button type="text" class="listen_btn">Litsen Now !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>><br>____________________</el-button>
-
+        <div class="firstLine">
+            <p class="animate__animated animate__fadeInDown" style="width:300px;display:block;margin-bottom:-10px;">lune</p>
+        </div>
+        <div class="secondLine">&nbsp;&nbsp;Melody&nbsp;&nbsp;&nbsp;&nbsp;flowing&nbsp;&nbsp;&nbsp;&nbsp;like&nbsp;&nbsp;&nbsp;&nbsp;moonlight .</div>
+        <div class="animate__animated animate__fadeInRight"><div class="line_mid"></div></div>
+        <el-button type="text" class="listen_btn">Listen Now !&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>></el-button>
     </div>
     <div class="mainPage">
     </div>
@@ -221,28 +223,29 @@ menu-btn img{
 }
 .helloFont{
     width: 600px;
-    height: 200px;
-    margin-top: 15%;
+    height: 500px;
+    margin-top: 13%;
     margin-left: 15%;
 }
 .firstLine{
-    display:inline;
     color: #837f99;
     font-size: 700%;
     font-weight:bolder;
-    width: 200px;
+    width: 250px;
+    margin-left: 0;
 }
 .secondLine{
-    margin-left: 2%;
-    display:inline;
+    margin-right: 2px;
     color: #4b4954;
     font-size: 80%;
     font-weight: 600;
+    width: 250px;
 }
 .listen_btn{
     font-size: 150%;
     font-weight: 700;
     margin-top: 3%;
+    margin-left: 5px;
     height: 25px;
     text-align: left;
     color:  rgb(59, 37, 71);
@@ -260,5 +263,12 @@ menu-btn img{
 
 .listen_btn:focus{
     color:  rgb(59, 37, 71);
+}
+.line_mid{
+    margin-top: 10px;
+    margin-left: 5px;
+    width: 450px;
+    height: 3px;
+    background-color: rgb(100, 58, 125);
 }
 </style>
