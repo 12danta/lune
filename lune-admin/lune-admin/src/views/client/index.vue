@@ -269,6 +269,6 @@ menu-btn img{
     margin-left: 5px;
     width: 450px;
     height: 3px;
-    background-color: rgb(100, 58, 125);
+    background-color: rgb(116, 88, 132);
 }
 </style>

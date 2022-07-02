@@ -1,7 +1,7 @@
 <template>
 <el-container>
   <el-header>
-    <div class= "header">
+    <div class= "manage_header">
       <div class="menu-btn" @click="handleCollapse">
         <img height="40px" width="40px" src="../../assets/img/moon.svg"/>
       </div>
@@ -78,7 +78,7 @@ export default {
     line-height: 200px;
 }
 
-.header {
+.manage_header {
   position: absolute;
   z-index: 100;
   box-sizing: border-box;
