@@ -11,7 +11,8 @@ import PDFView from '../views/admin/PDFView'
 import VideoPlayer from '../views/admin/VideoPlayer'
 import playMusic from '../components/playMusic'
 import indexVideo from '../views/client/index'
-import profile from '../views/client/Profile'
+import performerprofile from '../views/client/PerformerProfile'
+import userprofile from '../views/client/UserProfile'
 
 Vue.use(VueRouter)
 
@@ -43,8 +44,12 @@ export default new VueRouter({
       component: playMusic
     },
     {
-      path: '/profile',
-      component: profile
+      path: '/performer_profile',
+      component: performerprofile
+    },
+    {
+      path: '/user_profile',
+      component: userprofile
     },
     {
       path: '/index',

@@ -9,6 +9,7 @@
                     <div class="avatar">
                         <img class = "avatar_img" src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt="">
                     </div>
+                    <div class="name">{{name}}</div>
                     <div class="introduction">{{introduction}}</div>
                 </div>
             </div>
@@ -28,6 +29,7 @@ export default {
   components: { clientHeader, PageFooter },
   data () {
     return {
+      name: 'Hilary Hahn',
       type: 'violinist',
       introduction: 'Hilary Hahn (born November 27, 1979) is an American violinist. She has performed throughout the world as a soloist with leading orchestras and conductors and as a recitalist. She is an avid supporter of contemporary classical music, and several composers have written works for her, including concerti by Edgar Meyer and Jennifer Higdon, partitas by Antón García Abril, two serenades for violin and orchestra by Einojuhani Rautavaara, and a violin and piano sonata by Lera Auerbach.'
     }
@@ -114,7 +116,7 @@ p {
 }
 .avatar{
     margin-left: 45%;
-    margin-top: 100px;
+    margin-top: 70px;
     z-index: 1;
     position: relative;
     width: 8%;
@@ -126,13 +128,23 @@ p {
     height: 100%;
     border-radius: 100%;
 }
+.name{
+    width: 10%;
+    height: 10;
+    z-index: 1;
+    position: relative;
+    margin-top: 20px;
+    margin-left: 46%;
+    color: rgba(247, 247, 247, 0.79);
+    font-weight: 900;
+}
 .introduction {
-    color: rgba(155, 137, 159, 0.849);
+    color: rgb(155, 137, 159);
     font-weight: 500;
     z-index: 1;
     position: relative;
     margin-left: 20%;
-    margin-top: 40px;
+    margin-top: 30px;
     width: 60%;
     height: 30%;
 }
