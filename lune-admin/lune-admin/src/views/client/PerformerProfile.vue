@@ -9,7 +9,7 @@
                     <div class="avatar">
                         <img class = "avatar_img" src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt="">
                     </div>
-                    <div class="name">{{name}}</div>
+                    <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;<el-tag class="type_tag" size="mini">{{type}}</el-tag></div>
                     <div class="introduction">{{introduction}}</div>
                 </div>
             </div>
@@ -129,17 +129,17 @@ p {
     border-radius: 100%;
 }
 .name{
-    width: 10%;
+    width: 15%;
     height: 10;
     z-index: 1;
     position: relative;
     margin-top: 20px;
-    margin-left: 46%;
+    margin-left: 45%;
     color: rgba(247, 247, 247, 0.79);
     font-weight: 900;
 }
 .introduction {
-    color: rgb(155, 137, 159);
+    color: rgba(247, 247, 247, 0.79);
     font-weight: 500;
     z-index: 1;
     position: relative;
@@ -147,5 +147,10 @@ p {
     margin-top: 30px;
     width: 60%;
     height: 30%;
+}
+.type_tag {
+  background-color: #4b4954;
+  color: rgba(247, 247, 247, 0.79);
+  display: inline;
 }
 </style>
