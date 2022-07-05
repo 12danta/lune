@@ -40,10 +40,9 @@ export default {
 <style scope>
 
 .profile_header{
-
     padding-top: 15px;
     height: 80px;
-    background-color: rgba(58, 34, 63, 0.849);
+    background-color: rgb(178, 165, 180);
 }
 .mainPage_up{
     width: 100%;
