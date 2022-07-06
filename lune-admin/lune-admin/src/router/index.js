@@ -13,6 +13,7 @@ import playMusic from '../components/playMusic'
 import indexVideo from '../views/client/index'
 import performerprofile from '../views/client/PerformerProfile'
 import userprofile from '../views/client/UserProfile'
+import composerprofile from '../views/client/ComposerProfile'
 
 Vue.use(VueRouter)
 
@@ -50,6 +51,10 @@ export default new VueRouter({
     {
       path: '/user_profile',
       component: userprofile
+    },
+    {
+      path: '/composer_profile',
+      component: composerprofile
     },
     {
       path: '/index',

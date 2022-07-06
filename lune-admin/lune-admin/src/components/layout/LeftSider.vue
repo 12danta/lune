@@ -65,7 +65,7 @@ export default {
       padding: 0;
 
       height: 28.385vw;
-      background: #4b4954be;
+      background: #4b4954;
       font-size: 16px;
 
     }
