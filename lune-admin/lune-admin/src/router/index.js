@@ -15,6 +15,7 @@ import performerprofile from '../views/client/PerformerProfile'
 import userprofile from '../views/client/UserProfile'
 import composerprofile from '../views/client/ComposerProfile'
 import musicprofile from '../views/client/MusicProfile'
+import albumprofile from '../views/client/AlbumProfile'
 
 Vue.use(VueRouter)
 
@@ -60,6 +61,10 @@ export default new VueRouter({
     {
       path: '/music_profile',
       component: musicprofile
+    },
+    {
+      path: '/album_profile',
+      component: albumprofile
     },
     {
       path: '/index',
