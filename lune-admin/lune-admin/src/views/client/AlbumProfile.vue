@@ -7,7 +7,7 @@
             <div class="mainHolder">
                 <div class="textHolder">
                     <div class="avatar">
-                        <img class = "avatar_img" src="https://s2.loli.net/2022/07/07/NASGhDPCiZH7XUm.png" alt="">
+                        <img class = "avatar_img" src="https://s2.loli.net/2022/07/09/UvNVRsFLOkPTjEz.png" alt="">
                     </div>
                     <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;<el-tag class="type_tag" size="mini">{{composer_period}}</el-tag></div>
                     <div class="introduction">{{introduction}}</div>
@@ -42,7 +42,7 @@ export default {
 .profile_header{
     padding-top: 15px;
     height: 80px;
-    background-color: rgb(178, 165, 180);
+    background-color: rgb(86, 69, 89);
 }
 .mainPage_up{
     width: 100%;
@@ -68,7 +68,7 @@ export default {
   overflow:hidden;
   width: 100%;
   height: 400px;
-  background-image: url(https://s2.loli.net/2022/07/07/NASGhDPCiZH7XUm.png);
+  background-image: url(https://s2.loli.net/2022/07/09/UvNVRsFLOkPTjEz.png);
   background-position: center;
   background-size: cover;
   position: relative;

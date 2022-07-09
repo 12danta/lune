@@ -42,7 +42,7 @@ export default {
 
     padding-top: 15px;
     height: 80px;
-    background-color: rgba(58, 34, 63, 0.849);
+    background-color: rgb(86, 69, 89);
 }
 .mainPage_up{
     width: 100%;

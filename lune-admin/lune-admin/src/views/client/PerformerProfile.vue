@@ -42,7 +42,7 @@ export default {
 .profile_header{
     padding-top: 15px;
     height: 80px;
-    background-color: rgb(178, 165, 180);
+    background-color: rgb(86, 69, 89);
 }
 .mainPage_up{
     width: 100%;
