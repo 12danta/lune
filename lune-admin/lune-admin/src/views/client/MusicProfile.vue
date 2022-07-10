@@ -9,8 +9,8 @@
                     <div class="avatar">
                         <img class = "avatar_img" src="https://s2.loli.net/2022/07/07/NASGhDPCiZH7XUm.png" alt="">
                     </div>
-                    <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;<el-tag class="type_tag" size="mini">{{composer_period}}</el-tag></div>
-                    <div class="introduction">{{introduction}}</div>
+                    <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    
                 </div>
             </div>
             <!-- <img src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt=""> -->
@@ -31,7 +31,6 @@ export default {
     return {
       name: 'Pyotr Ilyich Tchaikovsky',
       composer_period: 'Romantic period',
-      introduction: 'Pyotr Ilyich Tchaikovsky（Russian: Пётр Ильи́ч Чайко́вский7 May 1840 – 6 November 1893 ）was a Russian composer of the Romantic period .He was the first Russian composer whose music would make a lasting impression internationally. He wrote some of the most popular concert and theatrical music in the current classical repertoire, including the ballets Swan Lake and The Nutcracke, the 1812 Overture, his First Piano Concerto, Violin Concerto several symphonies, and the opera Eugene Onegin.'
     }
   }
 }
