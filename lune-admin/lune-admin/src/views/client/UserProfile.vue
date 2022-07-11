@@ -128,23 +128,25 @@ p {
     border-radius: 100%;
 }
 .name{
-    width: 10%;
+    text-align:center;
+    width: 15%;
     height: 10;
     z-index: 1;
     position: relative;
     margin-top: 20px;
-    margin-left: 46%;
+    margin-left: 41%;
     color: rgba(247, 247, 247, 0.79);
     font-weight: 900;
 }
 .introduction {
-    color: rgb(155, 137, 159);
+    color: rgba(247, 247, 247, 0.79);
     font-weight: 500;
+    text-align: center;
     z-index: 1;
     position: relative;
     margin-left: 20%;
     margin-top: 30px;
     width: 60%;
-    height: 30%;
+    height: 20%;
 }
 </style>

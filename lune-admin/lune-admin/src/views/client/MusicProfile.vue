@@ -10,7 +10,6 @@
                         <img class = "avatar_img" src="https://s2.loli.net/2022/07/07/NASGhDPCiZH7XUm.png" alt="">
                     </div>
                     <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
-                    
                 </div>
             </div>
             <!-- <img src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt=""> -->
@@ -30,7 +29,7 @@ export default {
   data () {
     return {
       name: 'Pyotr Ilyich Tchaikovsky',
-      composer_period: 'Romantic period',
+      composer_period: 'Romantic period'
     }
   }
 }
@@ -144,7 +143,7 @@ p {
     margin-left: 20%;
     margin-top: 30px;
     width: 60%;
-    height: 30%;
+    height: 20%;
 }
 .type_tag {
   background-color: #4b4954;

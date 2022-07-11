@@ -145,7 +145,7 @@ p {
     margin-left: 20%;
     margin-top: 30px;
     width: 60%;
-    height: 30%;
+    height: 20%;
 }
 .type_tag {
   background-color: #4b4954;
