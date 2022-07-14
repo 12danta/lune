@@ -93,7 +93,6 @@ header-left{
   z-index: 100;
   box-sizing: border-box;
   width: 100%;
-  padding-top: 15px;
   height: 80px;
   font-size: 30px;
   color: #0f382a;

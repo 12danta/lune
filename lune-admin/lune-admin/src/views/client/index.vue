@@ -94,13 +94,13 @@ header-left{
 
 .header {
   position:fixed;
-  margin-top: 3%;
+
   margin-left: -20px;
   position: absolute;
   z-index: 100;
   box-sizing: border-box;
   width: 100%;
-  height: 70px;
+  height: 80px;
   font-size: 30px;
   color: #0f382a;
   /* //box-shadow: 0px 0px 8px 2px rgba(136, 108, 108, 0.3);
