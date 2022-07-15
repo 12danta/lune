@@ -31,44 +31,119 @@
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3"><div class="title-content"></div></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Symphony</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Violin</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Baroque</a>
+                    </router-link>
+                  </el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3" class="title-content"></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Concerto</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Piano</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Classical</a>
+                    </router-link>
+                  </el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3" class="title-content"></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Sonata</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Piano</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Romantic</a>
+                    </router-link>
+                  </el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3" class="title-content"></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Quarte & Quintet</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Percussion</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>20th and 21st Century</a>
+                    </router-link>
+                  </el-col>
+                </el-row>
+
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Waltz</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Woodwinds</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6"><div></div></el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3" class="title-content"></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Others</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Brass</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6"><div></div></el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
                 <el-row class="tag-content tag-row">
                   <el-col :span="3" class="title-content"></el-col>
-                  <el-col :span="6"><div >Concerto</div></el-col>
-                  <el-col :span="6"><div>Violin</div></el-col>
-                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="6" class="title-content"><div></div></el-col>
+                  <el-col :span="6">
+                    <router-link to="/music_profile">
+                      <a>Others</a>
+                    </router-link>
+                  </el-col>
+                  <el-col :span="6"><div></div></el-col>
                   <el-col :span="3"></el-col>
                 </el-row>
 
@@ -162,4 +237,9 @@ export default {
     min-height: 56px;
 
   }
+  a:link {text-decoration:none;color:rgb(163, 124, 196);}
+  a:hover {text-decoration:underline;color: rgb(163, 124, 196);}
+  a:active{text-decoration:none;color:#ffffff}
+  a:visited {text-decoration:none;color:#ffffff;}
+
 </style>
