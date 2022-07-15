@@ -20,45 +20,58 @@
             <div class="search">
                 <search></search>
             </div>
-            <div class="searchTitle">
-                search
-            </div>
+
             <div class="menu_box" style="clear:both;">
-                <el-row>
+              <el-row class="titleBox">
                 <el-col :span="3"><div class="title-content"></div></el-col>
                 <el-col :span="6"><div class="title-content">Type</div></el-col>
                 <el-col :span="6"><div class="title-content">Instrument</div></el-col>
                 <el-col :span="6"><div class="title-content">Period</div></el-col>
                 <el-col :span="3"><div class="title-content"></div></el-col>
                 </el-row>
-                <el-row>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
-                <el-col :span="6"><div class="tag-content">Concerto</div></el-col>
-                <el-col :span="6"><div class="tag-content">Violin</div></el-col>
-                <el-col :span="6"><div class="tag-content">Romantic Period</div></el-col>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3"><div class="title-content"></div></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
                 </el-row>
-                <el-row>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
-                <el-col :span="6"><div class="tag-content">Concerto</div></el-col>
-                <el-col :span="6"><div class="tag-content">Violin</div></el-col>
-                <el-col :span="6"><div class="tag-content">Romantic Period</div></el-col>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
                 </el-row>
-                <el-row>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
-                <el-col :span="6"><div class="tag-content">Concerto</div></el-col>
-                <el-col :span="6"><div class="tag-content">Violin</div></el-col>
-                <el-col :span="6"><div class="tag-content">Romantic Period</div></el-col>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
                 </el-row>
-                <el-row>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
-                <el-col :span="6"><div class="tag-content">Concerto</div></el-col>
-                <el-col :span="6"><div class="tag-content">Violin</div></el-col>
-                <el-col :span="6"><div class="tag-content">Romantic Period</div></el-col>
-                <el-col :span="3"><div class="tag-content"></div></el-col>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
                 </el-row>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
+                </el-row>
+                <el-row class="tag-content tag-row">
+                  <el-col :span="3" class="title-content"></el-col>
+                  <el-col :span="6"><div >Concerto</div></el-col>
+                  <el-col :span="6"><div>Violin</div></el-col>
+                  <el-col :span="6"><div>Romantic Period</div></el-col>
+                  <el-col :span="3"></el-col>
+                </el-row>
+
             </div>
         </el-drawer>
     </div>
@@ -105,20 +118,11 @@ export default {
       font-size: 16px;
 
     }
-.searchTitle{
-    margin-top: 30px;
-    margin-left: 20px;
-    font-weight: bolder;
-    float: left;
-    color: rgba(241, 237, 237, 0.792);
-    font-size: 160%;
-    width: 100px;
-    height: 50px;
-}
+
 .search{
     float: left;
     width: 256px;
-    margin-left: 66px;
+    margin-left: 700px;
     margin-top: 20px;
 }
 .esc_btn{
@@ -129,11 +133,11 @@ export default {
     margin-top: 30px;
     float: left;
 }
- .el-row {
+.titleBox{
+  margin-bottom: 5%;
+}
+ .tag-row {
     margin-bottom: 20px;
-    &:last-child {
-      margin-bottom: 0;
-    }
   }
 
   .title-content {
@@ -141,14 +145,14 @@ export default {
     font-size: 200%;
     font-weight: 900;
     min-height: 56px;
-    background-color: #46454b;
   }
   .row-bg {
     padding: 10px 0;
     background-color: #f9fafc;
   }
   .menu_box{
-    margin-top: 15%;
+
+    margin-top: 10%;
     height: 60%;
   }
   .tag-content {
@@ -156,6 +160,6 @@ export default {
     font-size: 100%;
     font-weight: 900;
     min-height: 56px;
-    background-color: #46454b;
+
   }
 </style>
