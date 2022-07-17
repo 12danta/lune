@@ -9,7 +9,18 @@
                     <div class="avatar">
                         <img class = "avatar_img" src="https://s2.loli.net/2022/07/07/NASGhDPCiZH7XUm.png" alt="">
                     </div>
-                    <div class="name">{{name}}&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="name">
+                      <div class="musicName">
+                        {{music_name}}
+                      </div>
+                      <div class="composer">
+                        <router-link to="/composer_profile">
+                          <a>{{composer_name}}</a>
+                        </router-link>
+                      </div>
+                      <div class="period">{{composer_period}}</div>
+                      <div class="tags"></div>
+                    </div>
                 </div>
             </div>
             <!-- <img src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt=""> -->
@@ -31,7 +42,8 @@ export default {
   components: { clientHeader, PageFooter, MusicInfo },
   data () {
     return {
-      name: 'Pyotr Ilyich Tchaikovsky',
+      music_name: 'hello',
+      composer_name: 'Pyotr Ilyich Tchaikovsky',
       composer_period: 'Romantic period'
     }
   }
@@ -153,4 +165,8 @@ p {
   color: rgba(247, 247, 247, 0.79);
   display: inline;
 }
+  a:link {text-decoration:none;color:rgb(163, 124, 196);}
+  a:hover {text-decoration:underline;color: rgb(163, 124, 196);}
+  a:active{text-decoration:none;color:#ffffff}
+  a:visited {text-decoration:none;color:#ffffff;}
 </style>
