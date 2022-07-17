@@ -1,35 +1,35 @@
 <template>
   <div class="container">
     <!--音频title-->
-    <el-row :gutter="20">
-        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+    <el-row :gutter="20" class="multimediaTitle">
+        <el-col :span="16"><div class="grid-content">Audio</div></el-col>
     </el-row>
     <!--音频-->
     <el-row :gutter="20">
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="audioContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="audioContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="audioContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="audioContainer bg-purple"></div></el-col>
     </el-row>
     <!--视频title-->
-    <el-row :gutter="20">
-        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+    <el-row :gutter="20" class="multimediaTitle">
+        <el-col :span="16"><div class="grid-content">Video</div></el-col>
     </el-row>
     <!--视频-->
-    <el-row :gutter="20">
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="8"><div class="grid-content bg-purple"></div></el-col>
+    <el-row :gutter="20" >
+        <el-col :span="6"><div class="videoContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="videoContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="videoContainer bg-purple"></div></el-col>
     </el-row>
     <!--乐谱title-->
-    <el-row :gutter="20">
-        <el-col :span="16"><div class="grid-content bg-purple"></div></el-col>
+    <el-row :gutter="20" class="multimediaTitle">
+        <el-col :span="16"><div class="grid-content">Sheet</div></el-col>
     </el-row>
     <!--乐谱-->
     <el-row :gutter="20">
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="6"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="6"><div class="sheetContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="sheetContainer bg-purple"></div></el-col>
+        <el-col :span="6"><div class="sheetContainer bg-purple"></div></el-col>
     </el-row>
   </div>
 </template>
@@ -72,6 +72,25 @@ export default {
     width: 80%;
     margin-top: 5%;
     margin-left: 5%;
+  }
+  .multimediaTitle{
+    color: #1d4274;
+    font-weight: 900;
+  }
+  .audioContainer{
+    border-radius: 4px;
+    min-height: 66px;
+    background: #d3dce6;
+  }
+  .videoContainer{
+    border-radius: 4px;
+    min-height: 120px;
+    background: #d3dce6;
+  }
+  .sheetContainer{
+    border-radius: 4px;
+    min-height: 66px;
+    background: #d3dce6;
   }
 
 </style>
