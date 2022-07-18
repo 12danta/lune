@@ -42,7 +42,7 @@ export default {
   components: { clientHeader, PageFooter, MusicInfo },
   data () {
     return {
-      music_name: 'hello',
+      music_name: 'Violin Concerto in D,Op.35',
       composer_name: 'Pyotr Ilyich Tchaikovsky',
       composer_period: 'Romantic period'
     }
@@ -145,13 +145,13 @@ p {
     height: 10;
     z-index: 1;
     position: relative;
-    margin-top: 20px;
-    margin-left: 45%;
-    color: rgba(247, 247, 247, 0.79);
+    margin-top: 30px;
+    margin-left: 43%;
+    color: white;
     font-weight: 900;
 }
 .introduction {
-    color: rgba(247, 247, 247, 0.79);
+    color: white;
     font-weight: 500;
     z-index: 1;
     position: relative;
@@ -162,7 +162,7 @@ p {
 }
 .type_tag {
   background-color: #4b4954;
-  color: rgba(247, 247, 247, 0.79);
+  color: white;
   display: inline;
 }
   a:link {text-decoration:none;color:rgb(163, 124, 196);}
