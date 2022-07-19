@@ -237,9 +237,9 @@ export default {
     min-height: 56px;
 
   }
-  a:link {text-decoration:none;color:rgb(163, 124, 196);}
-  a:hover {text-decoration:underline;color: rgb(163, 124, 196);}
-  a:active{text-decoration:none;color:#ffffff}
-  a:visited {text-decoration:none;color:#ffffff;}
+  .menu_box a:link {text-decoration:none;color:rgb(163, 124, 196);}
+  .menu_box a:hover {text-decoration:underline;color: rgb(163, 124, 196);}
+  .menu_box a:active{text-decoration:none;color:#ffffff}
+  .menu_box a:visited {text-decoration:none;color:#ffffff;}
 
 </style>
