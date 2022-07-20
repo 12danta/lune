@@ -150,7 +150,8 @@ export default {
     font-weight: 900;
   }
   .audioContainer{
-    padding-top: 15px;
+
+    padding-top: 0px;
     padding-left: 20px;
     border-radius: 4px;
     min-height: 120px;
