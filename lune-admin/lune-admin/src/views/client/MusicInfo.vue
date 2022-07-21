@@ -71,6 +71,7 @@
           </div>
         </el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--视频title-->
     <el-row :gutter="20" class="multimediaTitle">
         <el-col :span="16"><div class="grid-content">Video</div></el-col>
@@ -81,6 +82,7 @@
         <el-col :span="6"><div class="videoContainer bg-purple"></div></el-col>
         <el-col :span="6"><div class="videoContainer bg-purple"></div></el-col>
     </el-row>
+    <el-divider></el-divider>
     <!--乐谱title-->
     <el-row :gutter="20" class="multimediaTitle">
         <el-col :span="16"><div class="grid-content">Sheet</div></el-col>
