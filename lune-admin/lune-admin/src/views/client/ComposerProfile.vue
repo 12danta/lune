@@ -15,7 +15,7 @@
             </div>
             <!-- <img src="https://s2.loli.net/2022/07/02/4QGV5nohvHiRast.png" alt=""> -->
         </div>
-        <div class="mainPage_down"></div>
+        <div class="mainPage_down"><composer-info></composer-info></div>
         <div class="profile_footer">
             <page-footer></page-footer>
         </div>
@@ -25,8 +25,9 @@
 <script>
 import clientHeader from '../../components/layout/clientHeader.vue'
 import PageFooter from '../../components/layout/pageFooter.vue'
+import ComposerInfo from './ComposerInfo.vue'
 export default {
-  components: { clientHeader, PageFooter },
+  components: { clientHeader, PageFooter, ComposerInfo },
   data () {
     return {
       name: 'Pyotr Ilyich Tchaikovsky',
@@ -51,7 +52,7 @@ export default {
 }
 .mainPage_down{
     width: 100%;
-    height: 400px;
+    height: 800px;
     background-color: white;
 }
 .profile_footer{
