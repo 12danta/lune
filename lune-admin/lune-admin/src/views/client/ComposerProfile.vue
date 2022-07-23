@@ -52,7 +52,7 @@ export default {
 }
 .mainPage_down{
     width: 100%;
-    height: 800px;
+    height: 900px;
     background-color: white;
 }
 .profile_footer{
