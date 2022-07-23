@@ -13,7 +13,7 @@
             <el-col :span="3" class="more_btn_container">
                 <div class="more_btn">
                     <router-link to="/composer_profile">
-                        <a>more</a>
+                        <a>more></a>
                     </router-link>
                 </div>
             </el-col>
@@ -30,6 +30,13 @@
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="3" class="more_btn_container">
+            <div class="more_btn">
+                <router-link to="/composer_profile">
+                    <a>more></a>
+                </router-link>
+            </div>
+        </el-col>
         </el-row>
     </div>
     <el-divider></el-divider>
@@ -43,6 +50,13 @@
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
         <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="3" class="more_btn_container">
+            <div class="more_btn">
+                <router-link to="/composer_profile">
+                    <a>more></a>
+                </router-link>
+            </div>
+            </el-col>
         </el-row>
     </div>
   </div>
@@ -54,7 +68,7 @@ export default {
 }
 </script>
 
-<style scope>
+<style scoped>
   .el-row {
     margin-bottom: 20px;
     &:last-child {
@@ -91,12 +105,17 @@ export default {
     color: #737b86;
     font-weight: 600;
   }
-  .more_btn_container{
+   .more_btn_container {
+    padding-left: 65px!important;
     margin-left: 40px;
     margin-top: 170px;
   }
   .more_btn{
+
     width: 41px;
-    margin-right: 0;
   }
+  .more_btn a:link {text-decoration:none;color:rgb(163, 124, 196);}
+  .more_btn a:hover {text-decoration:underline;color: rgb(163, 124, 196);}
+  .more_btn a:active{text-decoration:none;color:#ffffff}
+  .more_btn a:visited {text-decoration:none;color:#505051;}
 </style>
